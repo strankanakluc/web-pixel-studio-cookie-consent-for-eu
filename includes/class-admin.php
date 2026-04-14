@@ -1135,12 +1135,24 @@ class CCWPS_Admin {
 	   HELPERS
 	   ================================================ */
 	private function t( string $key, string $fallback ): string {
-		return $this->settings->get( $key, $fallback );
+		$value = $this->settings->get( $key, $fallback );
+
+		if ( null === $value || '' === $value ) {
+			return $fallback;
+		}
+
+		return is_string( $value ) ? $value : (string) $fallback;
 	}
 
 	private function tx( string $text ): string {
 		$lang = (string) $this->settings->get( 'admin_lang', 'sk' );
-		return CCWPS_Language_Presets::translate_admin_text( $lang, $text );
+		$translated = CCWPS_Language_Presets::translate_admin_text( $lang, $text );
+
+		if ( null === $translated || '' === $translated ) {
+			return $text;
+		}
+
+		return $translated;
 	}
 
 	private function translate_admin_html( string $html ): string {
