@@ -251,5 +251,10 @@ return [
 	'Dátum a čas' => 'Date et heure',
 	'Súhlas nebol udelený.' => 'Le consentement n’a pas encore été accordé.',
 	'💡 V zozname sa zobrazuje iba názov fontu. Po výbere sa uloží kompletná font-family hodnota detegovaná na stránke. Voľba "Použiť font témy" zodpovedá hodnote inherit.' => '💡 Seul le nom de la police est affiché dans la liste. Après sélection, la valeur complète font-family détectée sur le site est enregistrée. L’option "Utiliser la police du thème" correspond à la valeur inherit.',
+	'Screenshoty postupu' => 'Captures des étapes',
+	'Náhľady obrazovky znázorňujú postup importu GTM šablóny a inštaláciu značky v Google Tag Manager.' => 'Les captures d’écran illustrent le processus d’import du modèle GTM et l’installation de la balise dans Google Tag Manager.',
+	'Krok %d' => 'Étape %d',
+	'Screenshoty neboli nájdené.' => 'Captures non trouvées.',
+	'Pridajte obrázky do admin/images a pomenujte ich napríklad template-screenshot-1.webp, template-screenshot-2.webp.' => 'Ajoutez des images dans admin/images et nommez-les par exemple template-screenshot-1.webp, template-screenshot-2.webp.',
 ];
 

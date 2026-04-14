@@ -251,5 +251,10 @@ return [
 	'Dátum a čas' => 'Dátum és idő',
 	'Súhlas nebol udelený.' => 'A hozzájárulás még nem lett megadva.',
 	'💡 V zozname sa zobrazuje iba názov fontu. Po výbere sa uloží kompletná font-family hodnota detegovaná na stránke. Voľba "Použiť font témy" zodpovedá hodnote inherit.' => '💡 A listában csak a betűtípus neve jelenik meg. Kiválasztás után a webhelyen észlelt teljes font-family érték mentődik el. A "Téma betűtípusának használata" opció az inherit értéknek felel meg.',
+	'Screenshoty postupu' => 'Lépések képernyőképei',
+	'Náhľady obrazovky znázorňujú postup importu GTM šablóny a inštaláciu značky v Google Tag Manager.' => 'A képernyőképek a GTM sablon importálásának és a címke Google Tag Managerben történő telepítésének folyamatát szemléltetik.',
+	'Krok %d' => '%d. lépés',
+	'Screenshoty neboli nájdené.' => 'A képernyőképek nem találhatók.',
+	'Pridajte obrázky do admin/images a pomenujte ich napríklad template-screenshot-1.webp, template-screenshot-2.webp.' => 'Tegyen képeket az admin/images mappába, és nevezze el őket például így: template-screenshot-1.webp, template-screenshot-2.webp.',
 ];
 

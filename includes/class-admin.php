@@ -1037,17 +1037,31 @@ class CCWPS_Admin {
 
 		<div class="ccwps-card">
 			<h2><?php echo esc_html( $this->tx( 'Screenshoty postupu' ) ); ?></h2>
-			<p><?php echo esc_html( $this->tx( 'Do tejto galérie sa automaticky načítajú obrázky uložené v priečinku admin/images s názvom začínajúcim na template-screenshot.' ) ); ?></p>
+			<p><?php echo esc_html( $this->tx( 'Náhľady obrazovky znázorňujú postup importu GTM šablóny a inštaláciu značky v Google Tag Manager.' ) ); ?></p>
 			<?php if ( ! empty( $screenshots ) ) : ?>
 				<div class="ccwps-gtm-gallery">
 					<?php foreach ( $screenshots as $index => $screenshot_url ) : ?>
+						<?php $step_label = sprintf( $this->tx( 'Krok %d' ), $index + 1 ); ?>
 						<figure class="ccwps-gtm-shot">
-							<a href="<?php echo esc_url( $screenshot_url ); ?>" target="_blank" rel="noopener">
-								<img src="<?php echo esc_url( $screenshot_url ); ?>" alt="<?php echo esc_attr( sprintf( 'GTM screenshot %d', $index + 1 ) ); ?>">
-							</a>
-							<figcaption><?php echo esc_html( sprintf( $this->tx( 'Krok %d' ), $index + 1 ) ); ?></figcaption>
+							<button
+								type="button"
+								class="ccwps-gtm-shot-trigger"
+								data-ccwps-lightbox-image="<?php echo esc_url( $screenshot_url ); ?>"
+								data-ccwps-lightbox-caption="<?php echo esc_attr( $step_label ); ?>"
+							>
+								<img src="<?php echo esc_url( $screenshot_url ); ?>" alt="<?php echo esc_attr( $step_label ); ?>">
+							</button>
+							<figcaption><?php echo esc_html( $step_label ); ?></figcaption>
 						</figure>
 					<?php endforeach; ?>
+				</div>
+				<div class="ccwps-gtm-lightbox" id="ccwps-gtm-lightbox" hidden>
+					<div class="ccwps-gtm-lightbox-backdrop" data-ccwps-lightbox-close></div>
+					<div class="ccwps-gtm-lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="ccwps-gtm-lightbox-caption">
+						<button type="button" class="ccwps-gtm-lightbox-close" data-ccwps-lightbox-close aria-label="Close preview">&times;</button>
+						<img src="" alt="" class="ccwps-gtm-lightbox-image" id="ccwps-gtm-lightbox-image">
+						<div class="ccwps-gtm-lightbox-caption" id="ccwps-gtm-lightbox-caption"></div>
+					</div>
 				</div>
 			<?php else : ?>
 				<div class="ccwps-info-box ccwps-gtm-note">

@@ -255,6 +255,37 @@
 	$(document).on('keydown', function (e) { if (e.key === 'Escape') $('.ccwps-modal:visible').hide(); });
 
 	/* =====================
+	   GTM SCREENSHOT LIGHTBOX
+	   ===================== */
+	function closeGtmLightbox() {
+		const $lightbox = $('#ccwps-gtm-lightbox');
+		$lightbox.attr('hidden', true);
+		$lightbox.find('.ccwps-gtm-lightbox-image').attr({ src: '', alt: '' });
+		$lightbox.find('.ccwps-gtm-lightbox-caption').text('');
+		$('body').removeClass('ccwps-lightbox-open');
+	}
+
+	$(document).on('click', '.ccwps-gtm-shot-trigger', function () {
+		const image = $(this).data('ccwps-lightbox-image');
+		const caption = $(this).data('ccwps-lightbox-caption') || '';
+		const $lightbox = $('#ccwps-gtm-lightbox');
+		$lightbox.find('.ccwps-gtm-lightbox-image').attr({ src: image, alt: caption });
+		$lightbox.find('.ccwps-gtm-lightbox-caption').text(caption);
+		$lightbox.removeAttr('hidden');
+		$('body').addClass('ccwps-lightbox-open');
+	});
+
+	$(document).on('click', '[data-ccwps-lightbox-close]', function () {
+		closeGtmLightbox();
+	});
+
+	$(document).on('keydown', function (e) {
+		if (e.key === 'Escape' && !$('#ccwps-gtm-lightbox').is('[hidden]')) {
+			closeGtmLightbox();
+		}
+	});
+
+	/* =====================
 	   PREVIEW BANNER / MODAL
 	   ===================== */
 	$(document).on('click', '#ccwps-preview-banner', function () {
