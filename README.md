@@ -16,9 +16,30 @@
 
 ## Description
 
-Cookie Consent by Web Pixel Studio is a GDPR and ePrivacy compliant cookie consent manager for WordPress with Google Consent Mode v2 and v3 support, script blocking, cookie declarations, consent logging, and full visual customization.
+Cookie Consent by Web Pixel Studio gives you a modern, customizable, GDPR-ready cookie banner for WordPress without unnecessary complexity.
 
-It is designed for site owners who want a modern cookie banner, a detailed preferences modal, and clear control over third-party scripts and declared cookies without depending on an external SaaS platform.
+It combines a polished frontend experience with practical compliance tools: Google Consent Mode v2 and v3 support, script blocking, cookie declarations, consent logging, multilingual presets, and an admin panel built for real websites.
+
+If you want a consent plugin that looks professional, gives visitors clear choices, and keeps you in control of cookies and third-party scripts, this plugin is built for that.
+
+## Why This Plugin
+
+- Modern cookie banner with box, bar, and cloud layouts
+- Detailed preferences modal with category-level consent
+- Google Consent Mode v2 and v3 integration ready for GA4 and Google Ads
+- Script blocking before consent with simple rules or regex
+- Built-in consent log with exportable records
+- Floating consent icon so visitors can reopen settings anytime
+- Multilingual presets with editable frontend texts
+- Full visual control over colors, buttons, fonts, layout, and icon style
+
+## Built For
+
+- business websites that need a polished cookie banner
+- agencies managing multiple WordPress sites
+- site owners who want clear cookie declarations
+- projects using Google Tag Manager, GA4, or Google Ads
+- anyone who wants self-hosted cookie control instead of a SaaS popup
 
 ### Features
 
@@ -33,6 +54,30 @@ It is designed for site owners who want a modern cookie banner, a detailed prefe
 - Built-in language presets and editable frontend texts
 - Custom colors, buttons, font, banner position, and icon style
 
+## What You Can Configure
+
+- banner texts and button labels
+- colors for banner, modal, buttons, toggles, and accents
+- font family and border radius
+- banner position and layout style
+- floating icon type and position
+- cookie categories and declared cookies
+- script blocking rules by category
+- visitor language detection for frontend texts
+- consent logging, re-consent behavior, and bot hiding
+
+## Compliance-Friendly Workflow
+
+The plugin helps you build a cleaner compliance workflow directly inside WordPress:
+
+- show a clear banner before non-essential consent is granted
+- let visitors accept all, reject all, or manage preferences
+- block selected third-party scripts until consent exists
+- keep a record of consent actions with ID and timestamp
+- show declared cookies inside the preferences modal or on a policy page
+
+This plugin is built to support GDPR and ePrivacy requirements, but legal compliance always depends on your actual implementation and jurisdiction.
+
 ## Installation
 
 1. Upload the plugin files to the /wp-content/plugins/cookie-consent-webpixelstudio directory, or install the plugin through the WordPress plugins screen.
@@ -40,6 +85,16 @@ It is designed for site owners who want a modern cookie banner, a detailed prefe
 3. Open Cookie Consent in the WordPress admin menu.
 4. Configure Consent Mode, banner texts, cookie categories, script blocking, and appearance settings.
 5. Add the cookie list shortcode to your cookie policy page if needed.
+6. Test the banner in an incognito window before going live.
+
+## Quick Start
+
+1. Select your preferred language preset.
+2. Review and edit the banner texts.
+3. Add your site cookies to the declaration table.
+4. Add blocking rules for analytics, marketing, or preference scripts.
+5. Enable the correct Consent Mode version for your setup.
+6. Preview the banner and modal directly from the admin sidebar.
 
 ## Frequently Asked Questions
 
@@ -63,6 +118,14 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 Yes. The plugin includes built-in language presets and all frontend texts can also be edited manually in the admin.
 
+### Can I export settings to another site?
+
+Yes. The plugin can export and import settings in JSON format, which is useful for backups, staging, or multisite workflows.
+
+### Can I show the current consent ID on a page?
+
+Yes. The plugin includes shortcodes for the cookie list and for displaying the current visitor consent ID.
+
 ## Screenshots
 
 1. Cookie consent banner on the frontend
@@ -73,6 +136,12 @@ Yes. The plugin includes built-in language presets and all frontend texts can al
 6. Cookie declarations screen
 7. Script blocking rules screen
 8. Consent log screen
+
+## Shortcodes
+
+- `[ccwps_cookie_list]` shows the declared cookies grouped by category
+- `[ccwps_consent_id]` shows the current visitor consent ID
+- `[ccwps_manage_consent]` opens the consent management interface from your content
 
 ## Changelog
 
