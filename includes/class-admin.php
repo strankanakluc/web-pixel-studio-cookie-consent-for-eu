@@ -981,6 +981,7 @@ class CCWPS_Admin {
 		$v2_url       = CCWPS_PLUGIN_URL . 'gtm-template/cookie-consent-webpixelstudio.tpl';
 		$v3_url       = CCWPS_PLUGIN_URL . 'gtm-template/cookie-consent-webpixelstudio-v3.tpl';
 		$settings_url = admin_url( 'admin.php?page=ccwps&tab=settings' );
+		$screenshots  = $this->get_gtm_screenshot_urls();
 		?>
 		<div class="ccwps-page-header"><h1><?php echo esc_html( $this->tx( 'GTM šablóna' ) ); ?></h1></div>
 
@@ -1033,7 +1034,45 @@ class CCWPS_Admin {
 				<?php echo esc_html( $this->tx( 'Ak potrebujete len štandardnú implementáciu pre Google Ads a GA4, vo väčšine prípadov vám bude stačiť šablóna v2.' ) ); ?>
 			</div>
 		</div>
+
+		<div class="ccwps-card">
+			<h2><?php echo esc_html( $this->tx( 'Screenshoty postupu' ) ); ?></h2>
+			<p><?php echo esc_html( $this->tx( 'Do tejto galérie sa automaticky načítajú obrázky uložené v priečinku admin/images s názvom začínajúcim na template-screenshot.' ) ); ?></p>
+			<?php if ( ! empty( $screenshots ) ) : ?>
+				<div class="ccwps-gtm-gallery">
+					<?php foreach ( $screenshots as $index => $screenshot_url ) : ?>
+						<figure class="ccwps-gtm-shot">
+							<a href="<?php echo esc_url( $screenshot_url ); ?>" target="_blank" rel="noopener">
+								<img src="<?php echo esc_url( $screenshot_url ); ?>" alt="<?php echo esc_attr( sprintf( 'GTM screenshot %d', $index + 1 ) ); ?>">
+							</a>
+							<figcaption><?php echo esc_html( sprintf( $this->tx( 'Krok %d' ), $index + 1 ) ); ?></figcaption>
+						</figure>
+					<?php endforeach; ?>
+				</div>
+			<?php else : ?>
+				<div class="ccwps-info-box ccwps-gtm-note">
+					<strong><?php echo esc_html( $this->tx( 'Screenshoty neboli nájdené.' ) ); ?></strong>
+					<?php echo esc_html( $this->tx( 'Pridajte obrázky do admin/images a pomenujte ich napríklad template-screenshot-1.webp, template-screenshot-2.webp.' ) ); ?>
+				</div>
+			<?php endif; ?>
+		</div>
 		<?php
+	}
+
+	private function get_gtm_screenshot_urls(): array {
+		$files = glob( CCWPS_PLUGIN_DIR . 'admin/images/template-screenshot-*.*' );
+		if ( false === $files || empty( $files ) ) {
+			return [];
+		}
+
+		natsort( $files );
+
+		$urls = [];
+		foreach ( $files as $file ) {
+			$urls[] = CCWPS_PLUGIN_URL . 'admin/images/' . basename( $file );
+		}
+
+		return $urls;
 	}
 
 	/* ================================================

@@ -1,5 +1,5 @@
 === Cookie Consent by Web Pixel Studio ===
-Contributors: duddi, webpixelstudio
+Contributors: webpixelstudio
 Tags: cookie consent, GDPR, cookie banner, ePrivacy, consent mode
 Requires at least: 5.9
 Tested up to: 6.9

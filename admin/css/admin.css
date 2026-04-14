@@ -363,6 +363,44 @@
 	margin-top: 16px;
 }
 
+.ccwps-gtm-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 16px;
+	margin-top: 16px;
+}
+
+.ccwps-gtm-shot {
+	margin: 0;
+	padding: 12px;
+	border: 1px solid var(--cc-gray-200);
+	border-radius: 12px;
+	background: var(--cc-gray-0);
+	box-shadow: var(--cc-shadow);
+}
+
+.ccwps-gtm-shot a {
+	display: block;
+	text-decoration: none;
+}
+
+.ccwps-gtm-shot img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	border: 1px solid var(--cc-gray-200);
+	background: var(--cc-gray-50);
+}
+
+.ccwps-gtm-shot figcaption {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--cc-gray-600);
+}
+
 /* ===========================================
    SETTINGS TABLE
    =========================================== */

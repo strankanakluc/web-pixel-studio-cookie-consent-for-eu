@@ -3,11 +3,11 @@
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/cookie-consent-webpixelstudio?style=flat)
 ![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/r/cookie-consent-webpixelstudio?style=flat)
 ![WordPress Plugin Active Installs](https://img.shields.io/wordpress/plugin/i/cookie-consent-webpixelstudio?style=flat)
-[![Facebook](https://img.shields.io/badge/Facebook-0866FF?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/wps.sk)
+[![Facebook](https://img.shields.io/badge/Facebook-0866FF?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/strankanakluc)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/tvorbawebov/)
 
-**Contributors:** duddi, webpixelstudio  
-**Tags:** cookie consent, GDPR, cookie banner, ePrivacy, consent mode
+**Contributors:** webpixelstudio  
+**Tags:** cookie consent, GDPR, cookie banner, ePrivacy, consent mode  
 **Requires at least:** 5.9  
 **Tested up to:** 6.9  
 **Stable tag:** 1.0.0  
