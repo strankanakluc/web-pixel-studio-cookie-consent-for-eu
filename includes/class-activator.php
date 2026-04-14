@@ -10,11 +10,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class CCWPS_Activator {
+	private const SCHEMA_VERSION = '2';
 
 	public static function activate(): void {
+		self::maybe_upgrade();
+		flush_rewrite_rules();
+	}
+
+	public static function maybe_upgrade(): void {
+		$stored_schema_version = (string) get_option( 'ccwps_schema_version', '' );
+
+		if ( self::SCHEMA_VERSION === $stored_schema_version ) {
+			return;
+		}
+
 		self::create_tables();
 		self::set_default_options();
-		flush_rewrite_rules();
+		update_option( 'ccwps_schema_version', self::SCHEMA_VERSION );
 	}
 
 	private static function create_tables(): void {

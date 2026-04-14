@@ -86,6 +86,8 @@ final class Cookie_Consent_WPS {
 	}
 
 	public function init(): void {
+		CCWPS_Activator::maybe_upgrade();
+
 		$settings      = new CCWPS_Settings();
 		$consent_log   = new CCWPS_Consent_Log();
 		$cookie_manager = new CCWPS_Cookie_Manager();
