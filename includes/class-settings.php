@@ -340,8 +340,9 @@ class CCWPS_Settings {
 		}
 
 		$value = trim( $value );
+		$english_default = CCWPS_Language_Presets::translate_admin_text( 'en', $default_text );
 
-		if ( 'sk' !== $lang_code && $value === $default_text ) {
+		if ( 'sk' !== $lang_code && ( $value === $default_text || $value === $english_default ) ) {
 			return $this->translate_frontend_label( $lang_code, $default_text );
 		}
 
