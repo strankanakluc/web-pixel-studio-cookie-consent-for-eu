@@ -128,14 +128,37 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ## Screenshots
 
-1. Cookie consent banner on the frontend
-2. Preferences modal with category management
-3. Floating consent icon with consent details popup
-4. Admin settings screen
-5. Appearance customization screen
-6. Cookie declarations screen
-7. Script blocking rules screen
-8. Consent log screen
+### 1. Cookie consent banner on the frontend
+
+![Cookie consent banner on the frontend](admin/images/screenshot-1.webp)
+
+### 2. Preferences modal with category management
+
+![Preferences modal with category management](admin/images/screenshot-2.webp)
+
+### 3. Floating consent icon with consent details popup
+
+![Floating consent icon with consent details popup](admin/images/screenshot-3.webp)
+
+### 4. Admin settings screen
+
+![Admin settings screen](admin/images/screenshot-4.webp)
+
+### 5. Appearance customization screen
+
+![Appearance customization screen](admin/images/screenshot-5.webp)
+
+### 6. Cookie declarations screen
+
+![Cookie declarations screen](admin/images/screenshot-6.webp)
+
+### 7. Script blocking rules screen
+
+![Script blocking rules screen](admin/images/screenshot-7.webp)
+
+### 8. Consent log screen
+
+![Consent log screen](admin/images/screenshot-8.webp)
 
 ## Shortcodes
 
