@@ -15,14 +15,6 @@ ___TEMPLATE_PARAMETERS___
 [
   {
     "type": "TEXT",
-    "name": "cookieName",
-    "displayName": "Názov consent cookie",
-    "simpleValueType": true,
-    "defaultValue": "ccwps_consent",
-    "help": "Nemeňte, pokiaľ ste nezmenili názov cookie v plugine."
-  },
-  {
-    "type": "TEXT",
     "name": "waitForUpdate",
     "displayName": "wait_for_update (ms)",
     "simpleValueType": true,
@@ -30,67 +22,6 @@ ___TEMPLATE_PARAMETERS___
     "help": "Čas v milisekundách, ktorý GTM čaká na aktualizáciu súhlasu pred spustením tagov s predvoleným stavom."
   }
 ]
-
-
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
-
-var setDefaultConsentState = require('setDefaultConsentState');
-var updateConsentState     = require('updateConsentState');
-var getCookieValues        = require('getCookieValues');
-var decodeUriComponent     = require('decodeUriComponent');
-var makeInteger            = require('makeInteger');
-var gtagSet                = require('gtagSet');
-var JSON                   = require('JSON');
-
-var cookieName = data.cookieName || 'ccwps_consent';
-var parsedWait = makeInteger(data.waitForUpdate);
-var waitMs     = (parsedWait === 0 || parsedWait) ? parsedWait : 500;
-
-function hasFlagTrue(payload, key) {
-  return payload.indexOf('"' + key + '":true') !== -1;
-}
-
-// 1. Nastaviť predvolený stav – všetko odmietnuté
-setDefaultConsentState({
-  'ad_storage':              'denied',
-  'ad_user_data':            'denied',
-  'ad_personalization':      'denied',
-  'analytics_storage':       'denied',
-  'functionality_storage':   'denied',
-  'personalization_storage': 'denied',
-  'security_storage':        'granted',
-  'wait_for_update':         waitMs
-});
-
-// 1b. Additional consent-mode controls (also used by plugin frontend snippet)
-gtagSet('ads_data_redaction', true);
-gtagSet('url_passthrough', true);
-
-// 2. Prečítať existujúci consent cookie a okamžite aktualizovať stav
-var cookieValues = getCookieValues(cookieName);
-if (cookieValues && cookieValues.length > 0) {
-  var decoded = decodeUriComponent(cookieValues[0]);
-  var compact = decoded ? decoded.split(' ').join('') : '';
-  var looksLikeJson = compact && compact.indexOf('{') !== -1 && compact.indexOf('}') !== -1;
-
-  if (looksLikeJson) {
-    var targetingGranted   = hasFlagTrue(compact, 'targeting');
-    var analyticsGranted   = hasFlagTrue(compact, 'analytics');
-    var preferencesGranted = hasFlagTrue(compact, 'preferences');
-
-    updateConsentState({
-      'ad_storage':              targetingGranted   ? 'granted' : 'denied',
-      'ad_user_data':            targetingGranted   ? 'granted' : 'denied',
-      'ad_personalization':      targetingGranted   ? 'granted' : 'denied',
-      'analytics_storage':       analyticsGranted   ? 'granted' : 'denied',
-      'functionality_storage':   preferencesGranted ? 'granted' : 'denied',
-      'personalization_storage': preferencesGranted ? 'granted' : 'denied',
-      'security_storage':        'granted'
-    });
-  }
-}
-
-data.gtmOnSuccess();
 
 
 ___WEB_PERMISSIONS___
@@ -273,6 +204,67 @@ ___WEB_PERMISSIONS___
     "isRequired": true
   }
 ]
+
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+var setDefaultConsentState = require('setDefaultConsentState');
+var updateConsentState     = require('updateConsentState');
+var getCookieValues        = require('getCookieValues');
+var decodeUriComponent     = require('decodeUriComponent');
+var makeInteger            = require('makeInteger');
+var gtagSet                = require('gtagSet');
+var JSON                   = require('JSON');
+
+var cookieName = 'ccwps_consent';
+var parsedWait = makeInteger(data.waitForUpdate);
+var waitMs     = (parsedWait === 0 || parsedWait) ? parsedWait : 500;
+
+function hasFlagTrue(payload, key) {
+  return payload.indexOf('"' + key + '":true') !== -1;
+}
+
+// 1. Nastaviť predvolený stav – všetko odmietnuté
+setDefaultConsentState({
+  'ad_storage':              'denied',
+  'ad_user_data':            'denied',
+  'ad_personalization':      'denied',
+  'analytics_storage':       'denied',
+  'functionality_storage':   'denied',
+  'personalization_storage': 'denied',
+  'security_storage':        'granted',
+  'wait_for_update':         waitMs
+});
+
+// 1b. Additional consent-mode controls (also used by plugin frontend snippet)
+gtagSet('ads_data_redaction', true);
+gtagSet('url_passthrough', true);
+
+// 2. Prečítať existujúci consent cookie a okamžite aktualizovať stav
+var cookieValues = getCookieValues(cookieName);
+if (cookieValues && cookieValues.length > 0) {
+  var decoded = decodeUriComponent(cookieValues[0]);
+  var compact = decoded ? decoded.split(' ').join('') : '';
+  var looksLikeJson = compact && compact.indexOf('{') !== -1 && compact.indexOf('}') !== -1;
+
+  if (looksLikeJson) {
+    var targetingGranted   = hasFlagTrue(compact, 'targeting');
+    var analyticsGranted   = hasFlagTrue(compact, 'analytics');
+    var preferencesGranted = hasFlagTrue(compact, 'preferences');
+
+    updateConsentState({
+      'ad_storage':              targetingGranted   ? 'granted' : 'denied',
+      'ad_user_data':            targetingGranted   ? 'granted' : 'denied',
+      'ad_personalization':      targetingGranted   ? 'granted' : 'denied',
+      'analytics_storage':       analyticsGranted   ? 'granted' : 'denied',
+      'functionality_storage':   preferencesGranted ? 'granted' : 'denied',
+      'personalization_storage': preferencesGranted ? 'granted' : 'denied',
+      'security_storage':        'granted'
+    });
+  }
+}
+
+data.gtmOnSuccess();
 
 
 ___NOTES___
