@@ -74,14 +74,14 @@ class CCWPS_Activator {
 	}
 
 	private static function set_default_options(): void {
-		// Load SK preset as default language.
+		// Load EN preset as default language.
 		require_once CCWPS_PLUGIN_DIR . 'includes/class-language-presets.php';
-		$sk = CCWPS_Language_Presets::get( 'sk' );
-		$sk_strings = $sk ? $sk['strings'] : [];
+		$en = CCWPS_Language_Presets::get( 'en' );
+		$en_strings = $en ? $en['strings'] : [];
 
 		$defaults = [
 			// Admin language (UI language for admin panel)
-			'admin_lang'           => 'sk',
+			'admin_lang'           => 'en',
 			// Behavior
 			'autorun'              => 1,
 			'force_consent'        => 0,
@@ -142,29 +142,29 @@ class CCWPS_Activator {
 			// Toggle & accents
 			'toggle_on_color'      => '',
 			'always_on_color'      => '',
-			// Frontend translations (SK defaults)
-			'lang_banner_title'       => $sk_strings['lang_banner_title']       ?? 'Používame súbory cookie',
-			'lang_banner_description' => $sk_strings['lang_banner_description'] ?? 'Používame súbory cookie na zlepšenie vášho zážitku z prehliadania.',
-			'lang_accept_all'         => $sk_strings['lang_accept_all']         ?? 'Prijať všetky',
-			'lang_reject_all'         => $sk_strings['lang_reject_all']         ?? 'Odmietnuť všetky',
-			'lang_manage_preferences' => $sk_strings['lang_manage_preferences'] ?? 'Spravovať nastavenia',
-			'lang_save_preferences'   => $sk_strings['lang_save_preferences']   ?? 'Uložiť nastavenia',
-			'lang_close'              => $sk_strings['lang_close']              ?? 'Zavrieť',
-			'lang_necessary_title'    => $sk_strings['lang_necessary_title']    ?? 'Nevyhnutné',
-			'lang_necessary_desc'     => $sk_strings['lang_necessary_desc']     ?? 'Nevyhnutné súbory cookie pomáhajú, aby bola webová stránka použiteľná.',
-			'lang_analytics_title'    => $sk_strings['lang_analytics_title']    ?? 'Analytické',
-			'lang_analytics_desc'     => $sk_strings['lang_analytics_desc']     ?? 'Analytické súbory cookie pomáhajú pochopiť, ako návštevníci používajú web.',
-			'lang_targeting_title'    => $sk_strings['lang_targeting_title']    ?? 'Marketingové',
-			'lang_targeting_desc'     => $sk_strings['lang_targeting_desc']     ?? 'Marketingové súbory cookie sa používajú na zobrazovanie relevantných reklám.',
-			'lang_preferences_title'  => $sk_strings['lang_preferences_title']  ?? 'Preferenčné',
-			'lang_preferences_desc'   => $sk_strings['lang_preferences_desc']   ?? 'Preferenčné súbory cookie si pamätajú vaše preferencie.',
+			// Frontend translations (EN defaults)
+			'lang_banner_title'       => $en_strings['lang_banner_title']       ?? 'We use cookies',
+			'lang_banner_description' => $en_strings['lang_banner_description'] ?? 'We use cookies to enhance your browsing experience, serve personalised content, and analyse our traffic. By clicking "Accept All", you consent to our use of cookies.',
+			'lang_accept_all'         => $en_strings['lang_accept_all']         ?? 'Accept All',
+			'lang_reject_all'         => $en_strings['lang_reject_all']         ?? 'Reject All',
+			'lang_manage_preferences' => $en_strings['lang_manage_preferences'] ?? 'Manage Preferences',
+			'lang_save_preferences'   => $en_strings['lang_save_preferences']   ?? 'Save Preferences',
+			'lang_close'              => $en_strings['lang_close']              ?? 'Close',
+			'lang_necessary_title'    => $en_strings['lang_necessary_title']    ?? 'Necessary',
+			'lang_necessary_desc'     => $en_strings['lang_necessary_desc']     ?? 'Necessary cookies help make a website usable by enabling basic functions like page navigation and access to secure areas. The website cannot function properly without these cookies.',
+			'lang_analytics_title'    => $en_strings['lang_analytics_title']    ?? 'Analytics',
+			'lang_analytics_desc'     => $en_strings['lang_analytics_desc']     ?? 'Analytics cookies help website owners understand how visitors interact with websites by collecting and reporting information anonymously.',
+			'lang_targeting_title'    => $en_strings['lang_targeting_title']    ?? 'Targeting',
+			'lang_targeting_desc'     => $en_strings['lang_targeting_desc']     ?? 'Targeting cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement.',
+			'lang_preferences_title'  => $en_strings['lang_preferences_title']  ?? 'Preferences',
+			'lang_preferences_desc'   => $en_strings['lang_preferences_desc']   ?? 'Preference cookies enable a website to remember information that changes the way the website behaves or looks, like your preferred language or the region you are in.',
 			'lang_powered_by'         => 'Web Pixel Studio',
-			'lang_consent_id_label'   => 'ID vášho súhlasu',
-			'lang_always_on'          => 'Vždy aktívne',
-			'lang_cookie_name'        => 'Názov',
-			'lang_cookie_domain'      => 'Doména',
-			'lang_cookie_expiration'  => 'Platnosť',
-			'lang_cookie_description' => 'Popis',
+			'lang_consent_id_label'   => 'Your consent ID',
+			'lang_always_on'          => 'Always active',
+			'lang_cookie_name'        => 'Name',
+			'lang_cookie_domain'      => 'Domain',
+			'lang_cookie_expiration'  => 'Expiration',
+			'lang_cookie_description' => 'Description',
 		];
 
 		foreach ( $defaults as $key => $value ) {
