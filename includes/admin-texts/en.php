@@ -1,0 +1,43 @@
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+return [
+	'GTM šablóna' => 'GTM Template',
+	'Import šablóny do Google Tag Managera' => 'Import Template into Google Tag Manager',
+	'V tejto záložke si môžete stiahnuť pripravenú GTM šablónu pre Consent Mode a importovať ju do svojho kontajnera.' => 'In this tab you can download a ready-made GTM template for Consent Mode and import it into your container.',
+	'Ak ešte nemáte dokončené základné nastavenia pluginu, najprv skontrolujte Consent Mode verziu a GTM Container ID v záložke Nastavenia.' => 'If you have not finished the basic plugin setup yet, first check the Consent Mode version and GTM Container ID in the Settings tab.',
+	'Otvoriť nastavenia pluginu' => 'Open plugin settings',
+	'Odporúčané pre väčšinu webov' => 'Recommended for most websites',
+	'Šablóna pre štandardný Consent Mode v2. Obsahuje consent signály required pre Google Ads a GA4 v EÚ.' => 'Template for standard Consent Mode v2. Includes the required consent signals for Google Ads and GA4 in the EU.',
+	'Stiahnuť šablónu v2' => 'Download v2 template',
+	'Rozšírená verzia' => 'Advanced version',
+	'Rozšírená šablóna s podporou ads_data_redaction, url_passthrough a developer_id pre pokročilé Google Marketing Platform scenáre.' => 'Advanced template with support for ads_data_redaction, url_passthrough, and developer_id for advanced Google Marketing Platform scenarios.',
+	'Stiahnuť šablónu v3' => 'Download v3 template',
+	'Postup importu' => 'Import steps',
+	'Stiahnite si požadovanú verziu šablóny podľa toho, či používate Consent Mode v2 alebo v3.' => 'Download the template version you need depending on whether you use Consent Mode v2 or v3.',
+	'V Google Tag Manageri otvorte Templates a v sekcii Tag Templates kliknite na New.' => 'In Google Tag Manager, open Templates and click New in the Tag Templates section.',
+	'V menu vpravo hore zvoľte Import a vyberte stiahnutý .tpl súbor.' => 'In the top-right menu, choose Import and select the downloaded .tpl file.',
+	'Po importe vytvorte nový tag z danej šablóny a doplňte polia podľa vašej implementácie.' => 'After import, create a new tag from the template and fill in the fields according to your implementation.',
+	'Použite Preview režim, skontrolujte consent signály a potom publikujte kontajner.' => 'Use Preview mode, verify the consent signals, and then publish the container.',
+	'Dôležité odporúčania po importe' => 'Important recommendations after import',
+	'V plugine ponechajte rovnakú verziu Consent Mode, akú ste importovali do GTM.' => 'Keep the same Consent Mode version in the plugin that you imported into GTM.',
+	'Ak načítavate GTM cez inú tému alebo plugin, pole GTM Container ID nechajte prázdne.' => 'If GTM is loaded by another theme or plugin, leave the GTM Container ID field empty.',
+	'Pre Google Analytics skontrolujte analytics_storage, pre Google Ads najmä ad_storage, ad_user_data a ad_personalization.' => 'For Google Analytics, check analytics_storage; for Google Ads, especially ad_storage, ad_user_data, and ad_personalization.',
+	'Overte správanie cez Google Tag Assistant a potvrďte, že sa tagy bez súhlasu nespúšťajú.' => 'Verify the behavior with Google Tag Assistant and confirm that tags do not fire without consent.',
+	'Tip:' => 'Tip:',
+	'Ak potrebujete len štandardnú implementáciu pre Google Ads a GA4, vo väčšine prípadov vám bude stačiť šablóna v2.' => 'If you only need a standard implementation for Google Ads and GA4, the v2 template will be enough in most cases.',
+	'Jazyk podľa návštevníka' => 'Language by visitor',
+	'Frontend cookie lišta sa pokúsi načítať jazyk návštevníka a zobraziť zodpovedajúci dostupný preklad.' => 'The frontend cookie banner will try to detect the visitor language and display the corresponding available translation.',
+	'💡 Ak jazyk návštevníka nie je dostupný, plugin použije English (GB). Ak je voľba vypnutá, frontend používa aktuálne uložené texty bannera.' => '💡 If the visitor language is not available, the plugin uses English (GB). If this option is disabled, the frontend uses the currently saved banner texts.',
+	'Pole ponúka detegované fonty z témy, theme.json, Elementora a frontend CSS. Môžete vybrať ponúknutý font alebo zadať vlastnú CSS font-family hodnotu.' => 'The field offers detected fonts from the theme, theme.json, Elementor, and frontend CSS. You can choose a suggested font or enter your own CSS font-family value.',
+	'Pole ponúka iba detegované fonty z témy, theme.json, Elementora a frontend CSS.' => 'The field offers only detected fonts from the theme, theme.json, Elementor, and frontend CSS.',
+	'Použiť font témy' => 'Use theme font',
+	'Téma' => 'Theme',
+	'Aktuálne uložené' => 'Currently saved',
+	'Dátum a čas' => 'Date and time',
+	'Súhlas nebol udelený.' => 'Consent has not been granted yet.',
+	'💡 V zozname sa zobrazuje iba názov fontu. Po výbere sa uloží kompletná font-family hodnota detegovaná na stránke. Voľba "Použiť font témy" zodpovedá hodnote inherit.' => '💡 Only the font name is shown in the list. After selection, the full font-family value detected on the site is saved. The "Use theme font" option corresponds to the inherit value.',
+];
