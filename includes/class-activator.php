@@ -77,7 +77,8 @@ class CCWPS_Activator {
 		// Load EN preset as default language.
 		require_once CCWPS_PLUGIN_DIR . 'includes/class-language-presets.php';
 		$en = CCWPS_Language_Presets::get( 'en' );
-		$en_strings = $en ? $en['strings'] : [];
+		$en_strings = is_array( $en ) && ! empty( $en['strings'] ) && is_array( $en['strings'] ) ? $en['strings'] : [];
+		$en_admin_strings = is_array( $en ) && ! empty( $en['admin_strings'] ) && is_array( $en['admin_strings'] ) ? $en['admin_strings'] : [];
 
 		$defaults = [
 			// Admin language (UI language for admin panel)
@@ -166,6 +167,8 @@ class CCWPS_Activator {
 			'lang_cookie_expiration'  => 'Expiration',
 			'lang_cookie_description' => 'Description',
 		];
+
+		$defaults = array_merge( $defaults, $en_admin_strings );
 
 		foreach ( $defaults as $key => $value ) {
 			if ( false === get_option( 'ccwps_' . $key ) ) {
