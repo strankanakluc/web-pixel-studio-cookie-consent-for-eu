@@ -3,7 +3,7 @@
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/cookie-consent-webpixelstudio?style=flat)
 ![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/r/cookie-consent-webpixelstudio?style=flat)
 ![WordPress Plugin Active Installs](https://img.shields.io/wordpress/plugin/i/cookie-consent-webpixelstudio?style=flat)
-[![Facebook](https://img.shields.io/badge/Facebook-0866FF?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/strankanakluc)
+[![Facebook](https://img.shields.io/badge/Facebook-0866FF?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/wps.sk)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/tvorbawebov/)
 
 **Contributors:** webpixelstudio  
