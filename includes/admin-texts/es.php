@@ -256,5 +256,17 @@ return [
 	'Krok %d' => 'Paso %d',
 	'Screenshoty neboli nájdené.' => 'No se encontraron capturas.',
 	'Pridajte obrázky do admin/images a pomenujte ich napríklad template-screenshot-1.webp, template-screenshot-2.webp.' => 'Añade imágenes a admin/images y nómbralas por ejemplo template-screenshot-1.webp, template-screenshot-2.webp.',
+	'Predpripravené predvoľby' => 'Preajustes predefinidos',
+	'Vyberte predvoľbu' => 'Selecciona un preajuste',
+	'Google Necessary' => 'Google Necessary',
+	'Google Analytics' => 'Google Analytics',
+	'Google Ads' => 'Google Ads',
+	'Google Tag Manager' => 'Google Tag Manager',
+	'Facebook Pixel' => 'Facebook Pixel',
+	'Použiť predvoľbu' => 'Aplicar preajuste',
+	'Predvoľby boli pridané.' => 'Se añadieron los preajustes.',
+	'Všetky vybrané predvoľby už existujú.' => 'Todos los preajustes seleccionados ya existen.',
+	'Predpripravené sady cookies a skriptov' => 'Conjuntos predefinidos de cookies y scripts',
+	'Hotové predvoľby jedným kliknutím doplnia bežné Google a Meta cookies spolu so súvisiacimi pravidlami blokovania.' => 'Los preajustes listos añaden con un clic cookies habituales de Google y Meta junto con las reglas de bloqueo relacionadas.',
 ];
 

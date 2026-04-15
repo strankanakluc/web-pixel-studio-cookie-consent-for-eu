@@ -49,6 +49,8 @@ class CCWPS_Admin {
 	public function enqueue_assets( string $hook ): void {
 		if ( 'toplevel_page_ccwps' !== $hook ) return;
 
+		$this->ensure_required_plugin_cookies();
+
 		$locale_switched = $this->switch_admin_locale();
 
 		wp_enqueue_style( 'wp-color-picker' );
@@ -64,6 +66,7 @@ class CCWPS_Admin {
 			'nonce'       => wp_create_nonce( 'ccwps_admin' ),
 			'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 			'siteUrl'     => home_url(),
+			'siteHost'    => $this->get_home_url_host(),
 			'i18n'        => [
 				'saved'         => $this->tx( 'Nastavenia uložené.' ),
 				'error'         => $this->tx( 'Vyskytla sa chyba.' ),
@@ -97,6 +100,10 @@ class CCWPS_Admin {
 				'catAnalytics'  => $this->settings->get( 'lang_analytics_title', __( 'Analytické', 'cookie-consent-webpixelstudio' ) ),
 				'catTargeting'  => $this->settings->get( 'lang_targeting_title', __( 'Marketingové', 'cookie-consent-webpixelstudio' ) ),
 				'catPreferences'=> $this->settings->get( 'lang_preferences_title', __( 'Preferenčné', 'cookie-consent-webpixelstudio' ) ),
+				'applyPreset'   => $this->tx( 'Použiť predvoľbu' ),
+				'selectPreset'  => $this->tx( 'Vyberte predvoľbu.' ),
+				'presetsAdded'  => $this->tx( 'Predvoľby boli pridané.' ),
+				'noNewPresets'  => $this->tx( 'Všetky vybrané predvoľby už existujú.' ),
 			],
 			'langPresets' => CCWPS_Language_Presets::get_all(),
 			'cookies'     => $this->cookie_manager->get_grouped(),
@@ -708,6 +715,7 @@ class CCWPS_Admin {
 	   COOKIES TAB
 	   ================================================ */
 	private function tab_cookies(): void {
+		$this->ensure_required_plugin_cookies();
 		$cookies    = $this->cookie_manager->get_all();
 		$categories = [ 'necessary', 'analytics', 'targeting', 'preferences' ];
 		?>
@@ -760,6 +768,7 @@ class CCWPS_Admin {
 				<div class="ccwps-modal-body">
 					<input type="hidden" id="ccwps-cookie-id">
 					<table class="ccwps-table">
+						<tr><th><label for="c-preset"><?php echo esc_html( $this->tx( 'Predpripravené predvoľby' ) ); ?></label></th><td><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;"><select id="c-preset" style="min-width:260px;"><option value=""><?php echo esc_html( $this->tx( 'Vyberte predvoľbu' ) ); ?></option><option value="google_necessary"><?php echo esc_html( $this->tx( 'Google Necessary' ) ); ?></option><option value="google_analytics"><?php echo esc_html( $this->tx( 'Google Analytics' ) ); ?></option><option value="google_ads"><?php echo esc_html( $this->tx( 'Google Ads' ) ); ?></option><option value="facebook_pixel"><?php echo esc_html( $this->tx( 'Facebook Pixel' ) ); ?></option></select><button type="button" class="button button-primary ccwps-btn-primary-action" id="ccwps-apply-cookie-preset"><?php echo esc_html( $this->tx( 'Použiť predvoľbu' ) ); ?></button></div></td></tr>
 						<tr><th><label for="c-name"><?php esc_html_e( 'Názov', 'cookie-consent-webpixelstudio' ); ?> <span class="required">*</span></label></th><td><input type="text" id="c-name" class="regular-text" placeholder="napr. _ga"></td></tr>
 						<tr><th><label for="c-domain"><?php esc_html_e( 'Doména', 'cookie-consent-webpixelstudio' ); ?></label></th><td><input type="text" id="c-domain" class="regular-text" placeholder="<?php echo esc_attr( $this->get_home_url_host() ); ?>"></td></tr>
 						<tr><th><label for="c-expiration"><?php esc_html_e( 'Platnosť', 'cookie-consent-webpixelstudio' ); ?></label></th><td><input type="text" id="c-expiration" class="regular-text" placeholder="napr. 2 roky, Relácia"></td></tr>
@@ -813,6 +822,7 @@ class CCWPS_Admin {
 				<div class="ccwps-modal-body">
 					<input type="hidden" id="ccwps-block-id">
 					<table class="ccwps-table">
+						<tr><th><label for="b-preset"><?php echo esc_html( $this->tx( 'Predpripravené predvoľby' ) ); ?></label></th><td><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;"><select id="b-preset" style="min-width:260px;"><option value=""><?php echo esc_html( $this->tx( 'Vyberte predvoľbu' ) ); ?></option><option value="ga"><?php echo esc_html( $this->tx( 'Google Analytics' ) ); ?></option><option value="gtm"><?php echo esc_html( $this->tx( 'Google Tag Manager' ) ); ?></option><option value="gads"><?php echo esc_html( $this->tx( 'Google Ads' ) ); ?></option><option value="fb"><?php echo esc_html( $this->tx( 'Facebook Pixel' ) ); ?></option></select><button type="button" class="button button-primary ccwps-btn-primary-action" id="ccwps-apply-block-preset"><?php echo esc_html( $this->tx( 'Použiť predvoľbu' ) ); ?></button></div></td></tr>
 						<tr><th><label for="b-source"><?php esc_html_e( 'Zdroj skriptu', 'cookie-consent-webpixelstudio' ); ?> <span class="required">*</span></label><p class="desc"><?php esc_html_e( 'Fragment URL, napr. "google-analytics.com"', 'cookie-consent-webpixelstudio' ); ?></p></th><td><input type="text" id="b-source" class="large-text" placeholder="napr. google-analytics.com"></td></tr>
 						<tr><th><label for="b-category"><?php esc_html_e( 'Kategória', 'cookie-consent-webpixelstudio' ); ?></label></th><td><select id="b-category"><?php foreach ( $categories as $cat ) : ?><option value="<?php echo esc_attr( $cat ); ?>"><?php echo esc_html( ucfirst( $cat ) ); ?></option><?php endforeach; ?></select></td></tr>
 						<tr><th><label for="b-is-regex"><?php esc_html_e( 'Je Regex?', 'cookie-consent-webpixelstudio' ); ?></label></th><td><label class="ccwps-toggle"><input type="checkbox" id="b-is-regex"><span class="ccwps-toggle-slider"></span></label></td></tr>
@@ -1111,6 +1121,7 @@ class CCWPS_Admin {
 					[ '⚙️', __( 'Modál preferencií', 'cookie-consent-webpixelstudio' ),         __( 'Používateľ si môže zvoliť, ktoré kategórie cookies povolí (nevyhnutné, analytické, marketingové, preferenčné).', 'cookie-consent-webpixelstudio' ) ],
 					[ '📋', __( 'Záznamy súhlasov', 'cookie-consent-webpixelstudio' ),          __( 'Každý súhlas sa uloží do databázy s ID, IP adresou, URL a časovou pečiatkou. Export do CSV.', 'cookie-consent-webpixelstudio' ) ],
 					[ '🚫', __( 'Blokovanie skriptov', 'cookie-consent-webpixelstudio' ),       __( 'Skripty tretích strán (napr. Google Analytics, Meta Pixel) sa zablokujú, kým používateľ neudelí súhlas.', 'cookie-consent-webpixelstudio' ) ],
+					[ '🧩', __( 'Predpripravené sady cookies a skriptov', 'cookie-consent-webpixelstudio' ), __( 'Hotové predvoľby jedným kliknutím doplnia bežné Google a Meta cookies spolu so súvisiacimi pravidlami blokovania.', 'cookie-consent-webpixelstudio' ) ],
 					[ '🌐', __( 'Consent Mode v2 / v3', 'cookie-consent-webpixelstudio' ),      __( 'Automaticky nastaví default denied stav a aktualizuje Google signály po udelení súhlasu.', 'cookie-consent-webpixelstudio' ) ],
 					[ '🎨', __( 'Plné prispôsobenie vzhľadu', 'cookie-consent-webpixelstudio' ),__( 'Farby, font, zaoblenie tlačidiel, rozloženie bannera, poloha floating ikony.', 'cookie-consent-webpixelstudio' ) ],
 					[ '🌍', __( '9 jazykových predvolieb', 'cookie-consent-webpixelstudio' ),   __( 'SK, EN, CS, DE, FR, ES, PL, HU, IT. Všetky texty sú plne editovateľné z admin panelu.', 'cookie-consent-webpixelstudio' ) ],
@@ -1289,6 +1300,50 @@ class CCWPS_Admin {
 
 	private function get_home_url_host(): string {
 		return (string) wp_parse_url( home_url(), PHP_URL_HOST );
+	}
+
+	private function ensure_required_plugin_cookies(): void {
+		$existing = $this->cookie_manager->get_all();
+		$names    = array_map(
+			static fn( array $row ): string => strtolower( (string) ( $row['name'] ?? '' ) ),
+			$existing
+		);
+
+		$host = $this->get_home_url_host();
+		if ( '' === $host ) {
+			$host = 'localhost';
+		}
+
+		$shared_host = preg_replace( '/^www\./i', '', ltrim( $host, '.' ) );
+
+		$required = [
+			[
+				'name'        => 'ccwps_consent',
+				'domain'      => '.' . $shared_host,
+				'expiration'  => '1 year',
+				'path'        => '/',
+				'description' => 'Stores the visitor\'s consent choices for cookie categories so the plugin can respect and reapply them.',
+				'is_regex'    => 0,
+				'category'    => 'necessary',
+			],
+			[
+				'name'        => 'ccwps_version',
+				'domain'      => ltrim( $host, '.' ),
+				'expiration'  => '6 months',
+				'path'        => '/',
+				'description' => 'Stores the current consent configuration version to detect changes and request consent again when needed.',
+				'is_regex'    => 0,
+				'category'    => 'necessary',
+			],
+		];
+
+		foreach ( $required as $cookie ) {
+			if ( in_array( strtolower( $cookie['name'] ), $names, true ) ) {
+				continue;
+			}
+
+			$this->cookie_manager->insert( $cookie );
+		}
 	}
 
 	private function get_font_family_choices(): array {

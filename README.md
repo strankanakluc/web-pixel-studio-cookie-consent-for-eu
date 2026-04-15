@@ -10,7 +10,7 @@
 **Tags:** cookie consent, GDPR, cookie banner, ePrivacy, consent mode  
 **Requires at least:** 5.9  
 **Tested up to:** 6.9  
-**Stable tag:** 1.0.0  
+**Stable tag:** 1.0.1  
 **License:** GPL-2.0-or-later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -28,6 +28,7 @@ If you want a consent plugin that looks professional, gives visitors clear choic
 - Detailed preferences modal with category-level consent
 - Google Consent Mode v2 and v3 integration ready for GA4 and Google Ads
 - Script blocking before consent with simple rules or regex
+- Prebuilt cookie and script presets for Google Analytics, Google Ads, and Facebook Pixel
 - Built-in consent log with exportable records
 - Floating consent icon so visitors can reopen settings anytime
 - Multilingual presets with editable frontend texts
@@ -48,6 +49,7 @@ If you want a consent plugin that looks professional, gives visitors clear choic
 - Preferences modal with cookie categories and toggles
 - Script blocking based on URL match or regex rules
 - Cookie declarations with name, domain, expiration, and description
+- Prebuilt presets that add common cookie declarations together with matching blocking rules
 - Consent logging with unique consent ID and CSV export
 - Floating consent icon to reopen settings anytime
 - Import and export of plugin settings in JSON
@@ -63,6 +65,7 @@ If you want a consent plugin that looks professional, gives visitors clear choic
 - floating icon type and position
 - cookie categories and declared cookies
 - script blocking rules by category
+- prebuilt Google and Meta presets for cookies and script blocking
 - visitor language detection for frontend texts
 - consent logging, re-consent behavior, and bot hiding
 
@@ -168,6 +171,16 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ## Changelog
 
+### 1.0.1
+
+- Added grouped cookie presets and script-blocking presets directly in popup forms for faster setup
+- Added automatic pairing of blocking rules when applying cookie presets
+- Added automatic insertion of required plugin cookies (`ccwps_consent`, `ccwps_version`) if missing
+- Improved preset domain normalization to use shared subdomain format (for example `.example.com` without forced `www`)
+- Improved frontend translation consistency for the Necessary label "Always active" across language presets and browser language detection
+- Updated preset UI so the "Apply preset" action uses the primary action button style
+- Expanded and synced preset/admin translations across supported languages
+
 ### 1.0.0
 
 - Initial release
@@ -175,8 +188,13 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 - Added Google Consent Mode v2 and v3 integration
 - Added script blocking and cookie declaration management
 - Added import/export, floating icon, and translation presets
+- Added predefined cookie and blocking presets for Google Analytics, Google Ads, and Facebook Pixel
 
 ## Upgrade Notice
+
+### 1.0.1
+
+Improves presets workflow, localization consistency, and admin UI polish.
 
 ### 1.0.0
 

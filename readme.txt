@@ -4,7 +4,7 @@ Tags: cookie consent, GDPR, cookie banner, ePrivacy, consent mode
 Requires at least: 5.9
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,9 @@ Define URL patterns (plain text or regex) that match script `src` attributes. Ma
 
 **Cookie Declarations**
 Declare individual cookies per category with name, domain, expiration, path and description. Descriptions are shown to visitors in the preferences modal so they understand what each cookie does.
+
+**Prebuilt Cookie & Script Presets**
+Add ready-made presets for Google Analytics, Google Ads and Facebook Pixel directly from the admin. Matching blocking rules can be added together with the declared cookies to speed up setup.
 
 **Floating Consent Icon**
 After consent is given, a floating icon lets users re-open their preferences at any time. Clicking the icon first shows a small popup with the consent ID, date/time of consent, and two buttons: Close and Manage Consent.
@@ -59,6 +62,7 @@ Automatically asks users to re-consent when the cookie list changes, keeping you
 - Tips and explanations for every setting (expandable)
 - Consent log with pagination and CSV export
 - About section with full documentation, step-by-step setup guide and GTM integration instructions
+- Prebuilt cookie and script presets in the popup forms for faster setup
 
 = GDPR & ePrivacy Compliance =
 
@@ -114,10 +118,23 @@ The consent cookie is set client-side (not httpOnly) so the frontend can read it
 
 == Changelog ==
 
+= 1.0.1 =
+* Added grouped cookie presets and script-blocking presets directly in popup forms for faster setup.
+* Added automatic pairing of blocking rules when applying cookie presets.
+* Added automatic insertion of required plugin cookies (`ccwps_consent`, `ccwps_version`) if missing.
+* Improved preset domain normalization to use shared subdomain format (for example `.example.com` without forced `www`).
+* Improved frontend translation consistency for the Necessary label "Always active" across language presets and browser language detection.
+* Updated preset UI so the "Apply preset" action uses the primary action button style.
+* Expanded and synced preset/admin translations across supported languages.
+
 = 1.0.0 =
 * Initial release
+* Added predefined cookie and script presets for Google Analytics, Google Ads and Facebook Pixel
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Improves presets workflow, localization consistency, and admin UI polish.
 
 = 1.0.0 =
 Initial release.

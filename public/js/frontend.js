@@ -83,6 +83,23 @@
 		return label;
 	}
 
+	function getStableAlwaysOnLabel() {
+		var labels = {
+			sk: 'Vždy aktívne',
+			en: 'Always active',
+			cs: 'Vždy aktivní',
+			de: 'Immer aktiv',
+			fr: 'Toujours actif',
+			es: 'Siempre activo',
+			pl: 'Zawsze aktywne',
+			hu: 'Mindig aktív',
+			it: 'Sempre attivo'
+		};
+		var normalized = normalizeLangCode(activeFrontendLang);
+		var base = normalized.split('-')[0];
+		return labels[normalized] || labels[base] || labels.en;
+	}
+
 	/* ============================================
 	   UTILITIES
 	   ============================================ */
@@ -585,7 +602,7 @@
 			var checked = cat.always ? true : !!(currentPrefs && currentPrefs[cat.key]);
 
 			var toggle = cat.always
-				? '<span class="ccwps-always-on">' + esc(i18n.alwaysOn || 'Vždy aktívne') + '</span>'
+				? '<span class="ccwps-always-on">' + esc(i18n.alwaysOn || getStableAlwaysOnLabel()) + '</span>'
 				: '<label class="ccwps-sw">' +
 					'<input type="checkbox" data-cat="' + cat.key + '"' + (checked ? ' checked' : '') + '>' +
 					'<span class="ccwps-sw-track"></span>' +

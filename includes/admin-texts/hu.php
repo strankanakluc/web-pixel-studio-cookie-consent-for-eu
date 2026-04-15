@@ -256,5 +256,17 @@ return [
 	'Krok %d' => '%d. lépés',
 	'Screenshoty neboli nájdené.' => 'A képernyőképek nem találhatók.',
 	'Pridajte obrázky do admin/images a pomenujte ich napríklad template-screenshot-1.webp, template-screenshot-2.webp.' => 'Tegyen képeket az admin/images mappába, és nevezze el őket például így: template-screenshot-1.webp, template-screenshot-2.webp.',
+	'Predpripravené predvoľby' => 'Előre definiált előbeállítások',
+	'Vyberte predvoľbu' => 'Válasszon előbeállítást',
+	'Google Necessary' => 'Google Necessary',
+	'Google Analytics' => 'Google Analytics',
+	'Google Ads' => 'Google Ads',
+	'Google Tag Manager' => 'Google Tag Manager',
+	'Facebook Pixel' => 'Facebook Pixel',
+	'Použiť predvoľbu' => 'Előbeállítás alkalmazása',
+	'Predvoľby boli pridané.' => 'Az előbeállítások hozzáadva.',
+	'Všetky vybrané predvoľby už existujú.' => 'Az összes kijelölt előbeállítás már létezik.',
+	'Predpripravené sady cookies a skriptov' => 'Előre definiált cookie- és scriptcsomagok',
+	'Hotové predvoľby jedným kliknutím doplnia bežné Google a Meta cookies spolu so súvisiacimi pravidlami blokovania.' => 'A kész előbeállítások egy kattintással hozzáadják a gyakori Google- és Meta-cookie-kat a kapcsolódó blokkolási szabályokkal együtt.',
 ];
 

@@ -2,7 +2,173 @@
 (function ($) {
 	'use strict';
 
-	const { ajaxUrl, nonce, i18n, langPresets, cookies, settings, siteUrl } = window.ccwpsAdmin || {};
+	const { ajaxUrl, nonce, i18n, langPresets, cookies, settings, siteUrl, siteHost } = window.ccwpsAdmin || {};
+
+	const normalizedHost = String(siteHost || '').replace(/^\.+/, '') || 'localhost';
+	const dottedHost = '.' + normalizedHost.replace(/^www\./i, '');
+
+	const blockRulesData = Array.isArray(window.ccwpsAdmin?.blockRules) ? window.ccwpsAdmin.blockRules.slice() : [];
+
+	const blockPresets = {
+		ga: [
+			{
+				script_source: '^(?:https?:)?\\/\\/(?:www\\.)?google-analytics\\.com',
+				category: 'analytics',
+				is_regex: true,
+			},
+		],
+		gtm: [
+			{
+				script_source: 'www.googletagmanager.com/gtag/js',
+				category: 'analytics',
+				is_regex: false,
+			},
+		],
+		gads: [
+			{
+				script_source: '^(?:https?:)?\\/\\/(?:www\\.)?(pagead2\\.googlesyndication\\.com|www\\.googleadservices\\.com|tpc\\.googlesyndication\\.com)',
+				category: 'targeting',
+				is_regex: true,
+			},
+			{
+				script_source: '*.doubleclick.net',
+				category: 'targeting',
+				is_regex: false,
+			},
+		],
+		fb: [
+			{
+				script_source: '^(?:https?:)?\\/\\/(?:(?:www\\.)?facebook\\.com|connect\\.facebook\\.net)',
+				category: 'targeting',
+				is_regex: true,
+			},
+		],
+	};
+
+	const cookiePresetGroups = {
+		google_necessary: {
+			cookies: [
+				{
+					name: 'AEC',
+					domain: '.google.com',
+					expiration: '1 year',
+					path: '/',
+					description: 'Used to ensure that requests within a session are made by the user and not by other pages.',
+					category: 'necessary',
+					is_regex: '',
+				},
+				{
+					name: 'SOCS',
+					domain: '.google.com',
+					expiration: '1 year',
+					path: '/',
+					description: 'To store the user\'s state regarding their cookie choices.',
+					category: 'necessary',
+					is_regex: '',
+				},
+			],
+			blockPresets: [],
+		},
+		google_analytics: {
+			cookies: [
+				{
+					name: '^_ga_',
+					domain: '.yourdomain.com',
+					expiration: '1 year',
+					path: '/',
+					description: 'It is used by Google Analytics to collect data on how many times a user has visited a website, as well as the dates of the first and last visit.',
+					category: 'analytics',
+					is_regex: '1',
+				},
+				{
+					name: '_ga',
+					domain: '.yourdomain.com',
+					expiration: '2 years',
+					path: '/',
+					description: 'It registers a unique ID that is used to generate statistical data about how the visitor uses the website.',
+					category: 'analytics',
+					is_regex: '1',
+				},
+				{
+					name: '_gat_gtag_',
+					domain: '.yourdomain.com',
+					expiration: '1 year',
+					path: '/',
+					description: 'It is used by Google Analytics to limit requests to its service.',
+					category: 'analytics',
+					is_regex: '1',
+				},
+				{
+					name: '_gid',
+					domain: '.yourdomain.com',
+					expiration: '1 year',
+					path: '/',
+					description: 'Is used to track the behavior of website visitors and identify them during different sessions, which allows Google Analytics to analyze traffic and interactions with websites.',
+					category: 'analytics',
+					is_regex: '1',
+				},
+			],
+			blockPresets: [ 'ga', 'gtm' ],
+		},
+		google_ads: {
+			cookies: [
+				{
+					name: 'IDE',
+					domain: '.doubleclick.net',
+					expiration: '1 year',
+					path: '/',
+					description: 'Used by Google DoubleClick to track user behavior, allowing for ad personalization and targeting based on previous interactions with ads and websites, storing a unique identifier for each user and used to measure the effectiveness of ads.',
+					category: 'targeting',
+					is_regex: '',
+				},
+				{
+					name: '_gcl_au',
+					domain: '.yourdomain.com',
+					expiration: '3 months',
+					path: '/',
+					description: 'It is used by Google AdSense to track users\' interactions with ads on the website and to optimize and personalize advertising content based on their behavior and preferences.',
+					category: 'targeting',
+					is_regex: '1',
+				},
+			],
+			blockPresets: [ 'gads' ],
+		},
+		facebook_pixel: {
+			cookies: [
+				{
+					name: '_fbp',
+					domain: '.yourdomain.com',
+					expiration: '3 months',
+					path: '/',
+					description: 'It is a marketing cookie used by Facebook Pixel to identify website visitors and track them across websites that use Facebook ads.',
+					category: 'targeting',
+					is_regex: '1',
+				},
+			],
+			blockPresets: [ 'fb' ],
+		},
+	};
+
+	const alwaysPluginCookies = [
+		{
+			name: 'ccwps_consent',
+			domain: dottedHost,
+			expiration: '1 year',
+			path: '/',
+			description: 'Stores the visitor consent choices in this plugin so selected categories remain respected across page loads.',
+			category: 'necessary',
+			is_regex: '',
+		},
+		{
+			name: 'ccwps_version',
+			domain: normalizedHost,
+			expiration: '6 months',
+			path: '/',
+			description: 'Stores the plugin consent configuration version to detect changes and trigger re-consent when needed.',
+			category: 'necessary',
+			is_regex: '',
+		},
+	];
 
 	/* ---- Notice ---- */
 	function showNotice(msg, type = 'success') {
@@ -13,6 +179,59 @@
 
 	function ajaxPost(action, data, cb) {
 		$.post(ajaxUrl, { action, nonce, ...data }, cb).fail(() => showNotice(i18n.error, 'error'));
+	}
+
+	function replaceDomainPlaceholder(domainValue) {
+		if (domainValue === '.yourdomain.com') return dottedHost;
+		if (domainValue === 'yourdomain.com') return normalizedHost;
+		return domainValue;
+	}
+
+	function getExistingCookieNames() {
+		const existingNames = new Set();
+		Object.values(cookies || {}).forEach((list) => {
+			(list || []).forEach((item) => {
+				if (item && item.name) {
+					existingNames.add(String(item.name).toLowerCase());
+				}
+			});
+		});
+		return existingNames;
+	}
+
+	function getBlockSignature(rule) {
+		return [
+			String(rule.script_source || '').trim().toLowerCase(),
+			String(rule.category || '').trim().toLowerCase(),
+			rule.is_regex ? '1' : '0',
+		].join('|');
+	}
+
+	function getExistingBlockSignatures() {
+		const existing = new Set();
+		(blockRulesData || []).forEach((rule) => {
+			existing.add(getBlockSignature(rule));
+		});
+		return existing;
+	}
+
+	function runSequentialSaves(items, saveAction, toPayload, done) {
+		const saveNext = (index) => {
+			if (index >= items.length) {
+				done();
+				return;
+			}
+
+			ajaxPost(saveAction, toPayload(items[index]), function (res) {
+				if (!res.success) {
+					showNotice(res.data || i18n.error, 'error');
+					return;
+				}
+				saveNext(index + 1);
+			});
+		};
+
+		saveNext(0);
 	}
 
 	/* ---- Color pickers ---- */
@@ -175,6 +394,7 @@
 	function openCookieModal(data = {}) {
 		const isEdit = !!data.id;
 		$('#ccwps-cookie-modal-title').text(isEdit ? (i18n.editCookie || 'Edit cookie') : (i18n.addCookie || 'Add cookie'));
+		$('#c-preset').val('');
 		$('#ccwps-cookie-id').val(data.id || '');
 		$('#c-name').val(data.name || '');
 		$('#c-domain').val(data.domain || '');
@@ -188,6 +408,56 @@
 
 	$(document).on('click', '#ccwps-add-cookie', () => openCookieModal());
 	$(document).on('click', '.ccwps-edit-cookie', function () { openCookieModal($(this).data('row')); });
+
+	$(document).on('click', '#ccwps-apply-cookie-preset', function () {
+		const groupKey = $('#c-preset').val();
+		const preset = groupKey ? cookiePresetGroups[groupKey] : null;
+		if (!preset) {
+			alert(i18n.selectPreset || 'Vyberte predvoľbu.');
+			return;
+		}
+
+		const existingNames = getExistingCookieNames();
+		const existingBlockSignatures = getExistingBlockSignatures();
+
+		const requested = [
+			...alwaysPluginCookies,
+			...preset.cookies,
+		].map((item) => ({
+			...item,
+			domain: replaceDomainPlaceholder(item.domain),
+		})).filter((item) => !existingNames.has(String(item.name).toLowerCase()));
+
+		const requestedBlockRules = (preset.blockPresets || [])
+			.flatMap((key) => blockPresets[key] || [])
+			.filter((rule) => !existingBlockSignatures.has(getBlockSignature(rule)));
+
+		if (!requested.length && !requestedBlockRules.length) {
+			showNotice(i18n.noNewPresets || 'Všetky vybrané predvoľby už existujú.', 'success');
+			return;
+		}
+
+		runSequentialSaves(requested, 'ccwps_save_cookie', (item) => ({
+			id: '',
+			name: item.name,
+			domain: item.domain,
+			expiration: item.expiration,
+			path: item.path,
+			description: item.description,
+			category: item.category,
+			is_regex: item.is_regex,
+		}), function () {
+			runSequentialSaves(requestedBlockRules, 'ccwps_save_block', (rule) => ({
+				id: '',
+				script_source: rule.script_source,
+				category: rule.category,
+				is_regex: rule.is_regex ? '1' : '',
+			}), function () {
+				showNotice(i18n.presetsAdded || 'Predvoľby boli pridané.');
+				setTimeout(() => location.reload(), 600);
+			});
+		});
+	});
 
 	$(document).on('click', '#ccwps-save-cookie', function () {
 		const name = $('#c-name').val().trim();
@@ -217,6 +487,7 @@
 	function openBlockModal(data = {}) {
 		const isEdit = !!data.id;
 		$('#ccwps-block-modal-title').text(isEdit ? (i18n.editRule || 'Edit rule') : (i18n.addRule || 'Add rule'));
+		$('#b-preset').val('');
 		$('#ccwps-block-id').val(data.id || '');
 		$('#b-source').val(data.script_source || '');
 		$('#b-category').val(data.category || 'analytics');
@@ -226,6 +497,33 @@
 
 	$(document).on('click', '#ccwps-add-block', () => openBlockModal());
 	$(document).on('click', '.ccwps-edit-block', function () { openBlockModal($(this).data('row')); });
+
+	$(document).on('click', '#ccwps-apply-block-preset', function () {
+		const key = $('#b-preset').val();
+		const presetRules = key ? (blockPresets[key] || []) : [];
+		if (!presetRules.length) {
+			alert(i18n.selectPreset || 'Vyberte predvoľbu.');
+			return;
+		}
+
+		const existingBlockSignatures = getExistingBlockSignatures();
+		const requestedRules = presetRules.filter((rule) => !existingBlockSignatures.has(getBlockSignature(rule)));
+
+		if (!requestedRules.length) {
+			showNotice(i18n.noNewPresets || 'Všetky vybrané predvoľby už existujú.', 'success');
+			return;
+		}
+
+		runSequentialSaves(requestedRules, 'ccwps_save_block', (rule) => ({
+			id: '',
+			script_source: rule.script_source,
+			category: rule.category,
+			is_regex: rule.is_regex ? '1' : '',
+		}), function () {
+			showNotice(i18n.presetsAdded || 'Predvoľby boli pridané.');
+			setTimeout(() => location.reload(), 600);
+		});
+	});
 
 	$(document).on('click', '#ccwps-save-block', function () {
 		const source = $('#b-source').val().trim();

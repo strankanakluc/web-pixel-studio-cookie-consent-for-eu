@@ -283,6 +283,7 @@ class CCWPS_Settings {
 			'lang_manage_preferences' => 'managePreferences',
 			'lang_save_preferences'   => 'savePreferences',
 			'lang_close'              => 'close',
+			'lang_always_on'          => 'alwaysOn',
 			'lang_necessary_title'    => 'necessaryTitle',
 			'lang_necessary_desc'     => 'necessaryDesc',
 			'lang_analytics_title'    => 'analyticsTitle',

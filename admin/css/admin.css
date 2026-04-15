@@ -223,14 +223,14 @@
 	line-height: 1.55;
 }
 .ccwps-sidebar-powered {
-	font-size: 10px;
+	font-size: 12px;
 	color: var(--cc-gray-400);
 	margin-bottom: 6px;
 }
 .ccwps-sidebar-powered a { color: var(--cc-blue); text-decoration: none; }
 .ccwps-sidebar-powered a:hover { text-decoration: underline; }
 .ccwps-sidebar-author {
-	font-size: 11px;
+	font-size: 14px;
 	color: var(--cc-gray-500);
 }
 .ccwps-sidebar-author a { color: var(--cc-blue); text-decoration: none; font-weight: 600; }
@@ -968,6 +968,7 @@ span.required { color: var(--cc-red); }
 	border-top: 1px solid var(--cc-gray-200);
 	border-bottom: 1px solid var(--cc-gray-200);
 	background: var(--cc-gray-50);
+	margin: 5px;
 }
 .ccwps-sidebar-preview-title {
 	font-size: 10px;
@@ -987,6 +988,7 @@ span.required { color: var(--cc-red); }
 	line-height: 1.4 !important;
 }
 .ccwps-btn-preview-full:last-child { margin-bottom: 0; }
+#ccwps-preview-banner { margin-bottom: 5px !important; }
 
 /* =====================
    ABOUT TAB
