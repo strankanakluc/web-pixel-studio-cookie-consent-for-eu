@@ -546,15 +546,15 @@ class CCWPS_Admin {
 		</div>
 
 		<div class="ccwps-card">
-			<h2><?php esc_html_e( 'Tlačidlo "Odmietnuť" (ghost)', 'cookie-consent-webpixelstudio' ); ?></h2>
-			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Farebné nastavenia pre tlačidlo odmietnutia.', 'cookie-consent-webpixelstudio' ); ?></p>
+			<h2><?php esc_html_e( 'Tlačidlo "Odmietnuť všetky" (primárne)', 'cookie-consent-webpixelstudio' ); ?></h2>
+			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Farebné nastavenia pre tlačidlo odmietnutia. Možnosti sú zjednotené s tlačidlom "Prijať všetky".', 'cookie-consent-webpixelstudio' ); ?></p>
 			<table class="ccwps-table">
 				<?php
 				$btn_ghost = [
-					'btn_ghost_bg'     => [ __( 'Pozadie', 'cookie-consent-webpixelstudio' ),          '#f0f2f5' ],
-					'btn_ghost_bg_hv'  => [ __( 'Pozadie (hover)', 'cookie-consent-webpixelstudio' ),  '#e5e7eb' ],
-					'btn_ghost_txt'    => [ __( 'Farba textu', 'cookie-consent-webpixelstudio' ),        '#111827' ],
-					'btn_ghost_border' => [ __( 'Farba ohraničenia', 'cookie-consent-webpixelstudio' ),  '#e5e7eb' ],
+					'btn_ghost_bg'     => [ __( 'Pozadie', 'cookie-consent-webpixelstudio' ),           '#1a73e8' ],
+					'btn_ghost_bg_hv'  => [ __( 'Pozadie (hover)', 'cookie-consent-webpixelstudio' ),    '#1557b0' ],
+					'btn_ghost_txt'    => [ __( 'Farba textu', 'cookie-consent-webpixelstudio' ),         '#ffffff' ],
+					'btn_ghost_txt_hv' => [ __( 'Farba textu (hover)', 'cookie-consent-webpixelstudio' ), '#ffffff' ],
 				];
 				foreach ( $btn_ghost as $k => [ $lbl, $def ] ) : ?>
 				<tr>
@@ -641,7 +641,7 @@ class CCWPS_Admin {
 				'lang_banner_description' => $this->t( 'admin_trans_banner_desc', 'Popis bannera' ),
 				'lang_accept_all'         => $this->t( 'admin_trans_accept_all', 'Tlačidlo "Prijať všetky"' ),
 				'lang_reject_all'         => $this->t( 'admin_trans_reject_all', 'Tlačidlo "Odmietnuť všetky"' ),
-				'lang_manage_preferences' => $this->t( 'admin_trans_manage_pref', 'Tlačidlo "Spravovať nastavenia"' ),
+				'lang_manage_preferences' => $this->t( 'admin_trans_manage_pref', 'Tlačidlo "Prispôsobiť"' ),
 				'lang_powered_by'         => $this->t( 'admin_trans_powered_by', 'Text "Powered by"' ),
 			],
 			$this->t( 'admin_trans_sect_modal', 'Modál preferencií' ) => [
@@ -929,7 +929,7 @@ class CCWPS_Admin {
 			<div class="ccwps-shortcode-box"><code>[ccwps_manage_consent]</code><button class="button button-small ccwps-copy-btn" data-copy="[ccwps_manage_consent]"><?php echo esc_html( $this->t( 'admin_btn_copy', 'Kopírovať' ) ); ?></button></div>
 			<table class="ccwps-sc-params"><thead><tr><th><?php esc_html_e( 'Parameter', 'cookie-consent-webpixelstudio' ); ?></th><th><?php esc_html_e( 'Predvolené', 'cookie-consent-webpixelstudio' ); ?></th><th><?php esc_html_e( 'Popis', 'cookie-consent-webpixelstudio' ); ?></th></tr></thead>
 			<tbody>
-				<tr><td><code>label</code></td><td><code><?php echo esc_html( $this->tx( (string) $this->settings->get( 'lang_manage_preferences', 'Manage Preferences' ) ) ); ?></code></td><td><?php esc_html_e( 'Text tlačidla (predvolene: text z nastavení Prekladov).', 'cookie-consent-webpixelstudio' ); ?></td></tr>
+				<tr><td><code>label</code></td><td><code><?php echo esc_html( $this->tx( (string) $this->settings->get( 'lang_manage_preferences', 'Customize' ) ) ); ?></code></td><td><?php esc_html_e( 'Text tlačidla (predvolene: text z nastavení Prekladov).', 'cookie-consent-webpixelstudio' ); ?></td></tr>
 				<tr><td><code>class</code></td><td><code>ccwps-manage-consent-btn</code></td><td><?php esc_html_e( 'CSS trieda pre vlastné štýlovanie.', 'cookie-consent-webpixelstudio' ); ?></td></tr>
 				<tr><td><code>id</code></td><td><code>(prázdne)</code></td><td><?php esc_html_e( 'Voliteľné HTML id atribút.', 'cookie-consent-webpixelstudio' ); ?></td></tr>
 			</tbody></table>
@@ -1756,7 +1756,7 @@ class CCWPS_Admin {
 		$color_keys = [
 			'primary_color', 'text_color', 'bg_color', 'btn_text_color',
 			'btn_primary_bg', 'btn_primary_bg_hv', 'btn_primary_txt',
-			'btn_ghost_bg', 'btn_ghost_bg_hv', 'btn_ghost_txt', 'btn_ghost_border',
+			'btn_ghost_bg', 'btn_ghost_bg_hv', 'btn_ghost_txt', 'btn_ghost_txt_hv',
 			'btn_outline_bg', 'btn_outline_bg_hv', 'btn_outline_txt', 'btn_outline_border',
 			'modal_bg', 'modal_header_bg', 'modal_footer_bg', 'modal_border', 'modal_text',
 			'cat_header_bg', 'cat_header_bg_hv', 'toggle_on_color', 'always_on_color',

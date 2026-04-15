@@ -75,7 +75,7 @@ class CCWPS_Ajax {
 		$color_keys   = [
 			'primary_color', 'text_color', 'bg_color', 'btn_text_color',
 			'btn_primary_bg', 'btn_primary_bg_hv', 'btn_primary_txt',
-			'btn_ghost_bg', 'btn_ghost_bg_hv', 'btn_ghost_txt', 'btn_ghost_border',
+			'btn_ghost_bg', 'btn_ghost_bg_hv', 'btn_ghost_txt', 'btn_ghost_txt_hv',
 			'btn_outline_bg', 'btn_outline_bg_hv', 'btn_outline_txt', 'btn_outline_border',
 			'modal_bg', 'modal_header_bg', 'modal_footer_bg', 'modal_border', 'modal_text',
 			'cat_header_bg', 'cat_header_bg_hv', 'toggle_on_color', 'always_on_color',

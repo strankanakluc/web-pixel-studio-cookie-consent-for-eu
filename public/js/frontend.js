@@ -242,11 +242,12 @@
 		var primBg   = col.btnPrimaryBg   || col.primary || '#1a73e8';
 		var primBgHv = col.btnPrimaryBgHv || primBg;
 		var primTxt  = col.btnPrimaryTxt  || col.btnText || '#ffffff';
+		var primTxtHv = col.btnText || primTxt;
 
 		var ghostBg     = col.btnGhostBg     || '#f0f2f5';
 		var ghostBgHv   = col.btnGhostBgHv   || '#e5e7eb';
 		var ghostTxt    = col.btnGhostTxt    || col.text || '#111827';
-		var ghostBorder = col.btnGhostBorder || '#e5e7eb';
+		var ghostTxtHv  = col.btnGhostTxtHv  || ghostTxt;
 
 		var outlineBg     = col.btnOutlineBg     || 'transparent';
 		var outlineBgHv   = col.btnOutlineBgHv   || col.primary || '#1a73e8';
@@ -284,11 +285,12 @@
 			'--ccwps-btn-primary-bg:     ' + primBg    + ';',
 			'--ccwps-btn-primary-bg-hv:  ' + primBgHv  + ';',
 			'--ccwps-btn-primary-txt:    ' + primTxt   + ';',
+			'--ccwps-btn-primary-txt-hv: ' + primTxtHv + ';',
 			// Ghost button
 			'--ccwps-btn-ghost-bg:       ' + ghostBg     + ';',
 			'--ccwps-btn-ghost-bg-hv:    ' + ghostBgHv   + ';',
 			'--ccwps-btn-ghost-txt:      ' + ghostTxt    + ';',
-			'--ccwps-btn-ghost-border:   ' + ghostBorder + ';',
+			'--ccwps-btn-ghost-txt-hv:   ' + ghostTxtHv  + ';',
 			// Outline button
 			'--ccwps-btn-outline-bg:     ' + outlineBg     + ';',
 			'--ccwps-btn-outline-bg-hv:  ' + outlineBgHv   + ';',
@@ -635,14 +637,14 @@
 			catsHtml +=
 				'<div class="ccwps-category">' +
 					'<div class="ccwps-cat-header">' +
-						'<div class="ccwps-cat-info">' +
+						'<div class="ccwps-cat-top">' +
 							'<div class="ccwps-cat-name">' + esc(cat.title) + '</div>' +
-							'<div class="ccwps-cat-desc">' + esc(cat.desc) + '</div>' +
+							'<div class="ccwps-cat-right">' +
+								toggle +
+								(cookies.length ? '<span class="ccwps-chevron">' + ICONS.chevron + '</span>' : '') +
+							'</div>' +
 						'</div>' +
-						'<div class="ccwps-cat-right">' +
-							toggle +
-							(cookies.length ? '<span class="ccwps-chevron">' + ICONS.chevron + '</span>' : '') +
-						'</div>' +
+						'<div class="ccwps-cat-desc">' + esc(cat.desc) + '</div>' +
 					'</div>' +
 					(cookies.length ? '<div class="ccwps-ck-list">' + tableHtml + '</div>' : '') +
 				'</div>';
@@ -666,7 +668,7 @@
 				'<div class="ccwps-modal-foot">' +
 					'<button class="ccwps-btn ccwps-btn-primary" id="ccwps-modal-save">' + esc(i18n.savePreferences) + '</button>' +
 					'<button class="ccwps-btn ccwps-btn-ghost"   id="ccwps-modal-reject">' + esc(i18n.rejectAll) + '</button>' +
-					'<button class="ccwps-btn ccwps-btn-outline" id="ccwps-modal-accept">' + esc(i18n.acceptAll) + '</button>' +
+					'<button class="ccwps-btn ccwps-btn-primary" id="ccwps-modal-accept">' + esc(i18n.acceptAll) + '</button>' +
 				'</div>' +
 			'</div>';
 

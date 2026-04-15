@@ -63,7 +63,7 @@ class CCWPS_Settings {
 			// Primary button (Accept All)
 			'btn_primary_bg', 'btn_primary_bg_hv', 'btn_primary_txt',
 			// Ghost button (Reject/Decline)
-			'btn_ghost_bg', 'btn_ghost_bg_hv', 'btn_ghost_txt', 'btn_ghost_border',
+			'btn_ghost_bg', 'btn_ghost_bg_hv', 'btn_ghost_txt', 'btn_ghost_txt_hv',
 			// Outline button (Manage Preferences)
 			'btn_outline_bg', 'btn_outline_bg_hv', 'btn_outline_txt', 'btn_outline_border',
 			// Modal window
@@ -211,10 +211,10 @@ class CCWPS_Settings {
 				'btnPrimaryBgHv'    => $s['btn_primary_bg_hv'] ?: '',
 				'btnPrimaryTxt'     => $s['btn_primary_txt']   ?: $s['btn_text_color'],
 				// Ghost button (Reject)
-				'btnGhostBg'        => $s['btn_ghost_bg']      ?: '#f0f2f5',
-				'btnGhostBgHv'      => $s['btn_ghost_bg_hv']   ?: '#e5e7eb',
-				'btnGhostTxt'       => $s['btn_ghost_txt']     ?: $s['text_color'],
-				'btnGhostBorder'    => $s['btn_ghost_border']  ?: '#e5e7eb',
+				'btnGhostBg'        => $s['btn_ghost_bg']      ?: ( $s['btn_primary_bg'] ?: $s['primary_color'] ),
+				'btnGhostBgHv'      => $s['btn_ghost_bg_hv']   ?: ( $s['btn_primary_bg_hv'] ?: ( $s['btn_primary_bg'] ?: $s['primary_color'] ) ),
+				'btnGhostTxt'       => $s['btn_ghost_txt']     ?: ( $s['btn_primary_txt'] ?: $s['btn_text_color'] ),
+				'btnGhostTxtHv'     => $s['btn_ghost_txt_hv']  ?: ( $s['btn_ghost_txt'] ?: ( $s['btn_primary_txt'] ?: $s['btn_text_color'] ) ),
 				// Outline button (Manage Preferences)
 				'btnOutlineBg'      => $s['btn_outline_bg']     ?: 'transparent',
 				'btnOutlineBgHv'    => $s['btn_outline_bg_hv']  ?: $s['primary_color'],

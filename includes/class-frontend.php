@@ -357,7 +357,7 @@ class CCWPS_Frontend {
 	 */
 	public function shortcode_manage_consent( array $atts ): string {
 		$atts = shortcode_atts( [
-			'label'  => $this->settings->get( 'lang_manage_preferences', 'Manage Preferences' ),
+			'label'  => $this->settings->get( 'lang_manage_preferences', 'Customize' ),
 			'class'  => 'ccwps-manage-consent-btn',
 			'id'     => '',
 		], $atts, 'ccwps_manage_consent' );
