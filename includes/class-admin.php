@@ -216,6 +216,14 @@ class CCWPS_Admin {
 					<div class="ccwps-sidebar-author">
 						<?php esc_html_e( 'Bezplatný plugin vytvoril:', 'cookie-consent-webpixelstudio' ); ?><br>
 						<a href="https://wps.sk" target="_blank" rel="noopener"><strong>Web Pixel Studio</strong></a>
+						<div class="ccwps-sidebar-social">
+							<a href="https://www.facebook.com/wps.sk/" target="_blank" rel="noopener" aria-label="Facebook">
+								<img src="<?php echo esc_url( CCWPS_PLUGIN_URL . 'admin/images/social/facebook-web-pixel-studio.webp' ); ?>" alt="Facebook">
+							</a>
+							<a href="https://www.instagram.com/tvorbawebov/" target="_blank" rel="noopener" aria-label="Instagram">
+								<img src="<?php echo esc_url( CCWPS_PLUGIN_URL . 'admin/images/social/instagram-web-pixel-studio.webp' ); ?>" alt="Instagram">
+							</a>
+						</div>
 					</div>
 				</div>
 			</aside>

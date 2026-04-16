@@ -695,6 +695,9 @@
 			  '<div class="ccwps-tip-date">' + esc(i18n.consentDateLabel || 'Dátum a čas') + ': <strong>' + esc(dateStr || '—') + '</strong></div>'
 			: '<div class="ccwps-tip-date" style="margin-bottom:16px;">' + esc(i18n.noConsentYet || 'Súhlas nebol udelený.') + '</div>';
 
+		var poweredLabel = normalizePoweredByLabel(i18n.poweredBy);
+		var tipPowered = '<div class="ccwps-tip-powered"><a href="https://wps.sk" target="_blank" rel="noopener">Powered by ' + esc(poweredLabel) + '</a></div>';
+
 		tipEl = document.createElement('div');
 		tipEl.className = 'ccwps-tip-popup';
 		tipEl.innerHTML =
@@ -703,7 +706,8 @@
 			'<div class="ccwps-tip-btns">' +
 				'<button class="ccwps-btn ccwps-btn-ghost ccwps-btn-sm" id="ccwps-tip-close">' + esc(i18n.close || 'Zavrieť') + '</button>' +
 				'<button class="ccwps-btn ccwps-btn-primary ccwps-btn-sm" id="ccwps-tip-manage">' + esc(i18n.managePreferences || 'Spravovať súhlas') + '</button>' +
-			'</div>';
+			'</div>' +
+			tipPowered;
 
 		document.body.appendChild(tipEl);
 		positionTip(iconEl);
