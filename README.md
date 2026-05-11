@@ -20,11 +20,14 @@
 >>>>>>> 7f57084 (Add download and active installs badges to README)
 =======
 
+<<<<<<< HEAD
 >>>>>>> b156a9e (Add social media badges to README)
 [![Facebook](https://img.shields.io/badge/Facebook-0866FF?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/wps.sk)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/tvorbawebov/)
 >>>>>>> 3ac0d22 (Update README.md)
 
+=======
+>>>>>>> d46e5b3 (Remove social media badges from README)
 **Contributors:** duddi, wpssk, webpixelstudio  
 **Tags:** cookie consent, GDPR, cookie banner, ePrivacy, google consent mode  
 **Requires at least:** 5.9  
