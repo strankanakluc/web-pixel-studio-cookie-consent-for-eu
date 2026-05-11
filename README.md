@@ -2,6 +2,7 @@
 ![Plugin for](https://img.shields.io/badge/WordPress-21759B?style=flat&logo=wordpress&logoColor=white)
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/web-pixel-studio-cookie-consent-eu?style=flat)
 ![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/r/web-pixel-studio-cookie-consent-eu?style=flat)
+[![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/web-pixel-studio-cookie-consent-eu)](https://wordpress.org/plugins/web-pixel-studio-cookie-consent-eu/)
 [![WordPress Plugin Active Installs](https://img.shields.io/wordpress/plugin/installs/web-pixel-studio-cookie-consent-eu)](https://wordpress.org/plugins/web-pixel-studio-cookie-consent-eu?style=flat)
 [![Facebook](https://img.shields.io/badge/Facebook-0866FF?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/wps.sk)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/tvorbawebov/)
