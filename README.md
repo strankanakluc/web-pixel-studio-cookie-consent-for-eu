@@ -1,6 +1,7 @@
 # Web Pixel Studio Cookie Consent for EU
 ![GDPR Ready](https://img.shields.io/badge/GDPR-ready-success)
 ![Plugin for](https://img.shields.io/badge/WordPress-21759B?style=flat&logo=wordpress&logoColor=white)
+![WooCommerce](https://img.shields.io/badge/WooCommerce-Compatible-purple)
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/web-pixel-studio-cookie-consent-eu?style=flat)
 [![WordPress Plugin Tested WP Version](https://img.shields.io/wordpress/plugin/tested/web-pixel-studio-cookie-consent-eu)](https://wordpress.org/plugins/web-pixel-studio-cookie-consent-eu/)
 ![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/r/web-pixel-studio-cookie-consent-eu?style=flat)
