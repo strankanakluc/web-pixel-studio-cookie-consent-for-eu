@@ -5,7 +5,7 @@
  * @package CookieConsentWPS
  */
 
-// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
+// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.SchemaChange
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -25,18 +25,14 @@ class CCWPS_Migration {
 		$table = $wpdb->prefix . 'ccwps_consent_log';
 
 		// Skontroluje, či tabuľka existuje
-		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 		$table_exists = $wpdb->get_var( "SHOW TABLES LIKE '{$table}'" );
-		// phpcs:enable
 
 		if ( ! $table_exists ) {
 			return; // Tabuľka neexistuje, nič netreba robiť
 		}
 
 		// Skontroluje, či stĺpec device_info už existuje
-		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 		$result = $wpdb->get_results( "DESC {$table}", ARRAY_A );
-		// phpcs:enable
 		
 		if ( empty( $result ) ) {
 			return; // Chyba pri čítaní tabuľky
@@ -52,12 +48,10 @@ class CCWPS_Migration {
 
 		// Ak device_info stĺpec neexistuje, pridáme ho
 		if ( ! $column_exists ) {
-			// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.SchemaChange
 			$wpdb->query( "ALTER TABLE {$table} ADD COLUMN device_info VARCHAR(100) DEFAULT '' AFTER user_agent" );
-			// phpcs:enable
 		}
 	}
 }
 
+// phpcs:enable
 
-}
