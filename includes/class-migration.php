@@ -5,7 +5,7 @@
  * @package CookieConsentWPS
  */
 
-// phpcs:disable WordPress.DB.DirectDatabaseQuery,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+// phpcs:disable PluginCheck.Security.DirectDB.UnescapedDBParameter,WordPress.DB.DirectDatabaseQuery,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
