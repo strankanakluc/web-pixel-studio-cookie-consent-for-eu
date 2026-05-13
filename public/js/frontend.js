@@ -797,6 +797,49 @@
 			.replace(/"/g, '&quot;');
 	}
 
+	function getSafeLinkUrl(url) {
+		var value = String(url || '').trim();
+		if (!value) return '';
+
+		if (value.charAt(0) === '/') {
+			return value;
+		}
+
+		try {
+			var parsed = new URL(value, location.href);
+			if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+				return parsed.href;
+			}
+		} catch (e) {
+			return '';
+		}
+
+		return '';
+	}
+
+	function buildLegalLinksHtml(extraClass) {
+		var legal = C.legalLinks || {};
+		var links = [];
+
+		if (legal.cookiePolicy && legal.cookiePolicy.enabled) {
+			var cookieUrl = getSafeLinkUrl(legal.cookiePolicy.url);
+			if (cookieUrl) {
+				links.push('<a href="' + esc(cookieUrl) + '" target="_blank" rel="noopener">' + esc(legal.cookiePolicy.text || 'Cookie Policy') + '</a>');
+			}
+		}
+
+		if (legal.privacyPolicy && legal.privacyPolicy.enabled) {
+			var privacyUrl = getSafeLinkUrl(legal.privacyPolicy.url);
+			if (privacyUrl) {
+				links.push('<a href="' + esc(privacyUrl) + '" target="_blank" rel="noopener">' + esc(legal.privacyPolicy.text || 'Privacy Policy') + '</a>');
+			}
+		}
+
+		if (!links.length) return '';
+
+		return '<div class="ccwps-legal-links ' + esc(extraClass || '') + '">' + links.join('<span class="ccwps-legal-links-sep"> | </span>') + '</div>';
+	}
+
 	function fmtDate(ts) {
 		if (!ts) return '';
 		var d = new Date(+ts);
@@ -838,6 +881,9 @@
 		var r   = parseInt(col.btnRadius)     || 8;
 		var rBn = parseInt(col.bannerBorderRadius) || Math.max(r, 8);
 		var rMd = parseInt(col.modalBorderRadius)  || Math.max(r, 8);
+		var spacing = C.spacing || {};
+		var bannerSpacing = spacing.banner || {};
+		var modalSpacing = spacing.modal || {};
 
 		// Compute darker hover for primary if not explicitly set
 		var primBg   = col.btnPrimaryBg   || col.primary || '#1a73e8';
@@ -875,6 +921,65 @@
 		if (isNaN(cloudBgOpacity)) cloudBgOpacity = 70;
 		cloudBgOpacity = Math.max(0, Math.min(100, cloudBgOpacity));
 
+		function intOr(value, fallback) {
+			var n = parseInt(value, 10);
+			return isNaN(n) ? fallback : n;
+		}
+
+		var bannerAcceptBtnPt = intOr(bannerSpacing.acceptBtnPaddingT, 11);
+		var bannerAcceptBtnPr = intOr(bannerSpacing.acceptBtnPaddingR, 20);
+		var bannerAcceptBtnPb = intOr(bannerSpacing.acceptBtnPaddingB, 11);
+		var bannerAcceptBtnPl = intOr(bannerSpacing.acceptBtnPaddingL, 20);
+		var bannerAcceptBtnMt = intOr(bannerSpacing.acceptBtnMarginT, 0);
+		var bannerAcceptBtnMr = intOr(bannerSpacing.acceptBtnMarginR, 0);
+		var bannerAcceptBtnMb = intOr(bannerSpacing.acceptBtnMarginB, 0);
+		var bannerAcceptBtnMl = intOr(bannerSpacing.acceptBtnMarginL, 0);
+
+		var bannerRejectBtnPt = intOr(bannerSpacing.rejectBtnPaddingT, 11);
+		var bannerRejectBtnPr = intOr(bannerSpacing.rejectBtnPaddingR, 20);
+		var bannerRejectBtnPb = intOr(bannerSpacing.rejectBtnPaddingB, 11);
+		var bannerRejectBtnPl = intOr(bannerSpacing.rejectBtnPaddingL, 20);
+		var bannerRejectBtnMt = intOr(bannerSpacing.rejectBtnMarginT, 0);
+		var bannerRejectBtnMr = intOr(bannerSpacing.rejectBtnMarginR, 0);
+		var bannerRejectBtnMb = intOr(bannerSpacing.rejectBtnMarginB, 0);
+		var bannerRejectBtnMl = intOr(bannerSpacing.rejectBtnMarginL, 0);
+
+		var bannerManageBtnPt = intOr(bannerSpacing.manageBtnPaddingT, 11);
+		var bannerManageBtnPr = intOr(bannerSpacing.manageBtnPaddingR, 20);
+		var bannerManageBtnPb = intOr(bannerSpacing.manageBtnPaddingB, 11);
+		var bannerManageBtnPl = intOr(bannerSpacing.manageBtnPaddingL, 20);
+		var bannerManageBtnMt = intOr(bannerSpacing.manageBtnMarginT, 0);
+		var bannerManageBtnMr = intOr(bannerSpacing.manageBtnMarginR, 0);
+		var bannerManageBtnMb = intOr(bannerSpacing.manageBtnMarginB, 0);
+		var bannerManageBtnMl = intOr(bannerSpacing.manageBtnMarginL, 0);
+
+		var modalSaveBtnPt = intOr(modalSpacing.saveBtnPaddingT, 11);
+		var modalSaveBtnPr = intOr(modalSpacing.saveBtnPaddingR, 20);
+		var modalSaveBtnPb = intOr(modalSpacing.saveBtnPaddingB, 11);
+		var modalSaveBtnPl = intOr(modalSpacing.saveBtnPaddingL, 20);
+		var modalSaveBtnMt = intOr(modalSpacing.saveBtnMarginT, 0);
+		var modalSaveBtnMr = intOr(modalSpacing.saveBtnMarginR, 0);
+		var modalSaveBtnMb = intOr(modalSpacing.saveBtnMarginB, 0);
+		var modalSaveBtnMl = intOr(modalSpacing.saveBtnMarginL, 0);
+
+		var modalRejectBtnPt = intOr(modalSpacing.rejectBtnPaddingT, 11);
+		var modalRejectBtnPr = intOr(modalSpacing.rejectBtnPaddingR, 20);
+		var modalRejectBtnPb = intOr(modalSpacing.rejectBtnPaddingB, 11);
+		var modalRejectBtnPl = intOr(modalSpacing.rejectBtnPaddingL, 20);
+		var modalRejectBtnMt = intOr(modalSpacing.rejectBtnMarginT, 0);
+		var modalRejectBtnMr = intOr(modalSpacing.rejectBtnMarginR, 0);
+		var modalRejectBtnMb = intOr(modalSpacing.rejectBtnMarginB, 0);
+		var modalRejectBtnMl = intOr(modalSpacing.rejectBtnMarginL, 0);
+
+		var modalAcceptBtnPt = intOr(modalSpacing.acceptBtnPaddingT, 11);
+		var modalAcceptBtnPr = intOr(modalSpacing.acceptBtnPaddingR, 20);
+		var modalAcceptBtnPb = intOr(modalSpacing.acceptBtnPaddingB, 11);
+		var modalAcceptBtnPl = intOr(modalSpacing.acceptBtnPaddingL, 20);
+		var modalAcceptBtnMt = intOr(modalSpacing.acceptBtnMarginT, 0);
+		var modalAcceptBtnMr = intOr(modalSpacing.acceptBtnMarginR, 0);
+		var modalAcceptBtnMb = intOr(modalSpacing.acceptBtnMarginB, 0);
+		var modalAcceptBtnMl = intOr(modalSpacing.acceptBtnMarginL, 0);
+
 		var style = document.createElement('style');
 		style.id  = 'ccwps-vars';
 		style.textContent = [
@@ -891,6 +996,84 @@
 			'--ccwps-float-icon-color: ' + floatIconC + ';',
 			'--ccwps-float-tip-bg:     ' + floatPopupBg + ';',
 			'--ccwps-float-tip-text:   ' + floatPopupTxt + ';',
+			'--ccwps-banner-text-pt: ' + intOr(bannerSpacing.textPaddingT, 0) + 'px;',
+			'--ccwps-banner-text-pr: ' + intOr(bannerSpacing.textPaddingR, 0) + 'px;',
+			'--ccwps-banner-text-pb: ' + intOr(bannerSpacing.textPaddingB, 0) + 'px;',
+			'--ccwps-banner-text-pl: ' + intOr(bannerSpacing.textPaddingL, 0) + 'px;',
+			'--ccwps-banner-text-mt: ' + intOr(bannerSpacing.textMarginT, 0) + 'px;',
+			'--ccwps-banner-text-mr: ' + intOr(bannerSpacing.textMarginR, 0) + 'px;',
+			'--ccwps-banner-text-mb: ' + intOr(bannerSpacing.textMarginB, 5) + 'px;',
+			'--ccwps-banner-text-ml: ' + intOr(bannerSpacing.textMarginL, 0) + 'px;',
+			'--ccwps-banner-links-pt: ' + intOr(bannerSpacing.linksPaddingT, 0) + 'px;',
+			'--ccwps-banner-links-pr: ' + intOr(bannerSpacing.linksPaddingR, 0) + 'px;',
+			'--ccwps-banner-links-pb: ' + intOr(bannerSpacing.linksPaddingB, 0) + 'px;',
+			'--ccwps-banner-links-pl: ' + intOr(bannerSpacing.linksPaddingL, 0) + 'px;',
+			'--ccwps-banner-links-mt: ' + intOr(bannerSpacing.linksMarginT, 0) + 'px;',
+			'--ccwps-banner-links-mr: ' + intOr(bannerSpacing.linksMarginR, 0) + 'px;',
+			'--ccwps-banner-links-mb: ' + intOr(bannerSpacing.linksMarginB, 30) + 'px;',
+			'--ccwps-banner-links-ml: ' + intOr(bannerSpacing.linksMarginL, 0) + 'px;',
+			'--ccwps-banner-accept-btn-pt: ' + bannerAcceptBtnPt + 'px;',
+			'--ccwps-banner-accept-btn-pr: ' + bannerAcceptBtnPr + 'px;',
+			'--ccwps-banner-accept-btn-pb: ' + bannerAcceptBtnPb + 'px;',
+			'--ccwps-banner-accept-btn-pl: ' + bannerAcceptBtnPl + 'px;',
+			'--ccwps-banner-accept-btn-mt: ' + bannerAcceptBtnMt + 'px;',
+			'--ccwps-banner-accept-btn-mr: ' + bannerAcceptBtnMr + 'px;',
+			'--ccwps-banner-accept-btn-mb: ' + bannerAcceptBtnMb + 'px;',
+			'--ccwps-banner-accept-btn-ml: ' + bannerAcceptBtnMl + 'px;',
+			'--ccwps-banner-reject-btn-pt: ' + bannerRejectBtnPt + 'px;',
+			'--ccwps-banner-reject-btn-pr: ' + bannerRejectBtnPr + 'px;',
+			'--ccwps-banner-reject-btn-pb: ' + bannerRejectBtnPb + 'px;',
+			'--ccwps-banner-reject-btn-pl: ' + bannerRejectBtnPl + 'px;',
+			'--ccwps-banner-reject-btn-mt: ' + bannerRejectBtnMt + 'px;',
+			'--ccwps-banner-reject-btn-mr: ' + bannerRejectBtnMr + 'px;',
+			'--ccwps-banner-reject-btn-mb: ' + bannerRejectBtnMb + 'px;',
+			'--ccwps-banner-reject-btn-ml: ' + bannerRejectBtnMl + 'px;',
+			'--ccwps-banner-manage-btn-pt: ' + bannerManageBtnPt + 'px;',
+			'--ccwps-banner-manage-btn-pr: ' + bannerManageBtnPr + 'px;',
+			'--ccwps-banner-manage-btn-pb: ' + bannerManageBtnPb + 'px;',
+			'--ccwps-banner-manage-btn-pl: ' + bannerManageBtnPl + 'px;',
+			'--ccwps-banner-manage-btn-mt: ' + bannerManageBtnMt + 'px;',
+			'--ccwps-banner-manage-btn-mr: ' + bannerManageBtnMr + 'px;',
+			'--ccwps-banner-manage-btn-mb: ' + bannerManageBtnMb + 'px;',
+			'--ccwps-banner-manage-btn-ml: ' + bannerManageBtnMl + 'px;',
+			'--ccwps-banner-btn-gap: ' + intOr(bannerSpacing.btnGap, 10) + 'px;',
+			'--ccwps-modal-body-pt: ' + intOr(modalSpacing.bodyPaddingT, 24) + 'px;',
+			'--ccwps-modal-body-pr: ' + intOr(modalSpacing.bodyPaddingR, 28) + 'px;',
+			'--ccwps-modal-body-pb: ' + intOr(modalSpacing.bodyPaddingB, 24) + 'px;',
+			'--ccwps-modal-body-pl: ' + intOr(modalSpacing.bodyPaddingL, 28) + 'px;',
+			'--ccwps-modal-body-mt: ' + intOr(modalSpacing.bodyMarginT, 0) + 'px;',
+			'--ccwps-modal-body-mr: ' + intOr(modalSpacing.bodyMarginR, 0) + 'px;',
+			'--ccwps-modal-body-mb: ' + intOr(modalSpacing.bodyMarginB, 0) + 'px;',
+			'--ccwps-modal-body-ml: ' + intOr(modalSpacing.bodyMarginL, 0) + 'px;',
+			'--ccwps-modal-save-btn-pt: ' + modalSaveBtnPt + 'px;',
+			'--ccwps-modal-save-btn-pr: ' + modalSaveBtnPr + 'px;',
+			'--ccwps-modal-save-btn-pb: ' + modalSaveBtnPb + 'px;',
+			'--ccwps-modal-save-btn-pl: ' + modalSaveBtnPl + 'px;',
+			'--ccwps-modal-save-btn-mt: ' + modalSaveBtnMt + 'px;',
+			'--ccwps-modal-save-btn-mr: ' + modalSaveBtnMr + 'px;',
+			'--ccwps-modal-save-btn-mb: ' + modalSaveBtnMb + 'px;',
+			'--ccwps-modal-save-btn-ml: ' + modalSaveBtnMl + 'px;',
+			'--ccwps-modal-reject-btn-pt: ' + modalRejectBtnPt + 'px;',
+			'--ccwps-modal-reject-btn-pr: ' + modalRejectBtnPr + 'px;',
+			'--ccwps-modal-reject-btn-pb: ' + modalRejectBtnPb + 'px;',
+			'--ccwps-modal-reject-btn-pl: ' + modalRejectBtnPl + 'px;',
+			'--ccwps-modal-reject-btn-mt: ' + modalRejectBtnMt + 'px;',
+			'--ccwps-modal-reject-btn-mr: ' + modalRejectBtnMr + 'px;',
+			'--ccwps-modal-reject-btn-mb: ' + modalRejectBtnMb + 'px;',
+			'--ccwps-modal-reject-btn-ml: ' + modalRejectBtnMl + 'px;',
+			'--ccwps-modal-accept-btn-pt: ' + modalAcceptBtnPt + 'px;',
+			'--ccwps-modal-accept-btn-pr: ' + modalAcceptBtnPr + 'px;',
+			'--ccwps-modal-accept-btn-pb: ' + modalAcceptBtnPb + 'px;',
+			'--ccwps-modal-accept-btn-pl: ' + modalAcceptBtnPl + 'px;',
+			'--ccwps-modal-accept-btn-mt: ' + modalAcceptBtnMt + 'px;',
+			'--ccwps-modal-accept-btn-mr: ' + modalAcceptBtnMr + 'px;',
+			'--ccwps-modal-accept-btn-mb: ' + modalAcceptBtnMb + 'px;',
+			'--ccwps-modal-accept-btn-ml: ' + modalAcceptBtnMl + 'px;',
+			'--ccwps-modal-btn-gap: ' + intOr(modalSpacing.btnGap, 10) + 'px;',
+			'--ccwps-modal-desc-mt: ' + intOr(modalSpacing.descMarginT, 0) + 'px;',
+			'--ccwps-modal-desc-mr: ' + intOr(modalSpacing.descMarginR, 0) + 'px;',
+			'--ccwps-modal-desc-mb: ' + intOr(modalSpacing.descMarginB, 6) + 'px;',
+			'--ccwps-modal-desc-ml: ' + intOr(modalSpacing.descMarginL, 0) + 'px;',
 			'--ccwps-muted:      #6b7280;',
 			'--ccwps-border:     ' + modalBorder + ';',
 			'--ccwps-surface:    ' + catBg + ';',
@@ -1227,6 +1410,8 @@
 		el.setAttribute('aria-label', i18n.bannerTitle || 'Cookie Consent');
 
 		var textHtml = '';
+		var bannerLegalLinks = buildLegalLinksHtml('ccwps-legal-links-banner');
+
 		if (isBar) {
 			textHtml =
 				'<div class="ccwps-banner-text">' +
@@ -1237,6 +1422,7 @@
 						'</div>' +
 					'</div>' +
 					'<div class="ccwps-banner-desc">' + (i18n.bannerDescription || '') + '</div>' +
+					bannerLegalLinks +
 				'</div>';
 		} else {
 			textHtml =
@@ -1244,6 +1430,7 @@
 				'<div class="ccwps-banner-text">' +
 					'<div class="ccwps-banner-title">' + esc(i18n.bannerTitle) + '</div>' +
 					'<div class="ccwps-banner-desc">' + (i18n.bannerDescription || '') + '</div>' +
+					bannerLegalLinks +
 				'</div>';
 		}
 
@@ -1351,6 +1538,8 @@
 		overlay.setAttribute('role', 'dialog');
 		overlay.setAttribute('aria-modal', 'true');
 
+		var modalLegalLinks = buildLegalLinksHtml('ccwps-legal-links-modal');
+
 		overlay.innerHTML =
 			'<div class="ccwps-modal-box">' +
 				'<div class="ccwps-modal-head">' +
@@ -1360,6 +1549,7 @@
 				'<div class="ccwps-modal-body">' +
 					idHtml +
 					catsHtml +
+					modalLegalLinks +
 				'</div>' +
 				'<div class="ccwps-modal-foot">' +
 					'<button class="ccwps-btn ccwps-btn-primary" id="ccwps-modal-save">' + esc(i18n.savePreferences) + '</button>' +

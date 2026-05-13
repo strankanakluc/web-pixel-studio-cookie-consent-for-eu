@@ -86,10 +86,12 @@ class CCWPS_Admin {
 				'confirmClear'  => $this->tx( 'Naozaj chcete vymazať všetky záznamy súhlasov? Používatelia budú musieť znova udeliť súhlas.' ),
 				'confirmDelete' => $this->tx( 'Naozaj chcete odstrániť túto položku?' ),
 				'confirmReset'  => $this->tx( 'Resetovať všetky nastavenia na predvolené hodnoty?' ),
+				'confirmSpacingReset' => $this->tx( 'Resetovať iba nastavenia vizuálnych medzier na predvolené hodnoty?' ),
 				'confirmLangChange' => $this->tx( 'Zmeniť jazyk administrácie a aplikovať preklady na frontend?' ),
 				'logCleared'    => $this->tx( 'Záznamy boli vymazané.' ),
 				'langApplied'   => $this->tx( 'Jazyk bol aplikovaný. Uložte nastavenia.' ),
 				'resetDone'     => $this->tx( 'Nastavenia boli resetované.' ),
+				'spacingResetDone' => $this->tx( 'Vizuálne medzery boli resetované.' ),
 				'saving'        => $this->tx( 'Ukladám…' ),
 				'saveSettings'  => $this->tx( 'Uložiť nastavenia' ),
 				'addCookie'     => $this->tx( 'Pridať cookie' ),
@@ -242,6 +244,32 @@ class CCWPS_Admin {
 					<div class="ccwps-sidebar-author">
 						<?php esc_html_e( 'Bezplatný plugin vytvoril:', 'web-pixel-studio-cookie-consent-eu' ); ?><br>
 						<a href="https://webpixelstudio.org" target="_blank" rel="noopener"><strong>Web Pixel Studio</strong></a>
+						<div class="ccwps-sidebar-ratings">
+							<div class="ccwps-sidebar-rating">
+								<div class="ccwps-rating-title"><?php echo esc_html( $this->tx( 'Ohodnoťte plugin' ) ); ?></div>
+								<a class="ccwps-rating-link" href="https://wordpress.org/support/plugin/web-pixel-studio-cookie-consent-eu/reviews/#new-post" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( $this->tx( 'Ohodnoťte plugin' ) ); ?>">
+									<span class="ccwps-rating-stars" aria-hidden="true">
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+									</span>
+								</a>
+							</div>
+							<div class="ccwps-sidebar-rating">
+								<div class="ccwps-rating-title"><?php echo esc_html( $this->tx( 'Ohodnoťte nás na Google' ) ); ?></div>
+								<a class="ccwps-rating-link" href="https://g.page/r/CQbvkFVFGMEvEBM/review" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( $this->tx( 'Ohodnoťte nás na Google' ) ); ?>">
+									<span class="ccwps-rating-stars" aria-hidden="true">
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+										<span class="dashicons dashicons-star-filled"></span>
+									</span>
+								</a>
+							</div>
+						</div>
 						<div class="ccwps-sidebar-social">
 							<a href="https://www.facebook.com/wps.sk/" target="_blank" rel="noopener" aria-label="Facebook">
 								<img src="<?php echo esc_url( CCWPS_PLUGIN_URL . 'admin/images/social/facebook-web-pixel-studio.webp' ); ?>" alt="Facebook">
@@ -690,7 +718,58 @@ class CCWPS_Admin {
 		</div>
 
 		<div class="ccwps-card">
-			<h2><?php esc_html_e( 'Farby bannera', 'web-pixel-studio-cookie-consent-eu' ); ?></h2>
+			<h2 class="ccwps-card-title-row">
+				<span><?php echo esc_html( $this->tx( 'Právne odkazy v banneri a preferenciách' ) ); ?></span>
+				<?php $this->spacing_trigger_button( 'banner-links', $this->tx( 'Upraviť medzery právnych odkazov' ) ); ?>
+			</h2>
+			<table class="ccwps-table">
+				<?php $this->trow_toggle( 'add_cookie_policy_link', $this->tx( 'Pridať odkaz na Zásady používania cookies' ), '', $s->get( 'add_cookie_policy_link', 0 ) ); ?>
+				<tr id="ccwps-cookie-policy-link-row" style="<?php echo $s->get( 'add_cookie_policy_link', 0 ) ? '' : 'display:none;'; ?>">
+					<th><label for="cookie_policy_link_url"><?php echo esc_html( $this->tx( 'URL Zásad používania cookies' ) ); ?></label></th>
+					<td>
+						<input type="url" name="cookie_policy_link_url" id="cookie_policy_link_url"
+							value="<?php echo esc_url( $s->get( 'cookie_policy_link_url' ) ?: '' ); ?>"
+							placeholder="https://example.com/cookie-policy"
+							class="regular-text">
+					</td>
+				</tr>
+				<tr id="ccwps-cookie-policy-text-row" style="<?php echo $s->get( 'add_cookie_policy_link', 0 ) ? '' : 'display:none;'; ?>">
+					<th><label for="cookie_policy_link_text"><?php echo esc_html( $this->tx( 'Text odkazu na Zásady používania cookies' ) ); ?></label></th>
+					<td>
+						<input type="text" name="cookie_policy_link_text" id="cookie_policy_link_text"
+							value="<?php echo esc_attr( $s->get( 'cookie_policy_link_text' ) ?: 'Cookie Policy' ); ?>"
+							placeholder="Cookie Policy"
+							class="regular-text">
+					</td>
+				</tr>
+
+				<?php $this->trow_toggle( 'add_privacy_policy_link', $this->tx( 'Pridať odkaz na Zásady ochrany osobných údajov' ), '', $s->get( 'add_privacy_policy_link', 0 ) ); ?>
+				<tr id="ccwps-privacy-policy-link-row" style="<?php echo $s->get( 'add_privacy_policy_link', 0 ) ? '' : 'display:none;'; ?>">
+					<th><label for="privacy_policy_link_url"><?php echo esc_html( $this->tx( 'URL Zásad ochrany osobných údajov' ) ); ?></label></th>
+					<td>
+						<input type="url" name="privacy_policy_link_url" id="privacy_policy_link_url"
+							value="<?php echo esc_url( $s->get( 'privacy_policy_link_url' ) ?: '' ); ?>"
+							placeholder="https://example.com/privacy-policy"
+							class="regular-text">
+					</td>
+				</tr>
+				<tr id="ccwps-privacy-policy-text-row" style="<?php echo $s->get( 'add_privacy_policy_link', 0 ) ? '' : 'display:none;'; ?>">
+					<th><label for="privacy_policy_link_text"><?php echo esc_html( $this->tx( 'Text odkazu na Zásady ochrany osobných údajov' ) ); ?></label></th>
+					<td>
+						<input type="text" name="privacy_policy_link_text" id="privacy_policy_link_text"
+							value="<?php echo esc_attr( $s->get( 'privacy_policy_link_text' ) ?: 'Privacy Policy' ); ?>"
+							placeholder="Privacy Policy"
+							class="regular-text">
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="ccwps-card">
+			<h2 class="ccwps-card-title-row">
+				<span><?php esc_html_e( 'Farby bannera', 'web-pixel-studio-cookie-consent-eu' ); ?></span>
+				<?php $this->spacing_trigger_button( 'banner-text', $this->tx( 'Upraviť medzery textu bannera' ) ); ?>
+			</h2>
 			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Nastavte farby pre pozadie a text cookie lišty (bannera).', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
 			<table class="ccwps-table">
 				<?php foreach ( [
@@ -712,7 +791,10 @@ class CCWPS_Admin {
 		</div>
 
 		<div class="ccwps-card">
-			<h2><?php esc_html_e( 'Tlačidlo "Prijať všetky" (primárne)', 'web-pixel-studio-cookie-consent-eu' ); ?></h2>
+			<h2 class="ccwps-card-title-row">
+				<span><?php esc_html_e( 'Tlačidlo "Prijať všetky" (primárne)', 'web-pixel-studio-cookie-consent-eu' ); ?></span>
+				<?php $this->spacing_trigger_button( 'banner-accept', $this->tx( 'Upraviť medzery tlačidla Prijať všetky' ) ); ?>
+			</h2>
 			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Farebné nastavenia pre hlavné modré tlačidlo súhlasu. Prázdne pole = použije sa primárna farba.', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
 			<table class="ccwps-table">
 				<?php
@@ -732,7 +814,10 @@ class CCWPS_Admin {
 		</div>
 
 		<div class="ccwps-card">
-			<h2><?php esc_html_e( 'Tlačidlo "Odmietnuť všetky" (primárne)', 'web-pixel-studio-cookie-consent-eu' ); ?></h2>
+			<h2 class="ccwps-card-title-row">
+				<span><?php esc_html_e( 'Tlačidlo "Odmietnuť všetky" (primárne)', 'web-pixel-studio-cookie-consent-eu' ); ?></span>
+				<?php $this->spacing_trigger_button( 'banner-reject', $this->tx( 'Upraviť medzery tlačidla Odmietnuť všetky' ) ); ?>
+			</h2>
 			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Farebné nastavenia pre tlačidlo odmietnutia. Možnosti sú zjednotené s tlačidlom "Prijať všetky".', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
 			<table class="ccwps-table">
 				<?php
@@ -752,7 +837,10 @@ class CCWPS_Admin {
 		</div>
 
 		<div class="ccwps-card">
-			<h2><?php esc_html_e( 'Tlačidlo "Spravovať nastavenia" (outline)', 'web-pixel-studio-cookie-consent-eu' ); ?></h2>
+			<h2 class="ccwps-card-title-row">
+				<span><?php esc_html_e( 'Tlačidlo "Spravovať nastavenia" (outline)', 'web-pixel-studio-cookie-consent-eu' ); ?></span>
+				<?php $this->spacing_trigger_button( 'banner-manage', $this->tx( 'Upraviť medzery tlačidla Spravovať nastavenia' ) ); ?>
+			</h2>
 			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Farebné nastavenia pre tlačidlo správy preferencií.', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
 			<table class="ccwps-table">
 				<?php
@@ -781,7 +869,10 @@ class CCWPS_Admin {
 		</div>
 
 		<div class="ccwps-card">
-			<h2><?php esc_html_e( 'Okno modálu (Spravovať súhlas)', 'web-pixel-studio-cookie-consent-eu' ); ?></h2>
+			<h2 class="ccwps-card-title-row">
+				<span><?php esc_html_e( 'Okno modálu (Spravovať súhlas)', 'web-pixel-studio-cookie-consent-eu' ); ?></span>
+				<?php $this->spacing_trigger_button( 'modal-body', $this->tx( 'Upraviť medzery obsahu modálu' ) ); ?>
+			</h2>
 			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Farby pre okno nastavenia cookies, ktoré sa otvorí po kliknutí na "Spravovať nastavenia".', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
 			<table class="ccwps-table">
 				<?php
@@ -810,6 +901,172 @@ class CCWPS_Admin {
 			</table>
 		</div>
 
+		<div class="ccwps-modal" id="ccwps-spacing-modal" style="display:none;">
+			<div class="ccwps-modal-inner ccwps-spacing-modal-inner">
+				<div class="ccwps-modal-header">
+					<h3><?php echo esc_html( $this->tx( 'Vizuálne medzery' ) ); ?></h3>
+					<button type="button" class="ccwps-modal-close" aria-label="<?php echo esc_attr( $this->tx( 'Zavrieť' ) ); ?>">&times;</button>
+				</div>
+				<div class="ccwps-modal-body">
+					<p class="description" style="margin:0 0 16px;"><?php echo esc_html( $this->tx( 'Nastavenia menia iba tento plugin. Upravte medzery pre bannery a modál bez zásahu do zvyšku webu.' ) ); ?></p>
+					<div class="ccwps-spacing-sections">
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="banner-text">
+							<h4><?php echo esc_html( $this->tx( 'Banner: texty' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_text_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="banner_text_padding_t" id="banner_text_padding_t" value="<?php echo esc_attr( $s->get( 'banner_text_padding_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_text_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="banner_text_padding_r" id="banner_text_padding_r" value="<?php echo esc_attr( $s->get( 'banner_text_padding_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_text_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_text_padding_b" id="banner_text_padding_b" value="<?php echo esc_attr( $s->get( 'banner_text_padding_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_text_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="banner_text_padding_l" id="banner_text_padding_l" value="<?php echo esc_attr( $s->get( 'banner_text_padding_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_text_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="banner_text_margin_t" id="banner_text_margin_t" value="<?php echo esc_attr( $s->get( 'banner_text_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_text_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="banner_text_margin_r" id="banner_text_margin_r" value="<?php echo esc_attr( $s->get( 'banner_text_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_text_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_text_margin_b" id="banner_text_margin_b" value="<?php echo esc_attr( $s->get( 'banner_text_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_text_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="banner_text_margin_l" id="banner_text_margin_l" value="<?php echo esc_attr( $s->get( 'banner_text_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="banner-links">
+							<h4><?php echo esc_html( $this->tx( 'Banner: právne odkazy' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_links_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="banner_links_padding_t" id="banner_links_padding_t" value="<?php echo esc_attr( $s->get( 'banner_links_padding_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_links_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="banner_links_padding_r" id="banner_links_padding_r" value="<?php echo esc_attr( $s->get( 'banner_links_padding_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_links_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_links_padding_b" id="banner_links_padding_b" value="<?php echo esc_attr( $s->get( 'banner_links_padding_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_links_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="banner_links_padding_l" id="banner_links_padding_l" value="<?php echo esc_attr( $s->get( 'banner_links_padding_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_links_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="banner_links_margin_t" id="banner_links_margin_t" value="<?php echo esc_attr( $s->get( 'banner_links_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_links_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="banner_links_margin_r" id="banner_links_margin_r" value="<?php echo esc_attr( $s->get( 'banner_links_margin_r' ) ); ?>" min="0" max="120" class="small-text"></td></tr>
+								<tr><th><label for="banner_links_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_links_margin_b" id="banner_links_margin_b" value="<?php echo esc_attr( $s->get( 'banner_links_margin_b' ) ); ?>" min="0" max="120" class="small-text"></td></tr>
+								<tr><th><label for="banner_links_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="banner_links_margin_l" id="banner_links_margin_l" value="<?php echo esc_attr( $s->get( 'banner_links_margin_l' ) ); ?>" min="0" max="120" class="small-text"></td></tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="banner-accept">
+							<h4><?php echo esc_html( $this->tx( 'Banner: tlačidlo Prijať všetky' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_accept_btn_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_padding_t" id="banner_accept_btn_padding_t" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_padding_t' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_accept_btn_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_padding_r" id="banner_accept_btn_padding_r" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_padding_r' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_accept_btn_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_padding_b" id="banner_accept_btn_padding_b" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_padding_b' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_accept_btn_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_padding_l" id="banner_accept_btn_padding_l" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_padding_l' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_accept_btn_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_margin_t" id="banner_accept_btn_margin_t" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_accept_btn_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_margin_r" id="banner_accept_btn_margin_r" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_accept_btn_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_margin_b" id="banner_accept_btn_margin_b" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_accept_btn_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="banner_accept_btn_margin_l" id="banner_accept_btn_margin_l" value="<?php echo esc_attr( $s->get( 'banner_accept_btn_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="banner-reject">
+							<h4><?php echo esc_html( $this->tx( 'Banner: tlačidlo Odmietnuť všetky' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_reject_btn_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_padding_t" id="banner_reject_btn_padding_t" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_padding_t' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_reject_btn_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_padding_r" id="banner_reject_btn_padding_r" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_padding_r' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_reject_btn_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_padding_b" id="banner_reject_btn_padding_b" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_padding_b' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_reject_btn_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_padding_l" id="banner_reject_btn_padding_l" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_padding_l' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_reject_btn_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_margin_t" id="banner_reject_btn_margin_t" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_reject_btn_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_margin_r" id="banner_reject_btn_margin_r" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_reject_btn_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_margin_b" id="banner_reject_btn_margin_b" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_reject_btn_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="banner_reject_btn_margin_l" id="banner_reject_btn_margin_l" value="<?php echo esc_attr( $s->get( 'banner_reject_btn_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="banner-manage">
+							<h4><?php echo esc_html( $this->tx( 'Banner: tlačidlo Spravovať nastavenia' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_manage_btn_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_padding_t" id="banner_manage_btn_padding_t" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_padding_t' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_manage_btn_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_padding_r" id="banner_manage_btn_padding_r" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_padding_r' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_manage_btn_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_padding_b" id="banner_manage_btn_padding_b" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_padding_b' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="banner_manage_btn_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_padding_l" id="banner_manage_btn_padding_l" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_padding_l' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="banner_manage_btn_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_margin_t" id="banner_manage_btn_margin_t" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_manage_btn_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_margin_r" id="banner_manage_btn_margin_r" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_manage_btn_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_margin_b" id="banner_manage_btn_margin_b" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="banner_manage_btn_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="banner_manage_btn_margin_l" id="banner_manage_btn_margin_l" value="<?php echo esc_attr( $s->get( 'banner_manage_btn_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr>
+									<th><label for="banner_btn_gap"><?php echo esc_html( $this->tx( 'Spoločná medzera medzi tlačidlami (px)' ) ); ?></label></th>
+									<td><input type="number" name="banner_btn_gap" id="banner_btn_gap" value="<?php echo esc_attr( $s->get( 'banner_btn_gap' ) ); ?>" min="0" max="80" class="small-text"></td>
+								</tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="modal-body">
+							<h4><?php echo esc_html( $this->tx( 'Modál: obsah' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_body_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="modal_body_padding_t" id="modal_body_padding_t" value="<?php echo esc_attr( $s->get( 'modal_body_padding_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_body_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="modal_body_padding_r" id="modal_body_padding_r" value="<?php echo esc_attr( $s->get( 'modal_body_padding_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_body_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_body_padding_b" id="modal_body_padding_b" value="<?php echo esc_attr( $s->get( 'modal_body_padding_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_body_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="modal_body_padding_l" id="modal_body_padding_l" value="<?php echo esc_attr( $s->get( 'modal_body_padding_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_body_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="modal_body_margin_t" id="modal_body_margin_t" value="<?php echo esc_attr( $s->get( 'modal_body_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_body_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="modal_body_margin_r" id="modal_body_margin_r" value="<?php echo esc_attr( $s->get( 'modal_body_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_body_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_body_margin_b" id="modal_body_margin_b" value="<?php echo esc_attr( $s->get( 'modal_body_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_body_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="modal_body_margin_l" id="modal_body_margin_l" value="<?php echo esc_attr( $s->get( 'modal_body_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Modál: popis' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_desc_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="modal_desc_margin_t" id="modal_desc_margin_t" value="<?php echo esc_attr( $s->get( 'modal_desc_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_desc_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="modal_desc_margin_r" id="modal_desc_margin_r" value="<?php echo esc_attr( $s->get( 'modal_desc_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_desc_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_desc_margin_b" id="modal_desc_margin_b" value="<?php echo esc_attr( $s->get( 'modal_desc_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_desc_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="modal_desc_margin_l" id="modal_desc_margin_l" value="<?php echo esc_attr( $s->get( 'modal_desc_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr>
+									<th><label for="modal_btn_gap"><?php echo esc_html( $this->tx( 'Medzera medzi tlačidlami (px)' ) ); ?></label></th>
+									<td><input type="number" name="modal_btn_gap" id="modal_btn_gap" value="<?php echo esc_attr( $s->get( 'modal_btn_gap' ) ); ?>" min="0" max="80" class="small-text"></td>
+								</tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="modal-save">
+							<h4><?php echo esc_html( $this->tx( 'Modál: tlačidlo Uložiť nastavenia' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_save_btn_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_padding_t" id="modal_save_btn_padding_t" value="<?php echo esc_attr( $s->get( 'modal_save_btn_padding_t' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_save_btn_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_padding_r" id="modal_save_btn_padding_r" value="<?php echo esc_attr( $s->get( 'modal_save_btn_padding_r' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_save_btn_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_padding_b" id="modal_save_btn_padding_b" value="<?php echo esc_attr( $s->get( 'modal_save_btn_padding_b' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_save_btn_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_padding_l" id="modal_save_btn_padding_l" value="<?php echo esc_attr( $s->get( 'modal_save_btn_padding_l' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_save_btn_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_margin_t" id="modal_save_btn_margin_t" value="<?php echo esc_attr( $s->get( 'modal_save_btn_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_save_btn_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_margin_r" id="modal_save_btn_margin_r" value="<?php echo esc_attr( $s->get( 'modal_save_btn_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_save_btn_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_margin_b" id="modal_save_btn_margin_b" value="<?php echo esc_attr( $s->get( 'modal_save_btn_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_save_btn_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="modal_save_btn_margin_l" id="modal_save_btn_margin_l" value="<?php echo esc_attr( $s->get( 'modal_save_btn_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="modal-reject">
+							<h4><?php echo esc_html( $this->tx( 'Modál: tlačidlo Odmietnuť všetky' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_reject_btn_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_padding_t" id="modal_reject_btn_padding_t" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_padding_t' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_reject_btn_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_padding_r" id="modal_reject_btn_padding_r" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_padding_r' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_reject_btn_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_padding_b" id="modal_reject_btn_padding_b" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_padding_b' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_reject_btn_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_padding_l" id="modal_reject_btn_padding_l" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_padding_l' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_reject_btn_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_margin_t" id="modal_reject_btn_margin_t" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_reject_btn_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_margin_r" id="modal_reject_btn_margin_r" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_reject_btn_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_margin_b" id="modal_reject_btn_margin_b" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_reject_btn_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="modal_reject_btn_margin_l" id="modal_reject_btn_margin_l" value="<?php echo esc_attr( $s->get( 'modal_reject_btn_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+							</table>
+						</section>
+						<section class="ccwps-spacing-section" data-ccwps-spacing-group="modal-accept">
+							<h4><?php echo esc_html( $this->tx( 'Modál: tlačidlo Prijať všetky' ) ); ?></h4>
+							<table class="ccwps-table">
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Padding' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_accept_btn_padding_t"><?php echo esc_html( $this->tx( 'Padding Top (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_padding_t" id="modal_accept_btn_padding_t" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_padding_t' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_accept_btn_padding_r"><?php echo esc_html( $this->tx( 'Padding Right (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_padding_r" id="modal_accept_btn_padding_r" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_padding_r' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_accept_btn_padding_b"><?php echo esc_html( $this->tx( 'Padding Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_padding_b" id="modal_accept_btn_padding_b" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_padding_b' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><th><label for="modal_accept_btn_padding_l"><?php echo esc_html( $this->tx( 'Padding Left (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_padding_l" id="modal_accept_btn_padding_l" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_padding_l' ) ); ?>" min="0" max="80" class="small-text"></td></tr>
+								<tr><td colspan="2"><strong><?php echo esc_html( $this->tx( 'Margin' ) ); ?></strong></td></tr>
+								<tr><th><label for="modal_accept_btn_margin_t"><?php echo esc_html( $this->tx( 'Margin Top (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_margin_t" id="modal_accept_btn_margin_t" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_margin_t' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_accept_btn_margin_r"><?php echo esc_html( $this->tx( 'Margin Right (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_margin_r" id="modal_accept_btn_margin_r" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_margin_r' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_accept_btn_margin_b"><?php echo esc_html( $this->tx( 'Margin Bottom (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_margin_b" id="modal_accept_btn_margin_b" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_margin_b' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+								<tr><th><label for="modal_accept_btn_margin_l"><?php echo esc_html( $this->tx( 'Margin Left (px)' ) ); ?></label></th><td><input type="number" name="modal_accept_btn_margin_l" id="modal_accept_btn_margin_l" value="<?php echo esc_attr( $s->get( 'modal_accept_btn_margin_l' ) ); ?>" min="0" max="100" class="small-text"></td></tr>
+							</table>
+						</section>
+					</div>
+				</div>
+				<div class="ccwps-modal-footer">
+					<button type="button" class="button ccwps-btn-secondary-action ccwps-reset-spacing-only"><?php echo esc_html( $this->tx( '↺ Resetovať tieto medzery' ) ); ?></button>
+					<button type="button" class="button button-primary ccwps-modal-close"><?php echo esc_html( $this->tx( 'Zavrieť' ) ); ?></button>
+				</div>
+			</div>
+		</div>
+
 		<div class="ccwps-form-actions">
 			<button type="button" class="button ccwps-btn-secondary-action ccwps-reset-appearance"><?php echo esc_html( $this->tx( '↺ Obnoviť predvolené' ) ); ?></button>
 			<button type="button" class="button button-primary ccwps-save-settings ccwps-btn-primary-action"><?php echo esc_html( $this->t( 'admin_btn_save_appearance', 'Uložiť vzhľad' ) ); ?></button>
@@ -831,6 +1088,90 @@ class CCWPS_Admin {
 			'banner_logo_url'     => '',
 			'banner_logo_link_url'=> '',
 			'banner_logo_width'   => '40',
+			'add_cookie_policy_link' => '0',
+			'cookie_policy_link_url' => '',
+			'cookie_policy_link_text' => 'Cookie Policy',
+			'add_privacy_policy_link' => '0',
+			'privacy_policy_link_url' => '',
+			'privacy_policy_link_text' => 'Privacy Policy',
+			'banner_text_padding_t' => '0',
+			'banner_text_padding_r' => '0',
+			'banner_text_padding_b' => '0',
+			'banner_text_padding_l' => '0',
+			'banner_text_margin_t' => '0',
+			'banner_text_margin_r' => '0',
+			'banner_text_margin_b' => '5',
+			'banner_text_margin_l' => '0',
+			'banner_links_padding_t' => '0',
+			'banner_links_padding_r' => '0',
+			'banner_links_padding_b' => '0',
+			'banner_links_padding_l' => '0',
+			'banner_links_margin_t' => '0',
+			'banner_links_margin_r' => '0',
+			'banner_links_margin_b' => '30',
+			'banner_links_margin_l' => '0',
+			'banner_accept_btn_padding_t' => '11',
+			'banner_accept_btn_padding_r' => '20',
+			'banner_accept_btn_padding_b' => '11',
+			'banner_accept_btn_padding_l' => '20',
+			'banner_accept_btn_margin_t' => '0',
+			'banner_accept_btn_margin_r' => '0',
+			'banner_accept_btn_margin_b' => '0',
+			'banner_accept_btn_margin_l' => '0',
+			'banner_reject_btn_padding_t' => '11',
+			'banner_reject_btn_padding_r' => '20',
+			'banner_reject_btn_padding_b' => '11',
+			'banner_reject_btn_padding_l' => '20',
+			'banner_reject_btn_margin_t' => '0',
+			'banner_reject_btn_margin_r' => '0',
+			'banner_reject_btn_margin_b' => '0',
+			'banner_reject_btn_margin_l' => '0',
+			'banner_manage_btn_padding_t' => '11',
+			'banner_manage_btn_padding_r' => '20',
+			'banner_manage_btn_padding_b' => '11',
+			'banner_manage_btn_padding_l' => '20',
+			'banner_manage_btn_margin_t' => '0',
+			'banner_manage_btn_margin_r' => '0',
+			'banner_manage_btn_margin_b' => '0',
+			'banner_manage_btn_margin_l' => '0',
+			'banner_btn_gap'       => '10',
+			'modal_body_padding_t' => '24',
+			'modal_body_padding_r' => '28',
+			'modal_body_padding_b' => '24',
+			'modal_body_padding_l' => '28',
+			'modal_body_margin_t' => '0',
+			'modal_body_margin_r' => '0',
+			'modal_body_margin_b' => '0',
+			'modal_body_margin_l' => '0',
+			'modal_save_btn_padding_t' => '11',
+			'modal_save_btn_padding_r' => '20',
+			'modal_save_btn_padding_b' => '11',
+			'modal_save_btn_padding_l' => '20',
+			'modal_save_btn_margin_t' => '0',
+			'modal_save_btn_margin_r' => '0',
+			'modal_save_btn_margin_b' => '0',
+			'modal_save_btn_margin_l' => '0',
+			'modal_reject_btn_padding_t' => '11',
+			'modal_reject_btn_padding_r' => '20',
+			'modal_reject_btn_padding_b' => '11',
+			'modal_reject_btn_padding_l' => '20',
+			'modal_reject_btn_margin_t' => '0',
+			'modal_reject_btn_margin_r' => '0',
+			'modal_reject_btn_margin_b' => '0',
+			'modal_reject_btn_margin_l' => '0',
+			'modal_accept_btn_padding_t' => '11',
+			'modal_accept_btn_padding_r' => '20',
+			'modal_accept_btn_padding_b' => '11',
+			'modal_accept_btn_padding_l' => '20',
+			'modal_accept_btn_margin_t' => '0',
+			'modal_accept_btn_margin_r' => '0',
+			'modal_accept_btn_margin_b' => '0',
+			'modal_accept_btn_margin_l' => '0',
+			'modal_btn_gap'        => '10',
+			'modal_desc_margin_t' => '0',
+			'modal_desc_margin_r' => '0',
+			'modal_desc_margin_b' => '6',
+			'modal_desc_margin_l' => '0',
 			'floating_icon_bg'    => '#1a73e8',
 			'floating_icon_bg_hv' => '#1557b0',
 			'floating_icon_color' => '#ffffff',
@@ -890,6 +1231,14 @@ class CCWPS_Admin {
 				aria-label="<?php echo esc_attr( $this->tx( 'Obnoviť predvolenú farbu' ) ); ?>"
 			>↺</button>
 		</div>
+		<?php
+	}
+
+	private function spacing_trigger_button( string $focus, string $label ): void {
+		?>
+		<button type="button" class="ccwps-spacing-trigger" data-ccwps-spacing-focus="<?php echo esc_attr( $focus ); ?>" aria-label="<?php echo esc_attr( $label ); ?>">
+			<span aria-hidden="true">⚙</span>
+		</button>
 		<?php
 	}
 
@@ -1158,7 +1507,7 @@ class CCWPS_Admin {
 		</div>
 		<div class="ccwps-card">
 			<?php if ( empty( $records ) ) : ?>
-				<p style="padding:16px;"><?php esc_html_e( 'Žiadne záznamy súhlasov.', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
+				<p style="padding:16px;"><?php echo esc_html( $this->tx( 'Žiadne záznamy súhlasov.' ) ); ?></p>
 			<?php else : ?>
 				<div class="ccwps-table-scroll">
 					<table class="wp-list-table widefat striped ccwps-data-table ccwps-log-table">
@@ -1167,6 +1516,7 @@ class CCWPS_Admin {
 							<th><?php echo esc_html( $this->t( 'admin_col_consent_id', 'ID súhlasu' ) ); ?></th>
 							<th>URL</th>
 							<th><?php echo esc_html( $this->t( 'admin_col_ip', 'IP adresa' ) ); ?></th>
+							<th><?php echo esc_html( $this->tx( 'Zariadenie' ) ); ?></th>
 							<th><?php esc_html_e( 'Nev.', 'web-pixel-studio-cookie-consent-eu' ); ?></th>
 							<th><?php esc_html_e( 'Anal.', 'web-pixel-studio-cookie-consent-eu' ); ?></th>
 							<th><?php esc_html_e( 'Market.', 'web-pixel-studio-cookie-consent-eu' ); ?></th>
@@ -1180,6 +1530,7 @@ class CCWPS_Admin {
 								<td><code style="font-size:10px;"><?php echo esc_html( substr( $row['consent_id'], 0, 14 ) . '…' ); ?></code></td>
 								<td class="ccwps-cell-url" title="<?php echo esc_attr( $row['url'] ); ?>"><?php echo esc_html( $row['url'] ); ?></td>
 								<td><?php echo esc_html( $row['ip_address'] ); ?></td>
+								<td><?php echo esc_html( $row['device_info'] ?? '—' ); ?></td>
 								<td><?php echo $row['necessary']   ? '<span class="ccwps-dot green"></span>' : '<span class="ccwps-dot red"></span>'; ?></td>
 								<td><?php echo $row['analytics']   ? '<span class="ccwps-dot green"></span>' : '<span class="ccwps-dot red"></span>'; ?></td>
 								<td><?php echo $row['targeting']   ? '<span class="ccwps-dot green"></span>' : '<span class="ccwps-dot red"></span>'; ?></td>
@@ -1413,8 +1764,8 @@ class CCWPS_Admin {
 
 		<div class="ccwps-card">
 			<h2><?php esc_html_e( 'Popis pluginu', 'web-pixel-studio-cookie-consent-eu' ); ?></h2>
-			<p><?php esc_html_e( 'Web Pixel Studio Cookie Consent for EU je bezplatný WordPress plugin pre správu súhlasov s cookies (GDPR / ePrivacy). Poskytuje plne prispôsobiteľný banner a modál preferencií, zaznamenáva súhlasy pre GDPR audit, blokuje skripty tretích strán a podporuje Google Consent Mode v2 a v3.', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
-			<p style="margin-top:10px;"><?php esc_html_e( 'Plugin je postavený na knižnici orest bida (cookieconsent) a rozširuje ju o WordPress admin panel, databázové záznamy súhlasov a blokovanie skriptov.', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
+			<p><?php echo esc_html( $this->tx( 'Web Pixel Studio Cookie Consent for EU je bezplatný WordPress plugin pre správu súhlasov s cookies (GDPR / ePrivacy). Poskytuje plne prispôsobiteľný banner a modál preferencií, zaznamenáva súhlasy pre GDPR audit, blokuje skripty tretích strán, podporuje Google Consent Mode v2 a v3 a obsahuje Matomo režim so súhlasom.' ) ); ?></p>
+			<p style="margin-top:10px;"><?php echo esc_html( $this->tx( 'Plugin je postavený na knižnici orest bida (cookieconsent) a rozširuje ju o WordPress admin panel, databázové záznamy súhlasov, blokovanie skriptov, právne odkazy v banneri a preferenciách, pokročilé vizuálne nastavenia medzier a spoľahlivý import/export medzi webmi.' ) ); ?></p>
 		</div>
 
 		<div class="ccwps-card">
@@ -1427,11 +1778,13 @@ class CCWPS_Admin {
 					[ '📋', __( 'Záznamy súhlasov', 'web-pixel-studio-cookie-consent-eu' ),          __( 'Každý súhlas sa uloží do databázy s ID, IP adresou, URL a časovou pečiatkou. Export do CSV.', 'web-pixel-studio-cookie-consent-eu' ) ],
 					[ '🚫', __( 'Blokovanie skriptov', 'web-pixel-studio-cookie-consent-eu' ),       __( 'Skripty tretích strán (napr. Google Analytics, Meta Pixel) sa zablokujú, kým používateľ neudelí súhlas.', 'web-pixel-studio-cookie-consent-eu' ) ],
 					[ '🧩', __( 'Predpripravené sady cookies a skriptov', 'web-pixel-studio-cookie-consent-eu' ), __( 'Hotové predvoľby jedným kliknutím doplnia bežné Google a Meta cookies spolu so súvisiacimi pravidlami blokovania.', 'web-pixel-studio-cookie-consent-eu' ) ],
+					[ '🔗', $this->tx( 'Právne odkazy v banneri a modáli' ), $this->tx( 'Voliteľné odkazy na Zásady používania cookies a Zásady ochrany osobných údajov s vlastným textom a URL adresou.' ) ],
+					[ '📐', $this->tx( 'Pokročilé vizuálne medzery' ), $this->tx( 'Samostatné padding/margin nastavenia pre texty, právne odkazy a každé tlačidlo v bannery aj v modáli vrátane rýchleho resetu iba pre medzery.' ) ],
 					[ '🌐', __( 'Consent Mode v2 / v3', 'web-pixel-studio-cookie-consent-eu' ),      __( 'Automaticky nastaví default denied stav a aktualizuje Google signály po udelení súhlasu.', 'web-pixel-studio-cookie-consent-eu' ) ],
 					[ '🎨', __( 'Plné prispôsobenie vzhľadu', 'web-pixel-studio-cookie-consent-eu' ),__( 'Farby, font, zaoblenie tlačidiel, rozloženie bannera, poloha floating ikony.', 'web-pixel-studio-cookie-consent-eu' ) ],
 					[ '🌍', __( '9 jazykových predvolieb', 'web-pixel-studio-cookie-consent-eu' ),   __( 'SK, EN, CS, DE, FR, ES, PL, HU, IT. Všetky texty sú plne editovateľné z admin panelu.', 'web-pixel-studio-cookie-consent-eu' ) ],
 					[ '🔗', __( 'Shortcodes', 'web-pixel-studio-cookie-consent-eu' ),                __( '[ccwps_consent_id] – zobrazí ID súhlasu návštevníka. [ccwps_cookie_list] – tabuľka deklarovaných cookies. [ccwps_manage_consent] – tlačidlo na správu súhlasu.', 'web-pixel-studio-cookie-consent-eu' ) ],
-					[ '💾', __( 'Export/Import nastavení', 'web-pixel-studio-cookie-consent-eu' ),   __( 'Nastavenia je možné exportovať do JSON a importovať na inom webe.', 'web-pixel-studio-cookie-consent-eu' ) ],
+					[ '💾', __( 'Export/Import nastavení', 'web-pixel-studio-cookie-consent-eu' ),   $this->tx( 'Nastavenia je možné exportovať do JSON a importovať na inom webe vrátane mapovania domén cookies na aktuálnu doménu webu.' ) ],
 					[ '🤖', __( 'Detekcia robotov', 'web-pixel-studio-cookie-consent-eu' ),          __( 'Banner sa automaticky skryje pred vyhľadávačmi a crawlermi.', 'web-pixel-studio-cookie-consent-eu' ) ],
 					[ '🔄', __( 'Opätovný súhlas', 'web-pixel-studio-cookie-consent-eu' ),           __( 'Ak sa zmení zoznam cookies, plugin automaticky požiada o nový súhlas.', 'web-pixel-studio-cookie-consent-eu' ) ],
 					[ '🛡', __( 'Floating ikona', 'web-pixel-studio-cookie-consent-eu' ),             __( 'Plávajúca ikona umožní používateľovi kedykoľvek zmeniť preferencie. Po kliknutí zobrazí ID súhlasu a dátum.', 'web-pixel-studio-cookie-consent-eu' ) ],
@@ -2129,7 +2482,7 @@ class CCWPS_Admin {
 		];
 		
 		// URL keys - accept full URLs
-		$url_keys = [ 'icon_custom_url', 'banner_logo_url', 'banner_logo_link_url', 'matomo_url' ];
+		$url_keys = [ 'icon_custom_url', 'banner_logo_url', 'banner_logo_link_url', 'cookie_policy_link_url', 'privacy_policy_link_url', 'matomo_url' ];
 		
 		// HTML keys - allow sanitized HTML (wp_kses_post)
 		$html_keys = [ 'lang_banner_description', 'lang_necessary_desc', 'lang_analytics_desc', 'lang_targeting_desc', 'lang_preferences_desc' ];
@@ -2139,13 +2492,34 @@ class CCWPS_Admin {
 			'autorun', 'force_consent', 'auto_clear_cookies', 'page_scripts',
 			'hide_from_bots', 'reconsent', 'record_consents',
 			'frontend_detect_visitor_language', 'hide_empty_categories',
-			'banner_show_icon', 'floating_show_powered_by', 'banner_logo_show', 'matomo_anonymous_without_consent',
+			'banner_show_icon', 'floating_show_powered_by', 'banner_logo_show', 'add_cookie_policy_link', 'add_privacy_policy_link', 'matomo_anonymous_without_consent',
 		];
 		
 		// Integer keys (positive integers)
 		$int_keys = [
 			'delay', 'cookie_expiration', 'matomo_site_id',
 			'btn_border_radius', 'banner_border_radius', 'modal_border_radius', 'banner_logo_width', 'cloud_bg_opacity',
+			'banner_text_padding_t', 'banner_text_padding_r', 'banner_text_padding_b', 'banner_text_padding_l',
+			'banner_text_margin_t', 'banner_text_margin_r', 'banner_text_margin_b', 'banner_text_margin_l',
+			'banner_links_padding_t', 'banner_links_padding_r', 'banner_links_padding_b', 'banner_links_padding_l',
+			'banner_links_margin_t', 'banner_links_margin_r', 'banner_links_margin_b', 'banner_links_margin_l',
+			'banner_accept_btn_padding_t', 'banner_accept_btn_padding_r', 'banner_accept_btn_padding_b', 'banner_accept_btn_padding_l',
+			'banner_accept_btn_margin_t', 'banner_accept_btn_margin_r', 'banner_accept_btn_margin_b', 'banner_accept_btn_margin_l',
+			'banner_reject_btn_padding_t', 'banner_reject_btn_padding_r', 'banner_reject_btn_padding_b', 'banner_reject_btn_padding_l',
+			'banner_reject_btn_margin_t', 'banner_reject_btn_margin_r', 'banner_reject_btn_margin_b', 'banner_reject_btn_margin_l',
+			'banner_manage_btn_padding_t', 'banner_manage_btn_padding_r', 'banner_manage_btn_padding_b', 'banner_manage_btn_padding_l',
+			'banner_manage_btn_margin_t', 'banner_manage_btn_margin_r', 'banner_manage_btn_margin_b', 'banner_manage_btn_margin_l',
+			'banner_btn_gap',
+			'modal_body_padding_t', 'modal_body_padding_r', 'modal_body_padding_b', 'modal_body_padding_l',
+			'modal_body_margin_t', 'modal_body_margin_r', 'modal_body_margin_b', 'modal_body_margin_l',
+			'modal_save_btn_padding_t', 'modal_save_btn_padding_r', 'modal_save_btn_padding_b', 'modal_save_btn_padding_l',
+			'modal_save_btn_margin_t', 'modal_save_btn_margin_r', 'modal_save_btn_margin_b', 'modal_save_btn_margin_l',
+			'modal_reject_btn_padding_t', 'modal_reject_btn_padding_r', 'modal_reject_btn_padding_b', 'modal_reject_btn_padding_l',
+			'modal_reject_btn_margin_t', 'modal_reject_btn_margin_r', 'modal_reject_btn_margin_b', 'modal_reject_btn_margin_l',
+			'modal_accept_btn_padding_t', 'modal_accept_btn_padding_r', 'modal_accept_btn_padding_b', 'modal_accept_btn_padding_l',
+			'modal_accept_btn_margin_t', 'modal_accept_btn_margin_r', 'modal_accept_btn_margin_b', 'modal_accept_btn_margin_l',
+			'modal_btn_gap',
+			'modal_desc_margin_t', 'modal_desc_margin_r', 'modal_desc_margin_b', 'modal_desc_margin_l',
 		];
 		
 		// String keys with predefined values (enums)
@@ -2349,7 +2723,12 @@ class CCWPS_Admin {
 		}
 
 		if ( ! empty( $payload['cookies'] ) ) {
-			$import_ok = $this->cookie_manager->replace_all( $payload['cookies'] ) && $import_ok;
+			$import_ok = $this->cookie_manager->replace_all(
+				$this->remap_import_cookie_domains(
+					(array) $payload['cookies'],
+					(string) ( $payload['source_site'] ?? '' )
+				)
+			) && $import_ok;
 		}
 
 		if ( ! empty( $payload['block_rules'] ) ) {
@@ -2423,7 +2802,49 @@ class CCWPS_Admin {
 			'settings' => $settings,
 			'cookies' => $cookies,
 			'block_rules' => $block_rules,
+			'source_site' => isset( $decoded['_site'] ) && is_scalar( $decoded['_site'] ) ? (string) $decoded['_site'] : '',
 		];
+	}
+
+	private function remap_import_cookie_domains( array $cookies, string $source_site_url = '' ): array {
+		$target_host = $this->get_home_url_host();
+		if ( '' === $target_host ) {
+			return $cookies;
+		}
+
+		$source_host = (string) ( wp_parse_url( $source_site_url, PHP_URL_HOST ) ?: '' );
+		$source_host = preg_replace( '/^www\./i', '', ltrim( $source_host, '.' ) );
+		$target_host = preg_replace( '/^www\./i', '', ltrim( $target_host, '.' ) );
+
+		if ( '' === $source_host ) {
+			$source_host = $target_host;
+		}
+
+		$source_variants = array_filter( [ $source_host, '.' . $source_host ] );
+		$target_variants = [ $target_host, '.' . $target_host ];
+
+		foreach ( $cookies as &$cookie ) {
+			if ( ! is_array( $cookie ) ) {
+				continue;
+			}
+
+			$domain = trim( (string) ( $cookie['domain'] ?? '' ) );
+			if ( '' === $domain ) {
+				continue;
+			}
+
+			$normalized = preg_replace( '/^www\./i', '', ltrim( strtolower( $domain ), '.' ) );
+			if ( ! in_array( $normalized, [ $source_host, $target_host ], true ) ) {
+				continue;
+			}
+
+			$cookie['domain'] = in_array( $domain, $target_variants, true ) || str_starts_with( $domain, '.' )
+				? $target_variants[1]
+				: $target_variants[0];
+		}
+		unset( $cookie );
+
+		return $cookies;
 	}
 
 	private function map_legacy_import_setting_key( $key ): string {

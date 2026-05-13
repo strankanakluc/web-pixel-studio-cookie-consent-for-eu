@@ -21,8 +21,14 @@ class CCWPS_Activator {
 	public static function maybe_upgrade(): void {
 		$stored_schema_version = (string) get_option( 'ccwps_schema_version', '' );
 
+		// Ak je to nová inštalácia (schema version prázdna), migrácia netreba
 		if ( self::SCHEMA_VERSION === $stored_schema_version ) {
 			return;
+		}
+
+		if ( $stored_schema_version && version_compare( $stored_schema_version, '1.1.0', '<=' ) ) {
+			require_once CCWPS_PLUGIN_DIR . 'includes/class-migration.php';
+			CCWPS_Migration::maybe_add_device_info_column();
 		}
 
 		self::create_tables();
@@ -57,6 +63,7 @@ class CCWPS_Activator {
 			location VARCHAR(100) DEFAULT '',
 			ip_address VARCHAR(45) DEFAULT '',
 			user_agent TEXT DEFAULT '',
+			device_info VARCHAR(100) DEFAULT '',
 			necessary TINYINT(1) DEFAULT 1,
 			analytics TINYINT(1) DEFAULT 0,
 			targeting TINYINT(1) DEFAULT 0,
@@ -143,6 +150,100 @@ class CCWPS_Activator {
 			'banner_logo_url'      => '',
 			'banner_logo_link_url' => '',
 			'banner_logo_width'    => 40,
+			'add_cookie_policy_link' => 0,
+			'cookie_policy_link_url' => '',
+			'cookie_policy_link_text' => 'Cookie Policy',
+			'add_privacy_policy_link' => 0,
+			'privacy_policy_link_url' => '',
+			'privacy_policy_link_text' => 'Privacy Policy',
+			// Banner text spacing
+			'banner_text_padding_t' => 0,
+			'banner_text_padding_r' => 0,
+			'banner_text_padding_b' => 0,
+			'banner_text_padding_l' => 0,
+			'banner_text_margin_t' => 0,
+			'banner_text_margin_r' => 0,
+			'banner_text_margin_b' => 5,
+			'banner_text_margin_l' => 0,
+			// Banner legal links spacing
+			'banner_links_padding_t' => 0,
+			'banner_links_padding_r' => 0,
+			'banner_links_padding_b' => 0,
+			'banner_links_padding_l' => 0,
+			'banner_links_margin_t' => 0,
+			'banner_links_margin_r' => 0,
+			'banner_links_margin_b' => 30,
+			'banner_links_margin_l' => 0,
+			// Banner Accept button spacing
+			'banner_accept_btn_padding_t' => 11,
+			'banner_accept_btn_padding_r' => 20,
+			'banner_accept_btn_padding_b' => 11,
+			'banner_accept_btn_padding_l' => 20,
+			'banner_accept_btn_margin_t' => 0,
+			'banner_accept_btn_margin_r' => 0,
+			'banner_accept_btn_margin_b' => 0,
+			'banner_accept_btn_margin_l' => 0,
+			// Banner Reject button spacing
+			'banner_reject_btn_padding_t' => 11,
+			'banner_reject_btn_padding_r' => 20,
+			'banner_reject_btn_padding_b' => 11,
+			'banner_reject_btn_padding_l' => 20,
+			'banner_reject_btn_margin_t' => 0,
+			'banner_reject_btn_margin_r' => 0,
+			'banner_reject_btn_margin_b' => 0,
+			'banner_reject_btn_margin_l' => 0,
+			// Banner Manage button spacing
+			'banner_manage_btn_padding_t' => 11,
+			'banner_manage_btn_padding_r' => 20,
+			'banner_manage_btn_padding_b' => 11,
+			'banner_manage_btn_padding_l' => 20,
+			'banner_manage_btn_margin_t' => 0,
+			'banner_manage_btn_margin_r' => 0,
+			'banner_manage_btn_margin_b' => 0,
+			'banner_manage_btn_margin_l' => 0,
+			'banner_btn_gap'       => 10,
+			// Modal body spacing
+			'modal_body_padding_t' => 24,
+			'modal_body_padding_r' => 28,
+			'modal_body_padding_b' => 24,
+			'modal_body_padding_l' => 28,
+			'modal_body_margin_t' => 0,
+			'modal_body_margin_r' => 0,
+			'modal_body_margin_b' => 0,
+			'modal_body_margin_l' => 0,
+			// Modal Save button spacing
+			'modal_save_btn_padding_t' => 11,
+			'modal_save_btn_padding_r' => 20,
+			'modal_save_btn_padding_b' => 11,
+			'modal_save_btn_padding_l' => 20,
+			'modal_save_btn_margin_t' => 0,
+			'modal_save_btn_margin_r' => 0,
+			'modal_save_btn_margin_b' => 0,
+			'modal_save_btn_margin_l' => 0,
+			// Modal Reject button spacing
+			'modal_reject_btn_padding_t' => 11,
+			'modal_reject_btn_padding_r' => 20,
+			'modal_reject_btn_padding_b' => 11,
+			'modal_reject_btn_padding_l' => 20,
+			'modal_reject_btn_margin_t' => 0,
+			'modal_reject_btn_margin_r' => 0,
+			'modal_reject_btn_margin_b' => 0,
+			'modal_reject_btn_margin_l' => 0,
+			// Modal Accept button spacing
+			'modal_accept_btn_padding_t' => 11,
+			'modal_accept_btn_padding_r' => 20,
+			'modal_accept_btn_padding_b' => 11,
+			'modal_accept_btn_padding_l' => 20,
+			'modal_accept_btn_margin_t' => 0,
+			'modal_accept_btn_margin_r' => 0,
+			'modal_accept_btn_margin_b' => 0,
+			'modal_accept_btn_margin_l' => 0,
+			'modal_btn_gap'        => 10,
+			// Modal description spacing
+			'modal_desc_margin_t' => 0,
+			'modal_desc_margin_r' => 0,
+			'modal_desc_margin_b' => 6,
+			'modal_desc_margin_l' => 0,
 			'floating_icon_bg'     => '#1a73e8',
 			'floating_icon_bg_hv'  => '#1557b0',
 			'floating_icon_color'  => '#ffffff',

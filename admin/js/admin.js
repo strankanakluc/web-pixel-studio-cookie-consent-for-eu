@@ -15,6 +15,139 @@
 	const matomoHostPattern = '(?:www\\.)?' + escapeRegex(baseHost);
 
 	const blockRulesData = Array.isArray(window.ccwpsAdmin?.blockRules) ? window.ccwpsAdmin.blockRules.slice() : [];
+	const spacingSettingKeys = [
+		'banner_text_padding_t', 'banner_text_padding_r', 'banner_text_padding_b', 'banner_text_padding_l',
+		'banner_text_margin_t', 'banner_text_margin_r', 'banner_text_margin_b', 'banner_text_margin_l',
+		'banner_links_padding_t', 'banner_links_padding_r', 'banner_links_padding_b', 'banner_links_padding_l',
+		'banner_links_margin_t', 'banner_links_margin_r', 'banner_links_margin_b', 'banner_links_margin_l',
+		'banner_accept_btn_padding_t', 'banner_accept_btn_padding_r', 'banner_accept_btn_padding_b', 'banner_accept_btn_padding_l',
+		'banner_accept_btn_margin_t', 'banner_accept_btn_margin_r', 'banner_accept_btn_margin_b', 'banner_accept_btn_margin_l',
+		'banner_reject_btn_padding_t', 'banner_reject_btn_padding_r', 'banner_reject_btn_padding_b', 'banner_reject_btn_padding_l',
+		'banner_reject_btn_margin_t', 'banner_reject_btn_margin_r', 'banner_reject_btn_margin_b', 'banner_reject_btn_margin_l',
+		'banner_manage_btn_padding_t', 'banner_manage_btn_padding_r', 'banner_manage_btn_padding_b', 'banner_manage_btn_padding_l',
+		'banner_manage_btn_margin_t', 'banner_manage_btn_margin_r', 'banner_manage_btn_margin_b', 'banner_manage_btn_margin_l',
+		'banner_btn_gap',
+		'modal_body_padding_t', 'modal_body_padding_r', 'modal_body_padding_b', 'modal_body_padding_l',
+		'modal_body_margin_t', 'modal_body_margin_r', 'modal_body_margin_b', 'modal_body_margin_l',
+		'modal_save_btn_padding_t', 'modal_save_btn_padding_r', 'modal_save_btn_padding_b', 'modal_save_btn_padding_l',
+		'modal_save_btn_margin_t', 'modal_save_btn_margin_r', 'modal_save_btn_margin_b', 'modal_save_btn_margin_l',
+		'modal_reject_btn_padding_t', 'modal_reject_btn_padding_r', 'modal_reject_btn_padding_b', 'modal_reject_btn_padding_l',
+		'modal_reject_btn_margin_t', 'modal_reject_btn_margin_r', 'modal_reject_btn_margin_b', 'modal_reject_btn_margin_l',
+		'modal_accept_btn_padding_t', 'modal_accept_btn_padding_r', 'modal_accept_btn_padding_b', 'modal_accept_btn_padding_l',
+		'modal_accept_btn_margin_t', 'modal_accept_btn_margin_r', 'modal_accept_btn_margin_b', 'modal_accept_btn_margin_l',
+		'modal_btn_gap',
+		'modal_desc_margin_t', 'modal_desc_margin_r', 'modal_desc_margin_b', 'modal_desc_margin_l',
+	];
+
+	function hasValue(value) {
+		return !(value === undefined || value === null || String(value).trim() === '');
+	}
+
+	function getSettingValue(key) {
+		if (!settings || typeof settings !== 'object') return '';
+		return Object.prototype.hasOwnProperty.call(settings, key) ? settings[key] : '';
+	}
+
+	function getFirstSettingValue(keys) {
+		for (var i = 0; i < keys.length; i += 1) {
+			var value = getSettingValue(keys[i]);
+			if (hasValue(value)) return value;
+		}
+		return '';
+	}
+
+	function getLegacySpacingValue(key) {
+		var map = {
+			banner_text_margin_b: ['banner_desc_margin_bottom'],
+			banner_links_margin_t: ['banner_links_margin_top'],
+			banner_links_margin_b: ['banner_links_margin_bottom'],
+
+			banner_accept_btn_padding_t: ['banner_accept_btn_padding_y', 'banner_btn_padding_y'],
+			banner_accept_btn_padding_b: ['banner_accept_btn_padding_y', 'banner_btn_padding_y'],
+			banner_accept_btn_padding_r: ['banner_accept_btn_padding_x', 'banner_btn_padding_x'],
+			banner_accept_btn_padding_l: ['banner_accept_btn_padding_x', 'banner_btn_padding_x'],
+			banner_accept_btn_margin_t: ['banner_accept_btn_margin_y'],
+			banner_accept_btn_margin_b: ['banner_accept_btn_margin_y'],
+			banner_accept_btn_margin_r: ['banner_accept_btn_margin_x'],
+			banner_accept_btn_margin_l: ['banner_accept_btn_margin_x'],
+
+			banner_reject_btn_padding_t: ['banner_reject_btn_padding_y', 'banner_btn_padding_y'],
+			banner_reject_btn_padding_b: ['banner_reject_btn_padding_y', 'banner_btn_padding_y'],
+			banner_reject_btn_padding_r: ['banner_reject_btn_padding_x', 'banner_btn_padding_x'],
+			banner_reject_btn_padding_l: ['banner_reject_btn_padding_x', 'banner_btn_padding_x'],
+			banner_reject_btn_margin_t: ['banner_reject_btn_margin_y'],
+			banner_reject_btn_margin_b: ['banner_reject_btn_margin_y'],
+			banner_reject_btn_margin_r: ['banner_reject_btn_margin_x'],
+			banner_reject_btn_margin_l: ['banner_reject_btn_margin_x'],
+
+			banner_manage_btn_padding_t: ['banner_manage_btn_padding_y', 'banner_btn_padding_y'],
+			banner_manage_btn_padding_b: ['banner_manage_btn_padding_y', 'banner_btn_padding_y'],
+			banner_manage_btn_padding_r: ['banner_manage_btn_padding_x', 'banner_btn_padding_x'],
+			banner_manage_btn_padding_l: ['banner_manage_btn_padding_x', 'banner_btn_padding_x'],
+			banner_manage_btn_margin_t: ['banner_manage_btn_margin_y'],
+			banner_manage_btn_margin_b: ['banner_manage_btn_margin_y'],
+			banner_manage_btn_margin_r: ['banner_manage_btn_margin_x'],
+			banner_manage_btn_margin_l: ['banner_manage_btn_margin_x'],
+
+			modal_body_padding_t: ['modal_body_padding_y'],
+			modal_body_padding_b: ['modal_body_padding_y'],
+			modal_body_padding_r: ['modal_body_padding_x'],
+			modal_body_padding_l: ['modal_body_padding_x'],
+
+			modal_save_btn_padding_t: ['modal_save_btn_padding_y', 'modal_btn_padding_y'],
+			modal_save_btn_padding_b: ['modal_save_btn_padding_y', 'modal_btn_padding_y'],
+			modal_save_btn_padding_r: ['modal_save_btn_padding_x', 'modal_btn_padding_x'],
+			modal_save_btn_padding_l: ['modal_save_btn_padding_x', 'modal_btn_padding_x'],
+			modal_save_btn_margin_t: ['modal_save_btn_margin_y'],
+			modal_save_btn_margin_b: ['modal_save_btn_margin_y'],
+			modal_save_btn_margin_r: ['modal_save_btn_margin_x'],
+			modal_save_btn_margin_l: ['modal_save_btn_margin_x'],
+
+			modal_reject_btn_padding_t: ['modal_reject_btn_padding_y', 'modal_btn_padding_y'],
+			modal_reject_btn_padding_b: ['modal_reject_btn_padding_y', 'modal_btn_padding_y'],
+			modal_reject_btn_padding_r: ['modal_reject_btn_padding_x', 'modal_btn_padding_x'],
+			modal_reject_btn_padding_l: ['modal_reject_btn_padding_x', 'modal_btn_padding_x'],
+			modal_reject_btn_margin_t: ['modal_reject_btn_margin_y'],
+			modal_reject_btn_margin_b: ['modal_reject_btn_margin_y'],
+			modal_reject_btn_margin_r: ['modal_reject_btn_margin_x'],
+			modal_reject_btn_margin_l: ['modal_reject_btn_margin_x'],
+
+			modal_accept_btn_padding_t: ['modal_accept_btn_padding_y', 'modal_btn_padding_y'],
+			modal_accept_btn_padding_b: ['modal_accept_btn_padding_y', 'modal_btn_padding_y'],
+			modal_accept_btn_padding_r: ['modal_accept_btn_padding_x', 'modal_btn_padding_x'],
+			modal_accept_btn_padding_l: ['modal_accept_btn_padding_x', 'modal_btn_padding_x'],
+			modal_accept_btn_margin_t: ['modal_accept_btn_margin_y'],
+			modal_accept_btn_margin_b: ['modal_accept_btn_margin_y'],
+			modal_accept_btn_margin_r: ['modal_accept_btn_margin_x'],
+			modal_accept_btn_margin_l: ['modal_accept_btn_margin_x'],
+
+			modal_desc_margin_b: ['modal_desc_margin_bottom'],
+		};
+
+		return map[key] ? getFirstSettingValue(map[key]) : '';
+	}
+
+	function hydrateSpacingModalValues() {
+		var $modal = $('#ccwps-spacing-modal');
+		if (!$modal.length) return;
+
+		$modal.find('input[type="number"][name]').each(function () {
+			var $field = $(this);
+			var key = String($field.attr('name') || '');
+			if (!key || hasValue($field.val())) return;
+
+			var current = getSettingValue(key);
+			if (hasValue(current)) {
+				$field.val(String(current));
+				return;
+			}
+
+			var legacy = getLegacySpacingValue(key);
+			if (hasValue(legacy)) {
+				$field.val(String(legacy));
+			}
+		});
+	}
 
 	const blockPresets = {
 		ga: [
@@ -1715,6 +1848,47 @@
 	$(document).on('click', '.ccwps-modal', function (e) { if ($(e.target).hasClass('ccwps-modal')) $(this).hide(); });
 	$(document).on('keydown', function (e) { if (e.key === 'Escape') $('.ccwps-modal:visible').hide(); });
 
+	$(document).on('click', '.ccwps-spacing-trigger', function () {
+		const focus = String($(this).attr('data-ccwps-spacing-focus') || '').trim();
+		const $modal = $('#ccwps-spacing-modal');
+		const $sections = $modal.find('[data-ccwps-spacing-group]');
+
+		hydrateSpacingModalValues();
+
+		if ($sections.length) {
+			$sections.attr('hidden', true);
+		}
+		$modal.show();
+
+		if (!focus) {
+			$sections.first().removeAttr('hidden');
+			return;
+		}
+
+		const $target = $modal.find('[data-ccwps-spacing-group="' + focus + '"]');
+		if ($target.length) {
+			$target.removeAttr('hidden');
+			$target.get(0).scrollIntoView({ behavior: 'smooth', block: 'start' });
+			return;
+		}
+
+		$sections.first().removeAttr('hidden');
+	});
+
+	$(document).on('click', '.ccwps-reset-spacing-only', function () {
+		if (!appearanceDefaults || typeof appearanceDefaults !== 'object') return;
+		if (!confirm(i18n.confirmSpacingReset || 'Resetovať iba nastavenia vizuálnych medzier na predvolené hodnoty?')) return;
+
+		spacingSettingKeys.forEach(function (key) {
+			if (!Object.prototype.hasOwnProperty.call(appearanceDefaults, key)) return;
+			var $field = $('#ccwps-settings-form').find('[name="' + key + '"]').first();
+			if (!$field.length) return;
+			$field.val(String(appearanceDefaults[key] ?? '')).trigger('change');
+		});
+
+		showNotice(i18n.spacingResetDone || 'Vizuálne medzery boli resetované.');
+	});
+
 	/* =====================
 	   GTM SCREENSHOT LIGHTBOX
 	   ===================== */
@@ -2019,6 +2193,17 @@
 	$(document).on('change', 'input[name="banner_logo_show"]', function () {
 		var checked = $(this).is(':checked');
 		$('#ccwps-banner-logo-fields, #ccwps-banner-logo-url-row, #ccwps-banner-logo-width-row').toggle(checked);
+	});
+
+	/* Show/hide legal link rows based on toggles */
+	$(document).on('change', 'input[name="add_cookie_policy_link"]', function () {
+		var checked = $(this).is(':checked');
+		$('#ccwps-cookie-policy-link-row, #ccwps-cookie-policy-text-row').toggle(checked);
+	});
+
+	$(document).on('change', 'input[name="add_privacy_policy_link"]', function () {
+		var checked = $(this).is(':checked');
+		$('#ccwps-privacy-policy-link-row, #ccwps-privacy-policy-text-row').toggle(checked);
 	});
 
 	var logoMediaFrame = null;

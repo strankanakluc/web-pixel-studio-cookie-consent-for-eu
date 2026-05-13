@@ -48,6 +48,7 @@ class CCWPS_Consent_Log {
 			'location'     => sanitize_text_field( $data['location'] ?? '' ),
 			'ip_address'   => sanitize_text_field( $data['ip_address'] ?? '' ),
 			'user_agent'   => sanitize_textarea_field( $data['user_agent'] ?? '' ),
+			'device_info'  => sanitize_text_field( $data['device_info'] ?? '' ),
 			'necessary'    => 1,
 			'analytics'    => isset( $data['analytics'] ) ? (int) $data['analytics'] : 0,
 			'targeting'    => isset( $data['targeting'] ) ? (int) $data['targeting'] : 0,
@@ -119,7 +120,7 @@ class CCWPS_Consent_Log {
 			return '';
 		}
 
-		$headers = [ 'Date', 'ID', 'URL', 'Location', 'IP Address', 'User Agent', 'Necessary', 'Analytics', 'Targeting', 'Preferences', 'Recorded At', 'Last Update At' ];
+		$headers = [ 'Date', 'ID', 'URL', 'Location', 'IP Address', 'Device Info', 'User Agent', 'Necessary', 'Analytics', 'Targeting', 'Preferences', 'Recorded At', 'Last Update At' ];
 
 		$csv = $this->format_csv_row( $headers );
 
@@ -130,6 +131,7 @@ class CCWPS_Consent_Log {
 				$row['url'],
 				$row['location'],
 				$row['ip_address'],
+				$row['device_info'],
 				$row['user_agent'],
 				$row['necessary'] ? 'Yes' : 'No',
 				$row['analytics'] ? 'Yes' : 'No',

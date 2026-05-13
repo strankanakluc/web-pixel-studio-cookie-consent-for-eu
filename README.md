@@ -12,7 +12,7 @@
 **Tags:** cookie consent, GDPR, cookie banner, ePrivacy, google consent mode  
 **Requires at least:** 5.9  
 **Tested up to:** 6.9  
-**Stable tag:** 1.0.9  
+**Stable tag:** 1.1.1  
 **License:** GPL-2.0-or-later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -57,11 +57,13 @@ If you want a consent plugin that looks professional, gives visitors clear choic
 - Script blocking based on URL match or regex rules
 - Cookie declarations with name, domain, expiration, and description
 - Prebuilt presets that add common cookie declarations together with matching blocking rules
+- Legal links in banner and preferences modal (Cookie Policy + Privacy Policy with custom labels and URLs)
+- Advanced spacing controls (section popup, per-button padding/margins, spacing-only reset)
 - **Matomo Analytics integration** — configure Matomo URL and Site ID, choose strict or anonymous mode, automatic consent switching
 - **Self-hosted analytics option** — full Matomo support means no Google dependency; ideal for GDPR-sensitive projects and public sector sites
 - Consent logging with unique consent ID and CSV export
 - Floating consent icon to reopen settings anytime
-- Import and export of plugin settings in JSON
+- Import and export of plugin settings in JSON, including cookie domain remap on import
 - Built-in language presets and editable frontend texts (Slovak, English, Czech, German, French, Spanish, Polish, Hungarian, Italian)
 - Custom colors, buttons, font, banner position, and icon style
 
@@ -207,6 +209,29 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ## Changelog
 
+### 1.1.1
+
+- Added GDPR-focused consent log data minimization: IP addresses are now anonymized before storage and device data is stored as anonymized device/browser info instead of full raw details
+- Added automatic database migration for existing installs (upgrading from 1.1.0 or older) to safely add the new `device_info` consent log column without affecting clean installs
+- Updated Consent Log admin table and CSV export to include anonymized device information for clearer audit context
+- Fixed admin-side fatal parsing issue in consent logging flow and stabilized related save logic
+- Added missing empty-log message translations across all supported admin languages
+- Added new sidebar rating blocks in admin: "Rate the plugin" (WordPress.org) and "Rate us on Google" links with star UI opening in a new tab
+- Improved star-rating visuals to WordPress-like yellow stars and enforced no underline on hover/focus states
+
+### 1.1.0
+
+- Added legal links controls in Appearance for banner and preferences modal: optional Cookie Policy and Privacy Policy links with custom URL and label text
+- Added advanced visual spacing popup with context sections for banner text, legal links, banner buttons, and modal content/buttons
+- Added independent per-button spacing controls (padding and margins) for Accept/Reject/Manage in banner and Save/Reject/Accept in modal
+- Added spacing-only reset action and improved admin UX with settings icons next to relevant section headings
+- Added support for margin controls in addition to padding controls
+- Improved frontend style mapping to apply new per-button spacing variables consistently
+- Extended import/export coverage for all new visual and legal-link settings
+- Added import-time cookie domain remapping to the current site domain for safer cross-site migration
+- Expanded admin i18n coverage for new Appearance and spacing/legal-links texts across all supported admin languages
+- Hardened admin/preview styling behavior for better compatibility with theme and page-builder overrides
+
 ### 1.0.9
 
 - Added translations for all 34 admin UI messages (Settings saved, errors, confirmations, button labels, etc.) across all 8 supported languages
@@ -305,6 +330,14 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 - Added predefined cookie and blocking presets for Google Analytics, Google Ads, and Facebook Pixel
 
 ## Upgrade Notice
+
+### 1.1.1
+
+Security and compliance-focused update: consent logs now store anonymized IP/device data, and upgrades from 1.1.0 or older automatically add the new `device_info` column via safe migration. Review your Consent Log export format and verify log display after updating.
+
+### 1.1.0
+
+Major UX and migration update: adds legal links in banner/preferences, advanced per-button visual spacing controls (with spacing-only reset), and safer import by remapping cookie domains to the current site. Review Appearance settings after upgrade and re-export your baseline config.
 
 ### 1.0.9
 

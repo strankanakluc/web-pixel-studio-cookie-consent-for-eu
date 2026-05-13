@@ -4,7 +4,7 @@ Tags: cookie consent, GDPR, cookie banner, ePrivacy, google consent mode
 Requires at least: 5.9
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.9
+Stable tag: 1.1.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -166,6 +166,8 @@ Customize nearly everything:
 - Floating icon type
 - Floating icon position
 - Custom logo support
+- Legal links in banner and preferences modal (Cookie Policy + Privacy Policy with custom labels and URLs)
+- Advanced spacing controls (section popup, per-button padding/margins, spacing-only reset)
 
 No coding required.
 
@@ -182,6 +184,8 @@ Export includes:
 - Translations
 - Branding
 - Settings
+
+Import also supports cookie domain remap to the current site domain for safer cross-site migration.
 
 ---
 
@@ -349,6 +353,27 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 
 == Changelog ==
 
+= 1.1.1 =
+* Added GDPR-focused consent log data minimization: IP addresses are now anonymized before storage and device data is stored as anonymized device/browser info.
+* Added automatic database migration for existing installs (upgrading from 1.1.0 or older) to safely add the new `device_info` consent log column.
+* Updated Consent Log admin table and CSV export to include anonymized device information.
+* Fixed admin-side fatal parsing issue in consent logging flow and stabilized related save logic.
+* Added missing empty-log message translations across all supported admin languages.
+* Added new sidebar rating blocks in admin: "Rate the plugin" (WordPress.org) and "Rate us on Google" links with star UI opening in a new tab.
+* Improved star-rating visuals to WordPress-like yellow stars and enforced no underline on hover/focus states.
+
+= 1.1.0 =
+* Added legal links controls in Appearance for banner and preferences modal: optional Cookie Policy and Privacy Policy links with custom URL and label text.
+* Added advanced visual spacing popup with context sections for banner text, legal links, banner buttons, and modal content/buttons.
+* Added independent per-button spacing controls (padding and margins) for Accept/Reject/Manage in banner and Save/Reject/Accept in modal.
+* Added spacing-only reset action and improved admin UX with settings icons next to relevant section headings.
+* Added support for margin controls in addition to padding controls.
+* Improved frontend style mapping to apply new per-button spacing variables consistently.
+* Extended import/export coverage for all new visual and legal-link settings.
+* Added import-time cookie domain remapping to the current site domain for safer cross-site migration.
+* Expanded admin i18n coverage for new Appearance and spacing/legal-links texts across all supported admin languages.
+* Hardened admin/preview styling behavior for better compatibility with theme and page-builder overrides.
+
 = 1.0.9 =
 * Added translations for all 34 admin UI messages (Settings saved, errors, confirmations, etc.) across all 8 supported languages.
 * Localized [ccwps_cookie_list] shortcode to use visitor-detected language when "Language by visitor" is enabled.
@@ -373,6 +398,12 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 * Renamed GTM template files and POT file to match the corrected plugin slug.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Security and compliance-focused update: consent logs now store anonymized IP/device data, and upgrades from 1.1.0 or older automatically add the new `device_info` column via safe migration. Review your Consent Log export format and verify log display after updating.
+
+= 1.1.0 =
+Major UX and migration update: adds legal links in banner/preferences, advanced per-button visual spacing controls (with spacing-only reset), and safer import by remapping cookie domains to the current site. Review Appearance settings after upgrade and re-export your baseline config.
 
 = 1.0.9 =
 Adds complete translations for admin UI messages in all languages and localizes cookie list shortcode output to match detected visitor language. No breaking changes.

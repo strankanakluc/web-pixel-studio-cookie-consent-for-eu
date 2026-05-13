@@ -52,8 +52,9 @@ class CCWPS_Ajax {
 			'consent_id'  => $this->get_posted_text( 'consent_id' ),
 			'url'         => $this->get_posted_url( 'url' ),
 			'location'    => $this->get_posted_text( 'location' ),
-			'ip_address'  => $ip,
+			'ip_address'  => $this->anonymize_ip( $ip ),
 			'user_agent'  => sanitize_textarea_field( $this->get_server_value( 'HTTP_USER_AGENT' ) ),
+			'device_info' => $this->get_device_info(),
 			'analytics'   => $this->get_posted_int( 'analytics' ),
 			'targeting'   => $this->get_posted_int( 'targeting' ),
 			'preferences' => $this->get_posted_int( 'preferences' ),
@@ -85,7 +86,7 @@ class CCWPS_Ajax {
 			'modal_bg', 'modal_header_bg', 'modal_footer_bg', 'modal_border', 'modal_text', 'modal_consent_id_color',
 			'cat_header_bg', 'cat_header_bg_hv', 'toggle_on_color', 'always_on_color',
 		];
-		$int_keys     = [ 'cloud_bg_opacity' ];
+		$int_keys     = [ 'cloud_bg_opacity', 'banner_text_padding_t', 'banner_text_padding_r', 'banner_text_padding_b', 'banner_text_padding_l', 'banner_text_margin_t', 'banner_text_margin_r', 'banner_text_margin_b', 'banner_text_margin_l', 'banner_links_padding_t', 'banner_links_padding_r', 'banner_links_padding_b', 'banner_links_padding_l', 'banner_links_margin_t', 'banner_links_margin_r', 'banner_links_margin_b', 'banner_links_margin_l', 'banner_accept_btn_padding_t', 'banner_accept_btn_padding_r', 'banner_accept_btn_padding_b', 'banner_accept_btn_padding_l', 'banner_accept_btn_margin_t', 'banner_accept_btn_margin_r', 'banner_accept_btn_margin_b', 'banner_accept_btn_margin_l', 'banner_reject_btn_padding_t', 'banner_reject_btn_padding_r', 'banner_reject_btn_padding_b', 'banner_reject_btn_padding_l', 'banner_reject_btn_margin_t', 'banner_reject_btn_margin_r', 'banner_reject_btn_margin_b', 'banner_reject_btn_margin_l', 'banner_manage_btn_padding_t', 'banner_manage_btn_padding_r', 'banner_manage_btn_padding_b', 'banner_manage_btn_padding_l', 'banner_manage_btn_margin_t', 'banner_manage_btn_margin_r', 'banner_manage_btn_margin_b', 'banner_manage_btn_margin_l', 'banner_btn_gap', 'modal_body_padding_t', 'modal_body_padding_r', 'modal_body_padding_b', 'modal_body_padding_l', 'modal_body_margin_t', 'modal_body_margin_r', 'modal_body_margin_b', 'modal_body_margin_l', 'modal_save_btn_padding_t', 'modal_save_btn_padding_r', 'modal_save_btn_padding_b', 'modal_save_btn_padding_l', 'modal_save_btn_margin_t', 'modal_save_btn_margin_r', 'modal_save_btn_margin_b', 'modal_save_btn_margin_l', 'modal_reject_btn_padding_t', 'modal_reject_btn_padding_r', 'modal_reject_btn_padding_b', 'modal_reject_btn_padding_l', 'modal_reject_btn_margin_t', 'modal_reject_btn_margin_r', 'modal_reject_btn_margin_b', 'modal_reject_btn_margin_l', 'modal_accept_btn_padding_t', 'modal_accept_btn_padding_r', 'modal_accept_btn_padding_b', 'modal_accept_btn_padding_l', 'modal_accept_btn_margin_t', 'modal_accept_btn_margin_r', 'modal_accept_btn_margin_b', 'modal_accept_btn_margin_l', 'modal_btn_gap', 'modal_desc_margin_t', 'modal_desc_margin_r', 'modal_desc_margin_b', 'modal_desc_margin_l' ];
 		$html_keys    = [ 'lang_banner_description', 'lang_necessary_desc', 'lang_analytics_desc', 'lang_targeting_desc', 'lang_preferences_desc' ];
 
 		$posted = $this->get_posted_array( 'settings' );
@@ -97,7 +98,8 @@ class CCWPS_Ajax {
 			$posted['banner_position'] = in_array( $position, $bar_positions, true ) ? $position : 'bottom-center';
 		}
 
-		$url_keys = [ 'icon_custom_url', 'banner_logo_url', 'banner_logo_link_url', 'matomo_url' ];
+		$url_keys = [ 'icon_custom_url', 'banner_logo_url', 'banner_logo_link_url', 'cookie_policy_link_url', 'privacy_policy_link_url', 'matomo_url' ];
+		$bool_keys = [ 'add_cookie_policy_link', 'add_privacy_policy_link' ];
 		foreach ( $allowed_keys as $key ) {
 			if ( ! array_key_exists( $key, $posted ) ) continue;
 			$value = $posted[ $key ];
@@ -105,6 +107,8 @@ class CCWPS_Ajax {
 				$value = ( $value === 'transparent' ) ? 'transparent' : sanitize_hex_color( $value );
 			} elseif ( in_array( $key, $int_keys, true ) ) {
 				$value = (string) max( 0, min( 100, absint( $value ) ) );
+			} elseif ( in_array( $key, $bool_keys, true ) ) {
+				$value = ! empty( $value ) ? 1 : 0;
 			} elseif ( in_array( $key, $url_keys, true ) ) {
 				$value = esc_url_raw( $value );
 			} elseif ( in_array( $key, $html_keys, true ) ) {
@@ -439,5 +443,49 @@ class CCWPS_Ajax {
 		}
 
 		return sanitize_text_field( wp_unslash( $_SERVER[ $key ] ) );
+	}
+
+	/**
+	 * Anonymizuje IPv4 adresu (napr. 192.168.xxx.xxx) a IPv6 (skryje posledné segmenty).
+	 */
+	private function anonymize_ip( string $ip ): string {
+		if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
+			$parts = explode( '.', $ip );
+			if ( count( $parts ) === 4 ) {
+				return $parts[0] . '.' . $parts[1] . '.xxx.xxx';
+			}
+		} elseif ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) {
+			$parts = explode( ':', $ip );
+			// Skryje posledné 4 segmenty
+			return implode( ':', array_slice( $parts, 0, 4 ) ) . ':xxxx:xxxx:xxxx:xxxx';
+		}
+		return '';
+	}
+
+	/**
+	 * Získa anonymizované info o zariadení a prehliadači.
+	 */
+	private function get_device_info(): string {
+		$ua = $this->get_server_value( 'HTTP_USER_AGENT' );
+		// Veľmi jednoduchá detekcia typu zariadenia a prehliadača
+		$device = 'desktop';
+		if ( preg_match( '/mobile|android|iphone|ipad|phone/i', $ua ) ) {
+			$device = 'mobile';
+		} elseif ( preg_match( '/tablet|ipad/i', $ua ) ) {
+			$device = 'tablet';
+		}
+		$browser = 'other';
+		if ( preg_match( '/chrome/i', $ua ) ) {
+			$browser = 'chrome';
+		} elseif ( preg_match( '/firefox/i', $ua ) ) {
+			$browser = 'firefox';
+		} elseif ( preg_match( '/safari/i', $ua ) && ! preg_match( '/chrome/i', $ua ) ) {
+			$browser = 'safari';
+		} elseif ( preg_match( '/edge/i', $ua ) ) {
+			$browser = 'edge';
+		} elseif ( preg_match( '/opera|opr/i', $ua ) ) {
+			$browser = 'opera';
+		}
+		return $device . '|' . $browser;
 	}
 }

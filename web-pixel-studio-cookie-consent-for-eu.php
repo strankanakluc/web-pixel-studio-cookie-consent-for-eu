@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Web Pixel Studio Cookie Consent for EU
  * Description:       GDPR & ePrivacy compliant cookie consent manager with Consent Mode v2 support, full customization, consent logging, and cookie blocking.
- * Version:           1.0.9
+ * Version:           1.1.1
  * Requires at least: 5.9
  * Requires PHP:      7.4
  * Author:            Web Pixel Studio
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CCWPS_VERSION', '1.0.9' );
+define( 'CCWPS_VERSION', '1.1.1' );
 define( 'CCWPS_PLUGIN_FILE', __FILE__ );
 define( 'CCWPS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CCWPS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

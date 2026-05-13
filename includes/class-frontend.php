@@ -372,7 +372,7 @@ class CCWPS_Frontend {
 
 		ob_start();
 		?>
-		<div class="<?php echo esc_attr( $atts['class'] ); ?>"<?php echo $data_attrs; ?>>
+		<div class="<?php echo esc_attr( $atts['class'] ); ?>"<?php echo wp_kses_data( $data_attrs ); ?>>
 		<?php foreach ( $cookies_by_cat as $cat => $cookies ) :
 			if ( empty( $cookies ) ) continue;
 			?>
