@@ -9,6 +9,7 @@ return [
 	'Bezplatný plugin vytvoril:' => 'Ingyenes plugin készítője:',
 	'Ohodnoťte plugin' => 'Értékelje a plugint',
 	'Ohodnoťte nás na Google' => 'Értékeljen minket a Google-on',
+	'Zariadenie' => 'Eszköz',
 	'Automatické spustenie' => 'Automatikus indítás',
 	'Banner sa zobrazí automaticky pri načítaní stránky.' => 'A banner automatikusan jelenik meg az oldal betöltésekor.',
 	'Vynútený súhlas' => 'Kötelező hozzájárulás',

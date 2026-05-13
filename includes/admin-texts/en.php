@@ -8,6 +8,7 @@ return [
 	'GTM šablóna' => 'GTM Template',
 	'Ohodnoťte plugin' => 'Rate the plugin',
 	'Ohodnoťte nás na Google' => 'Rate us on Google',
+	'Zariadenie' => 'Device',
 	'Import šablóny do Google Tag Managera' => 'Import Template into Google Tag Manager',
 	'V tejto záložke si môžete stiahnuť pripravenú GTM šablónu pre Consent Mode a importovať ju do svojho kontajnera.' => 'In this tab you can download a ready-made GTM template for Consent Mode and import it into your container.',
 	'Ak ešte nemáte dokončené základné nastavenia pluginu, najprv skontrolujte Consent Mode verziu a GTM Container ID v záložke Nastavenia.' => 'If you have not finished the basic plugin setup yet, first check the Consent Mode version and GTM Container ID in the Settings tab.',

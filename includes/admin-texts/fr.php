@@ -9,6 +9,7 @@ return [
 	'Bezplatný plugin vytvoril:' => 'Plugin gratuit créé par :',
 	'Ohodnoťte plugin' => 'Notez le plugin',
 	'Ohodnoťte nás na Google' => 'Notez-nous sur Google',
+	'Zariadenie' => 'Appareil',
 	'Automatické spustenie' => 'Lancement automatique',
 	'Banner sa zobrazí automaticky pri načítaní stránky.' => 'La bannière s\'affiche automatiquement au chargement de la page.',
 	'Vynútený súhlas' => 'Consentement forcé',
