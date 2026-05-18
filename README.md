@@ -209,12 +209,14 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ## Changelog
 
+
 ### 1.1.3
 
 - **New**: Floating icon vertical margin adjustment for desktop displays
 - **New**: Separate mobile floating icon margin control (applies to devices ≤520px width)
 - **Improved**: Enhanced floating icon positioning customization in Appearance → Floating icon section
 - **Improved**: Full multi-language support for new margin settings across all 8 supported languages (SK, EN, CS, DE, FR, ES, HU, PL)
+- **Fixed**: Cookie bar "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites
 
 ### 1.1.1
 
@@ -338,9 +340,13 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ## Upgrade Notice
 
+
 ### 1.1.3
 
-New floating icon vertical margin controls now available! Customize icon height separately for desktop and mobile devices. Access the new settings in Appearance → Floating icon section.
+**New:** Floating icon vertical margin controls for desktop and mobile.  
+**Improved:** Multi-language support for all new settings.  
+**Fixed:** "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites.  
+Access the new settings in Appearance → Floating icon section.
 
 ### 1.1.1
 

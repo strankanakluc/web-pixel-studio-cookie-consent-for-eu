@@ -353,11 +353,13 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 
 == Changelog ==
 
+
 = 1.1.3 =
 * Added floating icon vertical margin adjustment for desktop displays (Appearance → Floating icon)
 * Added separate mobile floating icon margin control (applies to devices with width ≤520px)
 * Enhanced floating icon positioning customization with new margin controls (0-500px range)
 * Added full multi-language support for new margin settings across all 8 supported admin languages (SK, EN, CS, DE, FR, ES, HU, PL)
+* Fixed: Cookie bar "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites
 
 = 1.1.1 =
 * Added GDPR-focused consent log data minimization: IP addresses are now anonymized before storage and device data is stored as anonymized device/browser info.
@@ -405,8 +407,9 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 
 == Upgrade Notice ==
 
+
 = 1.1.3 =
-New floating icon vertical margin controls now available! Customize icon height separately for desktop and mobile devices. Access the new settings in Appearance → Floating icon section.
+New floating icon vertical margin controls for desktop and mobile. "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites. Access the new settings in Appearance → Floating icon section.
 
 = 1.1.1 =
 Security and compliance-focused update: consent logs now store anonymized IP/device data, and upgrades from 1.1.0 or older automatically add the new `device_info` column via safe migration. Review your Consent Log export format and verify log display after updating.
