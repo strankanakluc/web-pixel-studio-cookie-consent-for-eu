@@ -539,10 +539,10 @@
 	display: block;
 }
 
-#ccwps-floating-icon.icon-pos-bottom-right { bottom: 20px; right: 20px; }
-#ccwps-floating-icon.icon-pos-bottom-left  { bottom: 20px; left:  20px; }
-#ccwps-floating-icon.icon-pos-top-right    { top: 80px;    right: 20px; }
-#ccwps-floating-icon.icon-pos-top-left     { top: 80px;    left:  20px; }
+#ccwps-floating-icon.icon-pos-bottom-right { bottom: calc(20px + var(--ccwps-float-icon-my, 0px)); right: 20px; }
+#ccwps-floating-icon.icon-pos-bottom-left  { bottom: calc(20px + var(--ccwps-float-icon-my, 0px)); left:  20px; }
+#ccwps-floating-icon.icon-pos-top-right    { top: calc(80px + var(--ccwps-float-icon-my, 0px)); right: 20px; }
+#ccwps-floating-icon.icon-pos-top-left     { top: calc(80px + var(--ccwps-float-icon-my, 0px)); left:  20px; }
 
 /* ============================================
    TIP POPUP (appears above floating icon)
@@ -1000,6 +1000,11 @@
    RESPONSIVE
    ============================================ */
 @media (max-width: 520px) {
+	#ccwps-floating-icon.icon-pos-bottom-right { bottom: calc(20px + var(--ccwps-float-icon-my-mobile, var(--ccwps-float-icon-my, 0px))); }
+	#ccwps-floating-icon.icon-pos-bottom-left  { bottom: calc(20px + var(--ccwps-float-icon-my-mobile, var(--ccwps-float-icon-my, 0px))); }
+	#ccwps-floating-icon.icon-pos-top-right    { top: calc(80px + var(--ccwps-float-icon-my-mobile, var(--ccwps-float-icon-my, 0px))); }
+	#ccwps-floating-icon.icon-pos-top-left     { top: calc(80px + var(--ccwps-float-icon-my-mobile, var(--ccwps-float-icon-my, 0px))); }
+
 	.ccwps-banner {
 		width: calc(100vw - 16px);
 		max-width: calc(100vw - 16px);

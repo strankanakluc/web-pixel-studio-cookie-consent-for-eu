@@ -12,7 +12,7 @@
 **Tags:** cookie consent, GDPR, cookie banner, ePrivacy, google consent mode  
 **Requires at least:** 5.9  
 **Tested up to:** 6.9  
-**Stable tag:** 1.1.1  
+**Stable tag:** 1.1.3  
 **License:** GPL-2.0-or-later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -209,6 +209,13 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ## Changelog
 
+### 1.1.3
+
+- **New**: Floating icon vertical margin adjustment for desktop displays
+- **New**: Separate mobile floating icon margin control (applies to devices ≤520px width)
+- **Improved**: Enhanced floating icon positioning customization in Appearance → Floating icon section
+- **Improved**: Full multi-language support for new margin settings across all 8 supported languages (SK, EN, CS, DE, FR, ES, HU, PL)
+
 ### 1.1.1
 
 - Added GDPR-focused consent log data minimization: IP addresses are now anonymized before storage and device data is stored as anonymized device/browser info instead of full raw details
@@ -330,6 +337,10 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 - Added predefined cookie and blocking presets for Google Analytics, Google Ads, and Facebook Pixel
 
 ## Upgrade Notice
+
+### 1.1.3
+
+New floating icon vertical margin controls now available! Customize icon height separately for desktop and mobile devices. Access the new settings in Appearance → Floating icon section.
 
 ### 1.1.1
 

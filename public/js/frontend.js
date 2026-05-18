@@ -915,6 +915,8 @@
 		var floatIconBg   = col.floatingIconBg   || col.primary || '#1a73e8';
 		var floatIconBgHv = col.floatingIconBgHv || floatIconBg;
 		var floatIconC    = col.floatingIconColor || '#ffffff';
+		var floatIconMarginY = intOr(C.iconMarginY, 0);
+		var floatIconMarginYMobile = intOr(C.iconMarginYMobile, 0);
 		var floatPopupBg  = col.floatingPopupBg   || col.bg || '#ffffff';
 		var floatPopupTxt = col.floatingPopupText || col.text || '#111827';
 		var cloudBgOpacity = parseInt(col.cloudBgOpacity, 10);
@@ -994,6 +996,8 @@
 			'--ccwps-float-icon-bg:    ' + floatIconBg + ';',
 			'--ccwps-float-icon-bg-hv: ' + floatIconBgHv + ';',
 			'--ccwps-float-icon-color: ' + floatIconC + ';',
+			'--ccwps-float-icon-my:    ' + floatIconMarginY + 'px;',
+			'--ccwps-float-icon-my-mobile: ' + floatIconMarginYMobile + 'px;',
 			'--ccwps-float-tip-bg:     ' + floatPopupBg + ';',
 			'--ccwps-float-tip-text:   ' + floatPopupTxt + ';',
 			'--ccwps-banner-text-pt: ' + intOr(bannerSpacing.textPaddingT, 0) + 'px;',
@@ -1439,7 +1443,7 @@
 			'<div class="ccwps-banner-actions">' +
 				'<button class="ccwps-btn ccwps-btn-primary" id="ccwps-btn-accept">' + esc(i18n.acceptAll) + '</button>' +
 				'<button class="ccwps-btn ccwps-btn-ghost"   id="ccwps-btn-reject">' + esc(i18n.rejectAll) + '</button>' +
-				'<button class="ccwps-btn ccwps-btn-outline" id="ccwps-btn-pref">'   + esc(i18n.managePreferences) + '</button>' +
+				   '<button class="ccwps-btn ccwps-btn-outline" id="ccwps-btn-pref" data-ccwps-manage-consent="1">'   + esc(i18n.managePreferences) + '</button>' +
 			'</div>';
 
 		var titleEl = el.querySelector('.ccwps-banner-title');

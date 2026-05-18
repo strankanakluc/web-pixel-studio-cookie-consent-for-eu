@@ -4,7 +4,7 @@ Tags: cookie consent, GDPR, cookie banner, ePrivacy, google consent mode
 Requires at least: 5.9
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.3
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -353,6 +353,12 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 
 == Changelog ==
 
+= 1.1.3 =
+* Added floating icon vertical margin adjustment for desktop displays (Appearance → Floating icon)
+* Added separate mobile floating icon margin control (applies to devices with width ≤520px)
+* Enhanced floating icon positioning customization with new margin controls (0-500px range)
+* Added full multi-language support for new margin settings across all 8 supported admin languages (SK, EN, CS, DE, FR, ES, HU, PL)
+
 = 1.1.1 =
 * Added GDPR-focused consent log data minimization: IP addresses are now anonymized before storage and device data is stored as anonymized device/browser info.
 * Added automatic database migration for existing installs (upgrading from 1.1.0 or older) to safely add the new `device_info` consent log column.
@@ -398,6 +404,9 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 * Renamed GTM template files and POT file to match the corrected plugin slug.
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+New floating icon vertical margin controls now available! Customize icon height separately for desktop and mobile devices. Access the new settings in Appearance → Floating icon section.
 
 = 1.1.1 =
 Security and compliance-focused update: consent logs now store anonymized IP/device data, and upgrades from 1.1.0 or older automatically add the new `device_info` column via safe migration. Review your Consent Log export format and verify log display after updating.

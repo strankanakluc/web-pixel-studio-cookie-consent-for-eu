@@ -558,6 +558,26 @@ class CCWPS_Admin {
 					</td>
 				</tr>
 				<tr>
+					<th>
+						<label for="floating_icon_margin_y"><?php esc_html_e( 'Vertikálny margin ikony (px)', 'web-pixel-studio-cookie-consent-eu' ); ?></label>
+						<p class="desc"><?php esc_html_e( 'Posunie ikonu vyššie alebo nižšie od základnej polohy podľa vybraného rohu.', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
+					</th>
+					<td>
+						<input type="number" name="floating_icon_margin_y" id="floating_icon_margin_y" value="<?php echo esc_attr( $s->get( 'floating_icon_margin_y', 0 ) ); ?>" min="0" max="500" class="small-text">
+						<?php $this->tip( __( '💡 Pri dolnej polohe vyššia hodnota zdvihne ikonu hore. Pri hornej polohe vyššia hodnota ju posunie nižšie.', 'web-pixel-studio-cookie-consent-eu' ) ); ?>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="floating_icon_margin_y_mobile"><?php esc_html_e( 'Vertikálny margin ikony na mobile (px)', 'web-pixel-studio-cookie-consent-eu' ); ?></label>
+						<p class="desc"><?php esc_html_e( 'Platí iba pre mobilné zariadenia (šírka do 520 px).', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
+					</th>
+					<td>
+						<input type="number" name="floating_icon_margin_y_mobile" id="floating_icon_margin_y_mobile" value="<?php echo esc_attr( $s->get( 'floating_icon_margin_y_mobile', 0 ) ); ?>" min="0" max="500" class="small-text">
+						<?php $this->tip( __( '💡 Použite, ak chcete mať na mobile inú výšku ikony než na desktope.', 'web-pixel-studio-cookie-consent-eu' ) ); ?>
+					</td>
+				</tr>
+				<tr>
 					<th><label for="icon_type"><?php esc_html_e( 'Typ ikony', 'web-pixel-studio-cookie-consent-eu' ); ?></label></th>
 					<td>
 						<select name="icon_type" id="icon_type" class="ccwps-icon-type-select">
@@ -1082,6 +1102,8 @@ class CCWPS_Admin {
 			'banner_show_icon'    => '1',
 			'floating_show_powered_by' => '0',
 			'icon_position'       => 'bottom-left',
+			'floating_icon_margin_y' => '0',
+			'floating_icon_margin_y_mobile' => '0',
 			'icon_type'           => 'cookie',
 			'icon_custom_url'     => '',
 			'banner_logo_show'    => '0',
@@ -2499,6 +2521,7 @@ class CCWPS_Admin {
 		$int_keys = [
 			'delay', 'cookie_expiration', 'matomo_site_id',
 			'btn_border_radius', 'banner_border_radius', 'modal_border_radius', 'banner_logo_width', 'cloud_bg_opacity',
+			'floating_icon_margin_y', 'floating_icon_margin_y_mobile',
 			'banner_text_padding_t', 'banner_text_padding_r', 'banner_text_padding_b', 'banner_text_padding_l',
 			'banner_text_margin_t', 'banner_text_margin_r', 'banner_text_margin_b', 'banner_text_margin_l',
 			'banner_links_padding_t', 'banner_links_padding_r', 'banner_links_padding_b', 'banner_links_padding_l',
@@ -2588,6 +2611,10 @@ class CCWPS_Admin {
 
 			if ( 'cloud_bg_opacity' === $key ) {
 				return (string) max( 0, min( 100, $int_val ) );
+			}
+
+			if ( in_array( $key, [ 'floating_icon_margin_y', 'floating_icon_margin_y_mobile' ], true ) ) {
+				return (string) max( 0, min( 500, $int_val ) );
 			}
 
 			return (string) max( 0, $int_val );

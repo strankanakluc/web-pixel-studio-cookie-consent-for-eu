@@ -144,6 +144,8 @@ class CCWPS_Activator {
 			'banner_show_icon'     => 1,
 			'floating_show_powered_by' => 0,
 			'icon_position'        => 'bottom-left',
+			'floating_icon_margin_y' => 0,
+			'floating_icon_margin_y_mobile' => 0,
 			'icon_type'            => 'cookie',
 			'icon_custom_url'      => '',
 			'banner_logo_show'     => 0,
