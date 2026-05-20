@@ -1,10 +1,10 @@
 === Web Pixel Studio Cookie Consent for EU ===
 Contributors: duddi, wpssk, webpixelstudio
 Tags: cookie consent, GDPR, cookie banner, ePrivacy, google consent mode
-Requires at least: 5.9
-Tested up to: 6.9
-Requires PHP: 7.4
-Stable tag: 1.1.3
+Requires at least: 6.4
+Tested up to: 7.0
+Requires PHP: 8.3
+Stable tag: 1.1.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -147,6 +147,8 @@ Includes built-in presets for:
 - 🇵🇱 Polish
 - 🇭🇺 Hungarian
 - 🇮🇹 Italian
+- 🇷🇴 Romanian
+- 🇳🇱 Dutch
 
 All texts are fully editable and frontend language switching is included.
 
@@ -325,7 +327,7 @@ Inside your WordPress database in:
 
 = Can I translate the banner? =
 
-Yes. All frontend texts are editable and 9 language presets are included.
+Yes. All frontend texts are editable and 11 language presets are included.
 
 ---
 
@@ -354,11 +356,12 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 == Changelog ==
 
 
-= 1.1.3 =
+= 1.1.4 =
+* Added Romanian (ro) and Dutch (nl) language presets for admin and frontend (including all cookie and category texts)
 * Added floating icon vertical margin adjustment for desktop displays (Appearance → Floating icon)
 * Added separate mobile floating icon margin control (applies to devices with width ≤520px)
 * Enhanced floating icon positioning customization with new margin controls (0-500px range)
-* Added full multi-language support for new margin settings across all 8 supported admin languages (SK, EN, CS, DE, FR, ES, HU, PL)
+* Added full multi-language support for new margin settings across all 10 supported admin languages (SK, EN, CS, DE, FR, ES, HU, PL, RO, NL)
 * Fixed: Cookie bar "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites
 
 = 1.1.1 =
@@ -405,23 +408,17 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 * Added "External services" section to readme disclosing optional GTM and Matomo remote resource loading as required by WordPress.org guidelines.
 * Renamed GTM template files and POT file to match the corrected plugin slug.
 
+
 == Upgrade Notice ==
 
-
-= 1.1.3 =
-New floating icon vertical margin controls for desktop and mobile. "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites. Access the new settings in Appearance → Floating icon section.
+= 1.1.4 =
+Added Romanian and Dutch language presets for admin and frontend. Fixed syntax error in language presets. Minimum required WordPress version is now 6.4. Please review your language settings after update.
 
 = 1.1.1 =
 Security and compliance-focused update: consent logs now store anonymized IP/device data, and upgrades from 1.1.0 or older automatically add the new `device_info` column via safe migration. Review your Consent Log export format and verify log display after updating.
 
 = 1.1.0 =
 Major UX and migration update: adds legal links in banner/preferences, advanced per-button visual spacing controls (with spacing-only reset), and safer import by remapping cookie domains to the current site. Review Appearance settings after upgrade and re-export your baseline config.
-
-= 1.0.9 =
-Adds complete translations for admin UI messages in all languages and localizes cookie list shortcode output to match detected visitor language. No breaking changes.
-
-= 1.0.8 =
-Adds Hotjar and Sourcebuster cookie/blocking presets, expands localized preset descriptions and expirations across all supported languages, and improves frontend language behavior for preset texts in both consent modal and cookie list output.
 
 = 1.0.7 =
 Removes Google Fonts dependency, improves compliance, updates text domain naming consistency, and adds required external services disclosure for WordPress.org.

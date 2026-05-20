@@ -30,9 +30,9 @@
 >>>>>>> d46e5b3 (Remove social media badges from README)
 **Contributors:** duddi, wpssk, webpixelstudio  
 **Tags:** cookie consent, GDPR, cookie banner, ePrivacy, google consent mode  
-**Requires at least:** 5.9  
-**Tested up to:** 6.9  
-**Stable tag:** 1.1.3  
+**Requires at least:** 6.4  
+**Tested up to:** 7.0  
+**Stable tag:** 1.1.4  
 **License:** GPL-2.0-or-later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -42,7 +42,7 @@ Web Pixel Studio Cookie Consent for EU gives you a modern, customizable cookie b
 
 It combines a polished frontend experience with practical compliance tools: Google Consent Mode v2 and v3 support, script blocking, cookie declarations, consent logging, multilingual presets, and an admin panel built for real websites.
 
-Built-in translations are available in Slovak, English, Czech, German, French, Spanish, Polish, Hungarian, and Italian.
+Built-in translations are available in Slovak, English, Czech, German, French, Spanish, Polish, Hungarian, Italian, Romanian, and Dutch.
 
 If you want a consent plugin that looks professional, gives visitors clear choices, and keeps you in control of cookies and third-party scripts, this plugin is built for that.
 
@@ -84,7 +84,7 @@ If you want a consent plugin that looks professional, gives visitors clear choic
 - Consent logging with unique consent ID and CSV export
 - Floating consent icon to reopen settings anytime
 - Import and export of plugin settings in JSON, including cookie domain remap on import
-- Built-in language presets and editable frontend texts (Slovak, English, Czech, German, French, Spanish, Polish, Hungarian, Italian)
+- Built-in language presets and editable frontend texts (Slovak, English, Czech, German, French, Spanish, Polish, Hungarian, Italian, Romanian, Dutch)
 - Custom colors, buttons, font, banner position, and icon style
 
 ## What You Can Configure
@@ -230,13 +230,13 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 ## Changelog
 
 
-### 1.1.3
+### 1.1.4
 
-- **New**: Floating icon vertical margin adjustment for desktop displays
-- **New**: Separate mobile floating icon margin control (applies to devices ≤520px width)
-- **Improved**: Enhanced floating icon positioning customization in Appearance → Floating icon section
-- **Improved**: Full multi-language support for new margin settings across all 8 supported languages (SK, EN, CS, DE, FR, ES, HU, PL)
-- **Fixed**: Cookie bar "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites
+- **New**: Added Romanian (ro) and Dutch (nl) language presets for admin and frontend (including all cookie and category texts)
+- **Fixed**: syntax error in language presets (plugin now activates without fatal error)
+- **Changed**: Minimum required WordPress version is now 6.4
+- **Improved**: Full multi-language support for new floating icon margin settings
+- **Fixed**: Cookie bar "Prispôsobiť" (manage preferences) button now always works everywhere (added missing data-ccwps-manage-consent attribute)
 
 ### 1.1.1
 
@@ -361,10 +361,11 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 ## Upgrade Notice
 
 
-### 1.1.3
+### 1.1.4
 
+**New:** Romanian (ro) and Dutch (nl) language presets for admin and frontend (including all cookie and category texts).  
 **New:** Floating icon vertical margin controls for desktop and mobile.  
-**Improved:** Multi-language support for all new settings.  
+**Improved:** Multi-language support for all new settings across all 10 supported admin languages.  
 **Fixed:** "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites.  
 Access the new settings in Appearance → Floating icon section.
 
