@@ -363,11 +363,7 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ### 1.1.4
 
-**New:** Romanian (ro) and Dutch (nl) language presets for admin and frontend (including all cookie and category texts).  
-**New:** Floating icon vertical margin controls for desktop and mobile.  
-**Improved:** Multi-language support for all new settings across all 10 supported admin languages.  
-**Fixed:** "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites.  
-Access the new settings in Appearance → Floating icon section.
+Added Romanian and Dutch language presets for admin and frontend. Added floating icon margin controls for desktop and mobile. Fixed manage preferences button compatibility on all sites. Minimum WordPress version is now 6.4.
 
 ### 1.1.1
 

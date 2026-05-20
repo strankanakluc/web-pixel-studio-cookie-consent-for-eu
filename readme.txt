@@ -148,7 +148,7 @@ Includes built-in presets for:
 - 🇭🇺 Hungarian
 - 🇮🇹 Italian
 - 🇷🇴 Romanian
-- 🇳🇱 Dutch
+- 🇳🇱 Dutch (Nederlands)
 
 All texts are fully editable and frontend language switching is included.
 
