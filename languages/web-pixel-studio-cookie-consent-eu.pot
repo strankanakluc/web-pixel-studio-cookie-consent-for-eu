@@ -1,0 +1,1166 @@
+# Copyright (C) 2026 Web Pixel Studio
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Web Pixel Studio Cookie Consent for EU 1.1.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/MULTI Verzia\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-21T10:59:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: web-pixel-studio-cookie-consent-eu\n"
+
+#. Plugin Name of the plugin
+#: web-pixel-studio-cookie-consent-for-eu.php
+msgid "Web Pixel Studio Cookie Consent for EU"
+msgstr ""
+
+#. Description of the plugin
+#: web-pixel-studio-cookie-consent-for-eu.php
+msgid "GDPR & ePrivacy compliant cookie consent manager with Consent Mode v2 support, full customization, consent logging, and cookie blocking."
+msgstr ""
+
+#. Author of the plugin
+#: web-pixel-studio-cookie-consent-for-eu.php
+msgid "Web Pixel Studio"
+msgstr ""
+
+#. Author URI of the plugin
+#: web-pixel-studio-cookie-consent-for-eu.php
+msgid "https://webpixelstudio.org"
+msgstr ""
+
+#: includes/class-admin.php:42
+#: includes/class-admin.php:166
+#: includes/class-admin.php:1828
+msgid "Nastavenia"
+msgstr ""
+
+#: includes/class-admin.php:52
+#: includes/class-admin.php:53
+msgid "Cookie Consent"
+msgstr ""
+
+#: includes/class-admin.php:117
+#: includes/class-admin.php:1412
+msgid "Názov"
+msgstr ""
+
+#: includes/class-admin.php:118
+#: includes/class-admin.php:1413
+msgid "Doména"
+msgstr ""
+
+#: includes/class-admin.php:119
+#: includes/class-admin.php:1414
+msgid "Platnosť"
+msgstr ""
+
+#: includes/class-admin.php:120
+#: includes/class-admin.php:1416
+#: includes/class-admin.php:1588
+#: includes/class-admin.php:1598
+#: includes/class-admin.php:1608
+msgid "Popis"
+msgstr ""
+
+#: includes/class-admin.php:121
+msgid "Nevyhnutné"
+msgstr ""
+
+#: includes/class-admin.php:122
+msgid "Analytické"
+msgstr ""
+
+#: includes/class-admin.php:123
+msgid "Marketingové"
+msgstr ""
+
+#: includes/class-admin.php:124
+msgid "Preferenčné"
+msgstr ""
+
+#: includes/class-admin.php:157
+msgid "Nastavenia boli importované."
+msgstr ""
+
+#: includes/class-admin.php:158
+msgid "Import zlyhal. Skontrolujte súbor."
+msgstr ""
+
+#: includes/class-admin.php:167
+#: includes/class-admin.php:1830
+msgid "Vzhľad"
+msgstr ""
+
+#: includes/class-admin.php:168
+#: includes/class-admin.php:1829
+msgid "Preklady"
+msgstr ""
+
+#: includes/class-admin.php:169
+msgid "Cookies"
+msgstr ""
+
+#: includes/class-admin.php:170
+#: includes/class-admin.php:1801
+#: includes/class-admin.php:1832
+msgid "Blokovanie skriptov"
+msgstr ""
+
+#: includes/class-admin.php:171
+#: includes/class-admin.php:1656
+#: includes/class-admin.php:1800
+msgid "Záznamy súhlasov"
+msgstr ""
+
+#: includes/class-admin.php:172
+#: includes/class-admin.php:1583
+#: includes/class-admin.php:1808
+msgid "Shortcodes"
+msgstr ""
+
+#: includes/class-admin.php:174
+msgid "Nástroje"
+msgstr ""
+
+#: includes/class-admin.php:175
+msgid "O plugine"
+msgstr ""
+
+#: includes/class-admin.php:191
+msgid "Jazyk:"
+msgstr ""
+
+#: includes/class-admin.php:227
+msgid "Náhľad:"
+msgstr ""
+
+#: includes/class-admin.php:229
+msgid "Zobraziť banner"
+msgstr ""
+
+#: includes/class-admin.php:232
+msgid "Nastavenia cookies"
+msgstr ""
+
+#: includes/class-admin.php:241
+msgid "Funguje na základe"
+msgstr ""
+
+#: includes/class-admin.php:245
+msgid "Bezplatný plugin vytvoril:"
+msgstr ""
+
+#: includes/class-admin.php:336
+msgid "Automatické spustenie"
+msgstr ""
+
+#: includes/class-admin.php:336
+msgid "Banner sa zobrazí automaticky pri načítaní stránky."
+msgstr ""
+
+#: includes/class-admin.php:336
+msgid "💡 Odporúčame zapnúť. Vypnuté = zobraziť manuálne cez <code>CookieConsentWPS.showBanner()</code>"
+msgstr ""
+
+#: includes/class-admin.php:337
+msgid "Vynútený súhlas"
+msgstr ""
+
+#: includes/class-admin.php:337
+msgid "Používateľ nemôže prehliadať web bez udelenia súhlasu."
+msgstr ""
+
+#: includes/class-admin.php:337
+msgid "⚠️ GDPR neukladá povinnosť vynútiť súhlas. Odporúčame VYPNÚŤ – používateľ má právo odmietnuť."
+msgstr ""
+
+#: includes/class-admin.php:338
+msgid "Automatické vymazanie cookies"
+msgstr ""
+
+#: includes/class-admin.php:338
+msgid "Pri odvolaní súhlasu sa automaticky vymažú cookies danej kategórie."
+msgstr ""
+
+#: includes/class-admin.php:338
+msgid "💡 Funguje len pre cookies deklarované v záložke Cookies. Odporúčame zapnúť."
+msgstr ""
+
+#: includes/class-admin.php:339
+msgid "Správa skriptov na stránke"
+msgstr ""
+
+#: includes/class-admin.php:339
+msgid "Blokuje skripty tretích strán, kým používateľ neudelí súhlas."
+msgstr ""
+
+#: includes/class-admin.php:339
+msgid "💡 Definujte pravidlá v záložke \"Blokovanie skriptov\". Plugin zmení typ skriptu na text/plain."
+msgstr ""
+
+#: includes/class-admin.php:340
+msgid "Skryť pre robotov"
+msgstr ""
+
+#: includes/class-admin.php:340
+msgid "Banner sa nezobrazí vyhľadávačom a crawlerom."
+msgstr ""
+
+#: includes/class-admin.php:340
+msgid "💡 Odporúčame zapnúť. Zlepšuje SEO skóre webu."
+msgstr ""
+
+#: includes/class-admin.php:341
+#: includes/class-admin.php:1811
+msgid "Opätovný súhlas"
+msgstr ""
+
+#: includes/class-admin.php:341
+msgid "Zobrazí banner znova, keď sa zmení zoznam cookies."
+msgstr ""
+
+#: includes/class-admin.php:341
+msgid "💡 Odporúčame zapnúť – GDPR vyžaduje nový súhlas po zmene účelu spracovania."
+msgstr ""
+
+#: includes/class-admin.php:342
+msgid "Zaznamenávať súhlasy"
+msgstr ""
+
+#: includes/class-admin.php:342
+msgid "Každý súhlas sa uloží do databázy (ID, IP, URL, čas)."
+msgstr ""
+
+#: includes/class-admin.php:342
+msgid "💡 Odporúčame zapnúť – záznamy slúžia ako dôkaz súhlasu pre GDPR audit."
+msgstr ""
+
+#: includes/class-admin.php:343
+msgid "Jazyk podľa návštevníka"
+msgstr ""
+
+#: includes/class-admin.php:343
+msgid "Frontend cookie lišta sa pokúsi načítať jazyk návštevníka a zobraziť zodpovedajúci dostupný preklad."
+msgstr ""
+
+#: includes/class-admin.php:343
+msgid "💡 Ak jazyk návštevníka nie je dostupný, plugin použije English (GB). Ak je voľba vypnutá, frontend používa aktuálne uložené texty bannera."
+msgstr ""
+
+#: includes/class-admin.php:344
+msgid "Skryť prázdne kategórie"
+msgstr ""
+
+#: includes/class-admin.php:344
+msgid "V modáli preferencií sa skryjú kategórie bez deklarovaných cookies."
+msgstr ""
+
+#: includes/class-admin.php:344
+msgid "💡 Zapnite, keď máte vyplnené všetky kategórie v záložke Cookies."
+msgstr ""
+
+#: includes/class-admin.php:352
+msgid "Oneskorenie zobrazenia (ms)"
+msgstr ""
+
+#: includes/class-admin.php:352
+msgid "Čas v milisekundách pred zobrazením bannera."
+msgstr ""
+
+#: includes/class-admin.php:353
+msgid "💡 Hodnota 0 = okamžite. Odporúčame 0–500 ms. Vyššie hodnoty môžu byť problém pri GDPR auditoch."
+msgstr ""
+
+#: includes/class-admin.php:356
+msgid "Platnosť súhlasu (dni)"
+msgstr ""
+
+#: includes/class-admin.php:356
+msgid "Po koľkých dňoch vyprší súhlas a banner sa zobrazí znova."
+msgstr ""
+
+#: includes/class-admin.php:357
+msgid "💡 GDPR odporúča max. 13 mesiacov (390 dní). Predvolených 182 dní (6 mes.) je bezpečná hodnota."
+msgstr ""
+
+#: includes/class-admin.php:360
+msgid "Cesta cookie"
+msgstr ""
+
+#: includes/class-admin.php:360
+msgid "Cesta, na ktorej bude cookie platná."
+msgstr ""
+
+#: includes/class-admin.php:361
+msgid "💡 Nechajte \"/\" – cookie bude platná na celom webe."
+msgstr ""
+
+#: includes/class-admin.php:364
+msgid "Doména cookie"
+msgstr ""
+
+#: includes/class-admin.php:364
+msgid "Nechajte prázdne pre automatickú detekciu."
+msgstr ""
+
+#: includes/class-admin.php:365
+msgid "💡 Vyplňte \".mojeweb.sk\" (s bodkou) ak chcete zdieľať súhlas medzi subdoménami."
+msgstr ""
+
+#: includes/class-admin.php:371
+msgid "Google Consent Mode"
+msgstr ""
+
+#: includes/class-admin.php:373
+msgid "Čo je Consent Mode?"
+msgstr ""
+
+#: includes/class-admin.php:374
+msgid " Google Consent Mode umožňuje Googlu modelovať chýbajúce dáta, keď používatelia odmietnu analytické/reklamné cookies. Vaše kampane budú stále merateľné aj bez plného súhlasu."
+msgstr ""
+
+#: includes/class-admin.php:378
+msgid "Verzia Consent Mode"
+msgstr ""
+
+#: includes/class-admin.php:383
+msgid "Vypnuté"
+msgstr ""
+
+#: includes/class-admin.php:383
+msgid "Consent Mode sa nepoužíva. Vhodné ak nepoužívate Google Analytics ani Ads."
+msgstr ""
+
+#: includes/class-admin.php:384
+msgid "Consent Mode v2"
+msgstr ""
+
+#: includes/class-admin.php:384
+msgid "Štandard od marca 2024. Vyžadovaný pre Google Ads a GA4 v EÚ. Posiela signály ad_user_data a ad_personalization. Nutné pre remarketing a konverzie."
+msgstr ""
+
+#: includes/class-admin.php:385
+msgid "Consent Mode v3"
+msgstr ""
+
+#: includes/class-admin.php:385
+msgid "Rozšírenie v2 o developer ID signál. Zahŕňa všetky funkcie v2 + nastavenie developer_id pre presnejšie modelovanie konverzií. Vhodné pre pokročilé Google Marketing Platform funkcie."
+msgstr ""
+
+#: includes/class-admin.php:395
+msgid "Odporúčané"
+msgstr ""
+
+#: includes/class-admin.php:396
+msgid "Nové"
+msgstr ""
+
+#: includes/class-admin.php:403
+msgid "💡 Pre väčšinu webov stačí v2. v3 použite ak využívate pokročilé Google Marketing Platform funkcie. Obe verzie vyžadujú GTM alebo manuálne načítanie gtag.js."
+msgstr ""
+
+#: includes/class-admin.php:407
+msgid "GTM Container ID"
+msgstr ""
+
+#: includes/class-admin.php:407
+msgid "Voliteľné: Plugin načíta GTM automaticky."
+msgstr ""
+
+#: includes/class-admin.php:408
+msgid "💡 Vyplňte len ak GTM nenačítavate iným spôsobom. Ak GTM máte v téme alebo inom plugine, nechajte prázdne."
+msgstr ""
+
+#: includes/class-admin.php:511
+msgid "Typ bannera"
+msgstr ""
+
+#: includes/class-admin.php:521
+msgid "💡 Box – kompaktný popup v rohu. Bar – horizontálny pruh cez celú šírku. Cloud – zaoblený popup s väčším tieňom."
+msgstr ""
+
+#: includes/class-admin.php:525
+msgid "Poloha bannera"
+msgstr ""
+
+#: includes/class-admin.php:529
+#: includes/class-admin.php:554
+msgid "Dole vľavo"
+msgstr ""
+
+#: includes/class-admin.php:530
+#: includes/class-admin.php:554
+msgid "Dole vpravo"
+msgstr ""
+
+#: includes/class-admin.php:531
+msgid "Dole v strede"
+msgstr ""
+
+#: includes/class-admin.php:532
+#: includes/class-admin.php:554
+msgid "Hore vľavo"
+msgstr ""
+
+#: includes/class-admin.php:533
+#: includes/class-admin.php:554
+msgid "Hore vpravo"
+msgstr ""
+
+#: includes/class-admin.php:534
+msgid "Hore v strede"
+msgstr ""
+
+#: includes/class-admin.php:535
+msgid "Stred obrazovky"
+msgstr ""
+
+#: includes/class-admin.php:548
+msgid "Zobraziť plávajúcu ikonu"
+msgstr ""
+
+#: includes/class-admin.php:548
+msgid "Po udelení súhlasu sa zobrazí ikona na opätovnú správu preferencií."
+msgstr ""
+
+#: includes/class-admin.php:548
+msgid "💡 Odporúčame zapnúť – GDPR vyžaduje, aby mohol používateľ kedykoľvek odvolať súhlas. Po kliknutí na ikonu sa zobrazí panel s ID súhlasu a tlačidlami."
+msgstr ""
+
+#: includes/class-admin.php:551
+msgid "Poloha ikony"
+msgstr ""
+
+#: includes/class-admin.php:562
+msgid "Vertikálny margin ikony (px)"
+msgstr ""
+
+#: includes/class-admin.php:563
+msgid "Posunie ikonu vyššie alebo nižšie od základnej polohy podľa vybraného rohu."
+msgstr ""
+
+#: includes/class-admin.php:567
+msgid "💡 Pri dolnej polohe vyššia hodnota zdvihne ikonu hore. Pri hornej polohe vyššia hodnota ju posunie nižšie."
+msgstr ""
+
+#: includes/class-admin.php:572
+msgid "Vertikálny margin ikony na mobile (px)"
+msgstr ""
+
+#: includes/class-admin.php:573
+msgid "Platí iba pre mobilné zariadenia (šírka do 520 px)."
+msgstr ""
+
+#: includes/class-admin.php:577
+msgid "💡 Použite, ak chcete mať na mobile inú výšku ikony než na desktope."
+msgstr ""
+
+#: includes/class-admin.php:581
+msgid "Typ ikony"
+msgstr ""
+
+#: includes/class-admin.php:589
+msgid "🖼 Vlastná ikona (obrázok)"
+msgstr ""
+
+#: includes/class-admin.php:598
+#: includes/class-admin.php:606
+msgid "Vlastná ikona"
+msgstr ""
+
+#: includes/class-admin.php:610
+#: includes/class-admin.php:666
+msgid "Žiadny obrázok"
+msgstr ""
+
+#: includes/class-admin.php:616
+#: includes/class-admin.php:672
+msgid "📂 Vybrať / nahrať obrázok"
+msgstr ""
+
+#: includes/class-admin.php:620
+#: includes/class-admin.php:624
+#: includes/class-admin.php:675
+msgid "Odstrániť"
+msgstr ""
+
+#: includes/class-admin.php:633
+msgid "Pozadie floating ikony"
+msgstr ""
+
+#: includes/class-admin.php:633
+msgid "Farba kruhu floating ikony."
+msgstr ""
+
+#: includes/class-admin.php:634
+msgid "Pozadie floating ikony (hover)"
+msgstr ""
+
+#: includes/class-admin.php:634
+msgid "Farba kruhu floating ikony po prejdení myšou."
+msgstr ""
+
+#: includes/class-admin.php:635
+msgid "Farba obsahu floating ikony"
+msgstr ""
+
+#: includes/class-admin.php:635
+msgid "Farba SVG ikony alebo obsahu vo floating ikone."
+msgstr ""
+
+#: includes/class-admin.php:636
+msgid "Pozadie popupu floating ikony"
+msgstr ""
+
+#: includes/class-admin.php:636
+msgid "Farba pozadia popupu po kliknutí na floating ikonu."
+msgstr ""
+
+#: includes/class-admin.php:637
+msgid "Farba textu popupu floating ikony"
+msgstr ""
+
+#: includes/class-admin.php:637
+msgid "Farba textu a obsahu popupu po kliknutí na floating ikonu."
+msgstr ""
+
+#: includes/class-admin.php:650
+msgid "Zobraziť logo v banneri"
+msgstr ""
+
+#: includes/class-admin.php:650
+msgid "V pravom hornom rohu cookie lišty sa zobrazí vaše logo."
+msgstr ""
+
+#: includes/class-admin.php:653
+#: includes/class-admin.php:662
+msgid "Logo bannera"
+msgstr ""
+
+#: includes/class-admin.php:692
+msgid "Šírka loga (px)"
+msgstr ""
+
+#: includes/class-admin.php:697
+msgid "💡 Šírka loga v pixeloch (20–100 px). Výška sa prispôsobí automaticky."
+msgstr ""
+
+#: includes/class-admin.php:707
+msgid "Font"
+msgstr ""
+
+#: includes/class-admin.php:707
+msgid "CSS font-family hodnota"
+msgstr ""
+
+#: includes/class-admin.php:725
+msgid "Pole ponúka iba detegované fonty z témy, theme.json, Elementora a frontend CSS."
+msgstr ""
+
+#: includes/class-admin.php:726
+msgid "💡 V zozname sa zobrazuje iba názov fontu. Po výbere sa uloží kompletná font-family hodnota detegovaná na stránke. Voľba \"Použiť font témy\" zodpovedá hodnote inherit."
+msgstr ""
+
+#: includes/class-admin.php:730
+msgid "Zaoblenie tlačidiel (px)"
+msgstr ""
+
+#: includes/class-admin.php:731
+msgid "💡 0 = hranaté, 8 = mierne zaoblené, 24+ = \"pill\" tvar."
+msgstr ""
+
+#: includes/class-admin.php:734
+msgid "Zaoblenie bannera / modálu (px)"
+msgstr ""
+
+#: includes/class-admin.php:735
+msgid "💡 Zaoblenie rohov bannera aj modálu. Predvolené: 12 px."
+msgstr ""
+
+#: includes/class-admin.php:790
+msgid "Farby bannera"
+msgstr ""
+
+#: includes/class-admin.php:793
+msgid "Nastavte farby pre pozadie a text cookie lišty (bannera)."
+msgstr ""
+
+#: includes/class-admin.php:796
+msgid "Pozadie bannera"
+msgstr ""
+
+#: includes/class-admin.php:796
+msgid "Farba pozadia cookie lišty."
+msgstr ""
+
+#: includes/class-admin.php:797
+msgid "Farba nadpisu bannera"
+msgstr ""
+
+#: includes/class-admin.php:797
+msgid "Farba hlavného nadpisu v banneri."
+msgstr ""
+
+#: includes/class-admin.php:798
+msgid "Farba textu bannera"
+msgstr ""
+
+#: includes/class-admin.php:798
+msgid "Farba popisu a bežného textu v banneri."
+msgstr ""
+
+#: includes/class-admin.php:799
+msgid "Primárna / akcentová farba"
+msgstr ""
+
+#: includes/class-admin.php:799
+msgid "Používa sa ako fallback farba pre tlačidlá a zvýraznenia."
+msgstr ""
+
+#: includes/class-admin.php:807
+msgid "Priesvitnosť bannera Cloud (%)"
+msgstr ""
+
+#: includes/class-admin.php:807
+msgid "Platí iba pre typ bannera Cloud. 0 = maximálne priehľadný, 100 = najmenej priehľadný."
+msgstr ""
+
+#: includes/class-admin.php:815
+msgid "Tlačidlo \"Prijať všetky\" (primárne)"
+msgstr ""
+
+#: includes/class-admin.php:818
+msgid "Farebné nastavenia pre hlavné modré tlačidlo súhlasu. Prázdne pole = použije sa primárna farba."
+msgstr ""
+
+#: includes/class-admin.php:822
+#: includes/class-admin.php:845
+#: includes/class-admin.php:868
+msgid "Pozadie"
+msgstr ""
+
+#: includes/class-admin.php:823
+#: includes/class-admin.php:846
+#: includes/class-admin.php:869
+msgid "Pozadie (hover)"
+msgstr ""
+
+#: includes/class-admin.php:824
+#: includes/class-admin.php:847
+#: includes/class-admin.php:870
+#: includes/class-admin.php:901
+msgid "Farba textu"
+msgstr ""
+
+#: includes/class-admin.php:825
+#: includes/class-admin.php:848
+msgid "Farba textu (hover)"
+msgstr ""
+
+#: includes/class-admin.php:838
+msgid "Tlačidlo \"Odmietnuť všetky\" (primárne)"
+msgstr ""
+
+#: includes/class-admin.php:841
+msgid "Farebné nastavenia pre tlačidlo odmietnutia. Možnosti sú zjednotené s tlačidlom \"Prijať všetky\"."
+msgstr ""
+
+#: includes/class-admin.php:861
+msgid "Tlačidlo \"Spravovať nastavenia\" (outline)"
+msgstr ""
+
+#: includes/class-admin.php:864
+msgid "Farebné nastavenia pre tlačidlo správy preferencií."
+msgstr ""
+
+#: includes/class-admin.php:871
+msgid "Farba ohraničenia"
+msgstr ""
+
+#: includes/class-admin.php:880
+msgid "Priehľadné"
+msgstr ""
+
+#: includes/class-admin.php:893
+msgid "Okno modálu (Spravovať súhlas)"
+msgstr ""
+
+#: includes/class-admin.php:896
+msgid "Farby pre okno nastavenia cookies, ktoré sa otvorí po kliknutí na \"Spravovať nastavenia\"."
+msgstr ""
+
+#: includes/class-admin.php:900
+msgid "Pozadie modálu"
+msgstr ""
+
+#: includes/class-admin.php:902
+msgid "Farba identifikátora súhlasu"
+msgstr ""
+
+#: includes/class-admin.php:903
+msgid "Pozadie hlavičky"
+msgstr ""
+
+#: includes/class-admin.php:904
+msgid "Pozadie päty"
+msgstr ""
+
+#: includes/class-admin.php:905
+msgid "Farba ohraničení"
+msgstr ""
+
+#: includes/class-admin.php:906
+msgid "Pozadie kategórie"
+msgstr ""
+
+#: includes/class-admin.php:907
+msgid "Pozadie kategórie (hover)"
+msgstr ""
+
+#: includes/class-admin.php:908
+msgid "Farba prepínača (zapnutý)"
+msgstr ""
+
+#: includes/class-admin.php:909
+msgid "Farba textu \"Vždy aktívne\""
+msgstr ""
+
+#: includes/class-admin.php:918
+msgid "Zaoblenie modálu (px)"
+msgstr ""
+
+#: includes/class-admin.php:1273
+msgid "Banner"
+msgstr ""
+
+#: includes/class-admin.php:1309
+msgid "Kliknite na jazyk – všetky polia sa vyplnia automaticky. Potom kliknite Uložiť."
+msgstr ""
+
+#: includes/class-admin.php:1364
+msgid "Popis cookie je viditeľný návštevníkom v modáli preferencií – pomáha im pochopiť, na čo daná cookie slúži."
+msgstr ""
+
+#: includes/class-admin.php:1376
+msgid "viditeľný návštevníkom"
+msgstr ""
+
+#: includes/class-admin.php:1378
+#: includes/class-admin.php:1479
+msgid "Regex"
+msgstr ""
+
+#: includes/class-admin.php:1383
+msgid "Žiadne cookies. Kliknite \"+ Pridať cookie\"."
+msgstr ""
+
+#: includes/class-admin.php:1415
+msgid "Cesta"
+msgstr ""
+
+#: includes/class-admin.php:1416
+msgid "Viditeľný návštevníkom v modáli preferencií."
+msgstr ""
+
+#: includes/class-admin.php:1416
+msgid "napr. Používa sa Google Analytics na rozlíšenie návštevníkov."
+msgstr ""
+
+#: includes/class-admin.php:1417
+#: includes/class-admin.php:1503
+msgid "Kategória"
+msgstr ""
+
+#: includes/class-admin.php:1418
+#: includes/class-admin.php:1504
+msgid "Je Regex?"
+msgstr ""
+
+#: includes/class-admin.php:1432
+msgid "Email"
+msgstr ""
+
+#: includes/class-admin.php:1436
+msgid "Predmet"
+msgstr ""
+
+#: includes/class-admin.php:1440
+msgid "Text"
+msgstr ""
+
+#: includes/class-admin.php:1454
+msgid "Náhľad zoznamu cookies"
+msgstr ""
+
+#: includes/class-admin.php:1473
+msgid "Definujte zdroje skriptov, ktoré sa majú blokovať, kým používateľ neudelí súhlas pre danú kategóriu. Plugin zmení typ skriptu na text/plain, čo zabrání jeho spusteniu."
+msgstr ""
+
+#: includes/class-admin.php:1482
+msgid "Žiadne pravidlá blokovania."
+msgstr ""
+
+#: includes/class-admin.php:1502
+msgid "Zdroj skriptu"
+msgstr ""
+
+#: includes/class-admin.php:1502
+msgid "Fragment URL, napr. \"google-analytics.com\""
+msgstr ""
+
+#: includes/class-admin.php:1542
+msgid "Nev."
+msgstr ""
+
+#: includes/class-admin.php:1543
+msgid "Anal."
+msgstr ""
+
+#: includes/class-admin.php:1544
+msgid "Market."
+msgstr ""
+
+#: includes/class-admin.php:1545
+msgid "Pref."
+msgstr ""
+
+#: includes/class-admin.php:1585
+msgid "ID súhlasu návštevníka"
+msgstr ""
+
+#: includes/class-admin.php:1586
+msgid "Zobrazí jedinečné ID súhlasu aktuálneho návštevníka. Vhodné pre zásady ochrany osobných údajov – umožní používateľovi preukázať, kedy a ako súhlasil."
+msgstr ""
+
+#: includes/class-admin.php:1588
+#: includes/class-admin.php:1598
+#: includes/class-admin.php:1608
+msgid "Parameter"
+msgstr ""
+
+#: includes/class-admin.php:1588
+#: includes/class-admin.php:1598
+#: includes/class-admin.php:1608
+msgid "Predvolené"
+msgstr ""
+
+#: includes/class-admin.php:1590
+msgid "Text pred ID."
+msgstr ""
+
+#: includes/class-admin.php:1591
+msgid "HTML obal (p, div, span…)"
+msgstr ""
+
+#: includes/class-admin.php:1595
+msgid "Zoznam cookies používaných na webe"
+msgstr ""
+
+#: includes/class-admin.php:1596
+msgid "Automaticky zobrazí prehľadnú tabuľku všetkých deklarovaných cookies, rozdelenú podľa kategórií. Vložte na stránku s cookie politikou."
+msgstr ""
+
+#: includes/class-admin.php:1600
+msgid "Filtruj: necessary, analytics, targeting, preferences"
+msgstr ""
+
+#: includes/class-admin.php:1605
+msgid "Tlačidlo správy súhlasu"
+msgstr ""
+
+#: includes/class-admin.php:1606
+msgid "Vloží tlačidlo, ktoré otvorí modál nastavenia cookies. Vhodné pre stránky so zásadami ochrany osobných údajov a právne dokumenty – umožní návštevníkovi kedykoľvek zmeniť preferencie."
+msgstr ""
+
+#: includes/class-admin.php:1610
+msgid "Text tlačidla (predvolene: text z nastavení Prekladov)."
+msgstr ""
+
+#: includes/class-admin.php:1611
+msgid "CSS trieda pre vlastné štýlovanie."
+msgstr ""
+
+#: includes/class-admin.php:1612
+msgid "Voliteľné HTML id atribút."
+msgstr ""
+
+#: includes/class-admin.php:1628
+msgid "Exportuje všetky nastavenia do JSON súboru. Vhodné pre presun medzi servermi alebo zálohu."
+msgstr ""
+
+#: includes/class-admin.php:1633
+msgid "Nahrajte predtým exportovaný settings.json. Prepisuje aktuálnu konfiguráciu."
+msgstr ""
+
+#: includes/class-admin.php:1639
+msgid "Kliknite alebo presuňte settings.json sem"
+msgstr ""
+
+#: includes/class-admin.php:1647
+msgid "Resetuje všetky nastavenia na predvolené hodnoty (SK jazyk, predvolený vzhľad). Deklarácie cookies, pravidlá blokovania a záznamy súhlasov nie sú ovplyvnené."
+msgstr ""
+
+#: includes/class-admin.php:1653
+msgid "Verzia"
+msgstr ""
+
+#: includes/class-admin.php:1657
+msgid "Deklarácie cookies"
+msgstr ""
+
+#: includes/class-admin.php:1658
+msgid "Pravidlá blokovania"
+msgstr ""
+
+#: includes/class-admin.php:1785
+msgid "O plugine Web Pixel Studio Cookie Consent for EU"
+msgstr ""
+
+#: includes/class-admin.php:1788
+msgid "Popis pluginu"
+msgstr ""
+
+#: includes/class-admin.php:1794
+msgid "Hlavné funkcie"
+msgstr ""
+
+#: includes/class-admin.php:1798
+msgid "Cookie banner"
+msgstr ""
+
+#: includes/class-admin.php:1798
+msgid "Prispôsobiteľný popup/bar/cloud banner s výberom polohy na stránke."
+msgstr ""
+
+#: includes/class-admin.php:1799
+msgid "Modál preferencií"
+msgstr ""
+
+#: includes/class-admin.php:1799
+msgid "Používateľ si môže zvoliť, ktoré kategórie cookies povolí (nevyhnutné, analytické, marketingové, preferenčné)."
+msgstr ""
+
+#: includes/class-admin.php:1800
+msgid "Každý súhlas sa uloží do databázy s ID, IP adresou, URL a časovou pečiatkou. Export do CSV."
+msgstr ""
+
+#: includes/class-admin.php:1801
+msgid "Skripty tretích strán (napr. Google Analytics, Meta Pixel) sa zablokujú, kým používateľ neudelí súhlas."
+msgstr ""
+
+#: includes/class-admin.php:1802
+msgid "Predpripravené sady cookies a skriptov"
+msgstr ""
+
+#: includes/class-admin.php:1802
+msgid "Hotové predvoľby jedným kliknutím doplnia bežné Google a Meta cookies spolu so súvisiacimi pravidlami blokovania."
+msgstr ""
+
+#: includes/class-admin.php:1805
+msgid "Consent Mode v2 / v3"
+msgstr ""
+
+#: includes/class-admin.php:1805
+msgid "Automaticky nastaví default denied stav a aktualizuje Google signály po udelení súhlasu."
+msgstr ""
+
+#: includes/class-admin.php:1806
+msgid "Plné prispôsobenie vzhľadu"
+msgstr ""
+
+#: includes/class-admin.php:1806
+msgid "Farby, font, zaoblenie tlačidiel, rozloženie bannera, poloha floating ikony."
+msgstr ""
+
+#: includes/class-admin.php:1807
+msgid "9 jazykových predvolieb"
+msgstr ""
+
+#: includes/class-admin.php:1807
+msgid "SK, EN, CS, DE, FR, ES, PL, HU, IT. Všetky texty sú plne editovateľné z admin panelu."
+msgstr ""
+
+#: includes/class-admin.php:1808
+msgid "[ccwps_consent_id] – zobrazí ID súhlasu návštevníka. [ccwps_cookie_list] – tabuľka deklarovaných cookies. [ccwps_manage_consent] – tlačidlo na správu súhlasu."
+msgstr ""
+
+#: includes/class-admin.php:1809
+msgid "Export/Import nastavení"
+msgstr ""
+
+#: includes/class-admin.php:1810
+msgid "Detekcia robotov"
+msgstr ""
+
+#: includes/class-admin.php:1810
+msgid "Banner sa automaticky skryje pred vyhľadávačmi a crawlermi."
+msgstr ""
+
+#: includes/class-admin.php:1811
+msgid "Ak sa zmení zoznam cookies, plugin automaticky požiada o nový súhlas."
+msgstr ""
+
+#: includes/class-admin.php:1812
+msgid "Floating ikona"
+msgstr ""
+
+#: includes/class-admin.php:1812
+msgid "Plávajúca ikona umožní používateľovi kedykoľvek zmeniť preferencie. Po kliknutí zobrazí ID súhlasu a dátum."
+msgstr ""
+
+#: includes/class-admin.php:1825
+msgid "Postup nastavenia"
+msgstr ""
+
+#: includes/class-admin.php:1828
+msgid "V záložke Nastavenia zapnite Zaznamenávať súhlasy, Opätovný súhlas, Skryť pre robotov a Automatické spustenie. Vyberte verziu Consent Mode (v2 pre väčšinu webov). Ak používate GTM, vyplňte GTM Container ID."
+msgstr ""
+
+#: includes/class-admin.php:1829
+msgid "V záložke Preklady vyberte jazyk pomocou rýchlych predvolieb alebo upravte texty manuálne. Kliknite Uložiť preklady."
+msgstr ""
+
+#: includes/class-admin.php:1830
+msgid "V záložke Vzhľad nastavte farby, rozloženie bannera a polohu plávajúcej ikony. Použite tlačidlá Náhľad na overenie zmien."
+msgstr ""
+
+#: includes/class-admin.php:1831
+msgid "Deklarácia cookies"
+msgstr ""
+
+#: includes/class-admin.php:1831
+msgid "V záložke Cookies pridajte všetky cookies, ktoré váš web používa. Pre každú cookie vyplňte názov, doménu, platnosť, popis a kategóriu. Popis bude viditeľný návštevníkovi."
+msgstr ""
+
+#: includes/class-admin.php:1832
+msgid "V záložke Blokovanie skriptov pridajte pravidlá pre skripty, ktoré chcete blokovať. Napr. pre Google Analytics pridajte \"google-analytics.com\" → kategória Analytické."
+msgstr ""
+
+#: includes/class-admin.php:1833
+msgid "Cookie politika"
+msgstr ""
+
+#: includes/class-admin.php:1833
+msgid "Na stránku s Cookie politikou vložte [ccwps_cookie_list] pre automatickú tabuľku cookies, [ccwps_consent_id] pre zobrazenie ID súhlasu a [ccwps_manage_consent] pre tlačidlo zmeny preferencií."
+msgstr ""
+
+#: includes/class-admin.php:1834
+msgid "Overenie"
+msgstr ""
+
+#: includes/class-admin.php:1834
+msgid "Otvorte web v incognito okne a overte, že sa banner zobrazí, súhlas sa zaznamená v záložke Záznamy súhlasov a floating ikona funguje správne."
+msgstr ""
+
+#: includes/class-admin.php:1849
+msgid "Nastavenie Google Tag Manager + Consent Mode"
+msgstr ""
+
+#: includes/class-admin.php:1852
+msgid "Možnosť A: Plugin načíta GTM automaticky"
+msgstr ""
+
+#: includes/class-admin.php:1853
+msgid "V záložke Nastavenia vyplňte GTM Container ID (napr. GTM-XXXXXXX). Plugin automaticky vloží GTM kód do hlavičky stránky spolu s Consent Mode default stavom (všetky signály = denied). Po udelení súhlasu sa GTM aktualizuje pomocou gtag('consent', 'update', ...)."
+msgstr ""
+
+#: includes/class-admin.php:1856
+msgid "Možnosť B: GTM máte nainštalovaný inak (téma, iný plugin)"
+msgstr ""
+
+#: includes/class-admin.php:1857
+msgid "Nechajte GTM Container ID prázdne. Plugin automaticky vloží Consent Mode default stav pred GTM kód, takže default denied signály sa nastavia skôr, ako GTM spustí akékoľvek tagy. Toto je správne správanie podľa Google dokumentácie."
+msgstr ""
+
+#: includes/class-admin.php:1860
+msgid "Nastavenie tagov v GTM"
+msgstr ""
+
+#: includes/class-admin.php:1861
+msgid "V GTM nastavte pre každý tag Consent Settings. Pre Google Analytics (GA4): analytics_storage = Required. Pre Google Ads: ad_storage, ad_user_data, ad_personalization = Required. Tagy sa spustia len po udelení príslušného súhlasu."
+msgstr ""
+
+#: includes/class-admin.php:1864
+msgid "Overenie pomocou Google Tag Assistant"
+msgstr ""
+
+#: includes/class-admin.php:1865
+msgid "Otvorte Google Tag Assistant a overte, že pri odmietnutí cookies sú tagy v stave \"Consent Blocked\" a po udelení súhlasu sa aktivujú. Skontrolujte tiež Google Analytics Realtime report."
+msgstr ""
+
+#: includes/class-admin.php:1890
+msgid "Autor a podpora"
+msgstr ""
+
+#: includes/class-admin.php:1891
+msgid "Plugin vytvoril Web Pixel Studio. Pre otázky, návrhy alebo hlásenie chýb nás kontaktujte na:"
+msgstr ""
+
+#: includes/class-admin.php:1892
+msgid "Plugin je bezplatný a open-source pod licenciou GPL-2.0. Postavený na:"
+msgstr ""
+
+#: includes/class-admin.php:2264
+msgid "Použiť font témy"
+msgstr ""
+
+#: includes/class-ajax.php:248
+msgid "Nepodarilo sa odoslať žiadosť. Skúste to znova."
+msgstr ""
+
+#: includes/class-ajax.php:256
+msgid "Zadajte platný e-mail."
+msgstr ""
+
+#: includes/class-ajax.php:261
+msgid "Predmet musí mať 3 až 150 znakov."
+msgstr ""
+
+#: includes/class-ajax.php:266
+msgid "Text správy musí mať 20 až 4000 znakov."
+msgstr ""
+
+#: includes/class-ajax.php:283
+msgid "Počkajte prosím 30 sekúnd a skúste to znova."
+msgstr ""
+
+#: includes/class-ajax.php:287
+msgid "Dosiahli ste limit 3 žiadostí za 10 minút. Skúste to neskôr."
+msgstr ""
+
+#: includes/class-ajax.php:291
+msgid "Denný limit žiadostí bol dosiahnutý. Skúste to zajtra."
+msgstr ""
+
+#: includes/class-ajax.php:338
+msgid "Žiadosť sa nepodarilo odoslať z tohto WordPress webu. Skontrolujte SMTP/mail konfiguráciu hostingu."
+msgstr ""
+
+#. translators: %s = mail transport error
+#: includes/class-ajax.php:342
+#, php-format
+msgid "Detail chyby: %s"
+msgstr ""
+
+#: includes/class-ajax.php:354
+msgid "Žiadosť bola úspešne odoslaná."
+msgstr ""
+
+#: includes/class-frontend.php:284
+msgid "Cookie settings"
+msgstr ""
+
+#: includes/class-frontend.php:320
+#: includes/class-frontend.php:324
+msgid "Súhlas nebol udelený."
+msgstr ""
+
+#: includes/class-frontend.php:362
+msgid "Žiadne cookies nie sú deklarované."
+msgstr ""

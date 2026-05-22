@@ -1,0 +1,840 @@
+# Copyright (C) 2026 Web Pixel Studio
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Web Pixel Studio Cookie Consent for EU 1.1.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/web-pixel-studio-cookie-consent-eu\n"
+"PO-Revision-Date: 2026-05-22 10:00+0000\n"
+"Last-Translator: Web Pixel Studio <info@webpixelstudio.org>\n"
+"Language-Team: Greek\n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: web-pixel-studio-cookie-consent-eu\n"
+
+msgid "Web Pixel Studio Cookie Consent for EU"
+msgstr "Web Pixel Studio Cookie Consent for EU"
+
+msgid "GDPR & ePrivacy compliant cookie consent manager with Consent Mode v2 support, full customization, consent logging, and cookie blocking."
+msgstr "Διαχειριστής συγκατάθεσης cookies συμβατός με GDPR & ePrivacy, με υποστήριξη Consent Mode v2, πλήρη προσαρμογή, καταγραφή συγκαταθέσεων και αποκλεισμό cookies."
+
+msgid "Web Pixel Studio"
+msgstr "Web Pixel Studio"
+
+msgid "https://webpixelstudio.org"
+msgstr "https://webpixelstudio.org"
+
+msgid "Nastavenia"
+msgstr "Ρυθμίσεις"
+
+msgid "Cookie Consent"
+msgstr "Συγκατάθεση Cookie"
+
+msgid "Názov"
+msgstr "Όνομα"
+
+msgid "Doména"
+msgstr "Τομέας"
+
+msgid "Platnosť"
+msgstr "Ισχύς"
+
+msgid "Popis"
+msgstr "Περιγραφή"
+
+msgid "Nevyhnutné"
+msgstr "Απαραίτητα"
+
+msgid "Analytické"
+msgstr "Αναλυτικά"
+
+msgid "Marketingové"
+msgstr "Μάρκετινγκ"
+
+msgid "Preferenčné"
+msgstr "Προτιμήσεις"
+
+msgid "Nastavenia boli importované."
+msgstr "Οι ρυθμίσεις εισήχθησαν."
+
+msgid "Import zlyhal. Skontrolujte súbor."
+msgstr "Η εισαγωγή απέτυχε. Ελέγξτε το αρχείο."
+
+msgid "Vzhľad"
+msgstr "Εμφάνιση"
+
+msgid "Preklady"
+msgstr "Μεταφράσεις"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Blokovanie skriptov"
+msgstr "Αποκλεισμός σεναρίων"
+
+msgid "Záznamy súhlasov"
+msgstr "Αρχεία συγκαταθέσεων"
+
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+msgid "Nástroje"
+msgstr "Εργαλεία"
+
+msgid "O plugine"
+msgstr "Σχετικά με το plugin"
+
+msgid "Jazyk:"
+msgstr "Γλώσσα:"
+
+msgid "Náhľad:"
+msgstr "Προεπισκόπηση:"
+
+msgid "Zobraziť banner"
+msgstr "Εμφάνιση banner"
+
+msgid "Nastavenia cookies"
+msgstr "Ρυθμίσεις cookies"
+
+msgid "Funguje na základe"
+msgstr "Λειτουργεί βάσει"
+
+msgid "Bezplatný plugin vytvoril:"
+msgstr "Δωρεάν plugin από:"
+
+msgid "Automatické spustenie"
+msgstr "Αυτόματη εκκίνηση"
+
+msgid "Banner sa zobrazí automaticky pri načítaní stránky."
+msgstr "Το banner θα εμφανιστεί αυτόματα κατά τη φόρτωση της σελίδας."
+
+msgid "💡 Odporúčame zapnúť. Vypnuté = zobraziť manuálne cez <code>CookieConsentWPS.showBanner()</code>"
+msgstr "💡 Συνιστούμε να το ενεργοποιήσετε. Απενεργοποιημένο = εμφάνιση χειροκίνητα μέσω <code>CookieConsentWPS.showBanner()</code>"
+
+msgid "Vynútený súhlas"
+msgstr "Υποχρεωτική συγκατάθεση"
+
+msgid "Používateľ nemôže prehliadať web bez udelenia súhlasu."
+msgstr "Ο χρήστης δεν μπορεί να περιηγηθεί στον ιστότοπο χωρίς να δώσει συγκατάθεση."
+
+msgid "⚠️ GDPR neukladá povinnosť vynútiť súhlas. Odporúčame VYPNÚŤ – používateľ má právo odmietnuť."
+msgstr "⚠️ Ο GDPR δεν επιβάλλει υποχρέωση αναγκαστικής συγκατάθεσης. Συνιστούμε ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ – ο χρήστης έχει δικαίωμα άρνησης."
+
+msgid "Automatické vymazanie cookies"
+msgstr "Αυτόματη διαγραφή cookies"
+
+msgid "Pri odvolaní súhlasu sa automaticky vymažú cookies danej kategórie."
+msgstr "Κατά την ανάκληση της συγκατάθεσης, τα cookies της συγκεκριμένης κατηγορίας θα διαγραφούν αυτόματα."
+
+msgid "💡 Funguje len pre cookies deklarované v záložke Cookies. Odporúčame zapnúť."
+msgstr "💡 Λειτουργεί μόνο για cookies που έχουν δηλωθεί στην καρτέλα Cookies. Συνιστούμε να το ενεργοποιήσετε."
+
+msgid "Správa skriptov na stránke"
+msgstr "Διαχείριση σεναρίων στη σελίδα"
+
+msgid "Blokuje skripty tretích strán, kým používateľ neudelí súhlas."
+msgstr "Αποκλείει σενάρια τρίτων μέρη έως ότου ο χρήστης δώσει συγκατάθεση."
+
+msgid "💡 Definujte pravidlá v záložke \"Blokovanie skriptov\". Plugin zmení typ skriptu na text/plain."
+msgstr "💡 Ορίστε κανόνες στην καρτέλα \"Αποκλεισμός σεναρίων\". Το plugin θα αλλάξει τον τύπο του σεναρίου σε text/plain."
+
+msgid "Skryť pre robotov"
+msgstr "Απόκρυψη από bots"
+
+msgid "Banner sa nezobrazí vyhľadávačom a crawlerom."
+msgstr "Το banner δεν θα εμφανιστεί σε μηχανές αναζήτησης και crawlers."
+
+msgid "💡 Odporúčame zapnúť. Zlepšuje SEO skóre webu."
+msgstr "💡 Συνιστούμε να το ενεργοποιήσετε. Βελτιώνει τη βαθμολογία SEO του ιστότοπου."
+
+msgid "Opätovný súhlas"
+msgstr "Ανανέωση συγκατάθεσης"
+
+msgid "Zobrazí banner znova, keď sa zmení zoznam cookies."
+msgstr "Εμφανίζει ξανά το banner όταν αλλάξει η λίστα των cookies."
+
+msgid "💡 Odporúčame zapnúť – GDPR vyžaduje nový súhlas po zmene účelu spracovania."
+msgstr "💡 Συνιστούμε να το ενεργοποιήσετε – ο GDPR απαιτεί νέα συγκατάθεση μετά από αλλαγή σκοπού επεξεργασίας."
+
+msgid "Zaznamenávať súhlasy"
+msgstr "Καταγραφή συγκαταθέσεων"
+
+msgid "Každý súhlas sa uloží do databázy (ID, IP, URL, čas)."
+msgstr "Κάθε συγκατάθεση αποθηκεύεται στη βάση δεδομένων (ID, IP, URL, ώρα)."
+
+msgid "💡 Odporúčame zapnúť – záznamy slúžia ako dôkaz súhlasu pre GDPR audit."
+msgstr "💡 Συνιστούμε να το ενεργοποιήσετε – τα αρχεία χρησιμεύουν ως απόδειξη συγκατάθεσης για έλεγχο GDPR."
+
+msgid "Jazyk podľa návštevníka"
+msgstr "Γλώσσα ανάλογα με τον επισκέπτη"
+
+msgid "Frontend cookie lišta sa pokúsi načítať jazyk návštevníka a zobraziť zodpovedajúci dostupný preklad."
+msgstr "Η μπάρα cookies του frontend θα προσπαθήσει να εντοπίσει τη γλώσσα του επισκέπτη και να εμφανίσει την αντίστοιχη διαθέσιμη μετάφραση."
+
+msgid "💡 Ak jazyk návštevníka nie je dostupný, plugin použije English (GB). Ak je voľba vypnutá, frontend používa aktuálne uložené texty bannera."
+msgstr "💡 Αν η γλώσσα του επισκέπτη δεν είναι διαθέσιμη, το plugin θα χρησιμοποιήσει English (GB). Αν η επιλογή είναι απενεργοποιημένη, το frontend χρησιμοποιεί τα τρέχοντα αποθηκευμένα κείμενα του banner."
+
+msgid "Skryť prázdne kategórie"
+msgstr "Απόκρυψη κενών κατηγοριών"
+
+msgid "V modáli preferencií sa skryjú kategórie bez deklarovaných cookies."
+msgstr "Στο παράθυρο προτιμήσεων, θα αποκρυφθούν οι κατηγορίες χωρίς δηλωμένα cookies."
+
+msgid "💡 Zapnite, keď máte vyplnené všetky kategórie v záložke Cookies."
+msgstr "💡 Ενεργοποιήστε όταν έχετε συμπληρώσει όλες τις κατηγορίες στην καρτέλα Cookies."
+
+msgid "Oneskorenie zobrazenia (ms)"
+msgstr "Καθυστέρηση εμφάνισης (ms)"
+
+msgid "Čas v milisekundách pred zobrazením bannera."
+msgstr "Χρόνος σε χιλιοστά του δευτερολέπτου πριν από την εμφάνιση του banner."
+
+msgid "💡 Hodnota 0 = okamžite. Odporúčame 0–500 ms. Vyššie hodnoty môžu byť problém pri GDPR auditoch."
+msgstr "💡 Τιμή 0 = αμέσως. Συνιστούμε 0–500 ms. Υψηλότερες τιμές μπορεί να αποτελούν πρόβλημα σε ελέγχους GDPR."
+
+msgid "Platnosť súhlasu (dni)"
+msgstr "Ισχύς συγκατάθεσης (ημέρες)"
+
+msgid "Po koľkých dňoch vyprší súhlas a banner sa zobrazí znova."
+msgstr "Μετά από πόσες ημέρες λήγει η συγκατάθεση και εμφανίζεται ξανά το banner."
+
+msgid "💡 GDPR odporúča max. 13 mesiacov (390 dní). Predvolených 182 dní (6 mes.) je bezpečná hodnota."
+msgstr "💡 Ο GDPR συνιστά έως 13 μήνες (390 ημέρες). Η προεπιλογή των 182 ημερών (6 μήνες) είναι ασφαλής τιμή."
+
+msgid "Cesta cookie"
+msgstr "Διαδρομή cookie"
+
+msgid "Cesta, na ktorej bude cookie platná."
+msgstr "Η διαδρομή στην οποία το cookie θα ισχύει."
+
+msgid "💡 Nechajte \"/\" – cookie bude platná na celom webe."
+msgstr "💡 Αφήστε \"/\" – το cookie θα ισχύει σε ολόκληρο τον ιστότοπο."
+
+msgid "Doména cookie"
+msgstr "Τομέας cookie"
+
+msgid "Nechajte prázdne pre automatickú detekciu."
+msgstr "Αφήστε κενό για αυτόματη ανίχνευση."
+
+msgid "💡 Vyplňte \".mojeweb.sk\" (s bodkou) ak chcete zdieľať súhlas medzi subdoménami."
+msgstr "💡 Συμπληρώστε \".myweb.gr\" (με τελεία) εάν θέλετε να μοιράζεστε τη συγκατάθεση μεταξύ υποτομέων."
+
+msgid "Google Consent Mode"
+msgstr "Google Consent Mode"
+
+msgid "Čo je Consent Mode?"
+msgstr "Τι είναι το Consent Mode;"
+
+msgid " Google Consent Mode umožňuje Googlu modelovať chýbajúce dáta, keď používatelia odmietnu analytické/reklamné cookies. Vaše kampane budú stále merateľné aj bez plného súhlasu."
+msgstr " Το Google Consent Mode επιτρέπει στην Google να μοντελοποιεί τα ελλείποντα δεδομένα όταν οι χρήστες αρνούνται αναλυτικά/διαφημιστικά cookies. Οι καμπάνιες σας θα παραμείνουν μετρήσιμες ακόμα και χωρίς πλήρη συγκατάθεση."
+
+msgid "Verzia Consent Mode"
+msgstr "Έκδοση Consent Mode"
+
+msgid "Vypnuté"
+msgstr "Απενεργοποιημένο"
+
+msgid "Consent Mode sa nepoužíva. Vhodné ak nepoužívate Google Analytics ani Ads."
+msgstr "Το Consent Mode δεν χρησιμοποιείται. Κατάλληλο αν δεν χρησιμοποιείτε Google Analytics ή Ads."
+
+msgid "Consent Mode v2"
+msgstr "Consent Mode v2"
+
+msgid "Štandard od marca 2024. Vyžadovaný pre Google Ads a GA4 v EÚ. Posiela signály ad_user_data a ad_personalization. Nutné pre remarketing a konverzie."
+msgstr "Πρότυπο από τον Μάρτιο 2024. Απαιτείται για Google Ads και GA4 στην ΕΕ. Στέλνει σήματα ad_user_data και ad_personalization. Απαραίτητο για remarketing και μετατροπές."
+
+msgid "Consent Mode v3"
+msgstr "Consent Mode v3"
+
+msgid "Rozšírenie v2 o developer ID signál. Zahŕňa všetky funkcie v2 + nastavenie developer_id pre presnejšie modelovanie konverzií. Vhodné pre pokročilé Google Marketing Platform funkcie."
+msgstr "Επέκταση του v2 με σήμα developer ID. Περιλαμβάνει όλες τις λειτουργίες του v2 + ρύθμιση developer_id για πιο ακριβή μοντελοποίηση μετατροπών. Κατάλληλο για προηγμένες λειτουργίες του Google Marketing Platform."
+
+msgid "Odporúčané"
+msgstr "Προτεινόμενο"
+
+msgid "Nové"
+msgstr "Νέο"
+
+msgid "💡 Pre väčšinu webov stačí v2. v3 použite ak využívate pokročilé Google Marketing Platform funkcie. Obe verzie vyžadujú GTM alebo manuálne načítanie gtag.js."
+msgstr "💡 Για τους περισσότερους ιστότοπους αρκεί το v2. Χρησιμοποιήστε το v3 αν χρησιμοποιείτε προηγμένες λειτουργίες Google Marketing Platform. Και οι δύο εκδόσεις απαιτούν GTM ή χειροκίνητη φόρτωση gtag.js."
+
+msgid "GTM Container ID"
+msgstr "GTM Container ID"
+
+msgid "Voliteľné: Plugin načíta GTM automaticky."
+msgstr "Προαιρετικό: Το plugin θα φορτώσει αυτόματα το GTM."
+
+msgid "💡 Vyplňte len ak GTM nenačítavate iným spôsobom. Ak GTM máte v téme alebo inom plugine, nechajte prázdne."
+msgstr "💡 Συμπληρώστε μόνο αν δεν φορτώνετε το GTM με άλλον τρόπο. Αν το GTM βρίσκεται στο θέμα ή σε άλλο plugin, αφήστε κενό."
+
+msgid "Typ bannera"
+msgstr "Τύπος banner"
+
+msgid "💡 Box – kompaktný popup v rohu. Bar – horizontálny pruh cez celú šírku. Cloud – zaoblený popup s väčším tieňom."
+msgstr "💡 Box – συμπαγές popup στη γωνία. Bar – οριζόντια λωρίδα σε όλο το πλάτος. Cloud – στρογγυλεμένο popup με μεγαλύτερη σκιά."
+
+msgid "Poloha bannera"
+msgstr "Θέση banner"
+
+msgid "Dole vľavo"
+msgstr "Κάτω αριστερά"
+
+msgid "Dole vpravo"
+msgstr "Κάτω δεξιά"
+
+msgid "Dole v strede"
+msgstr "Κάτω στο κέντρο"
+
+msgid "Hore vľavo"
+msgstr "Πάνω αριστερά"
+
+msgid "Hore vpravo"
+msgstr "Πάνω δεξιά"
+
+msgid "Hore v strede"
+msgstr "Πάνω στο κέντρο"
+
+msgid "Stred obrazovky"
+msgstr "Κέντρο οθόνης"
+
+msgid "Zobraziť plávajúcu ikonu"
+msgstr "Εμφάνιση πλωτού εικονιδίου"
+
+msgid "Po udelení súhlasu sa zobrazí ikona na opätovnú správu preferencií."
+msgstr "Μετά από τη συγκατάθεση, εμφανίζεται εικονίδιο για εκ νέου διαχείριση των προτιμήσεων."
+
+msgid "💡 Odporúčame zapnúť – GDPR vyžaduje, aby mohol používateľ kedykoľvek odvolať súhlas. Po kliknutí na ikonu sa zobrazí panel s ID súhlasu a tlačidlami."
+msgstr "💡 Συνιστούμε να το ενεργοποιήσετε – ο GDPR απαιτεί να μπορεί ο χρήστης να ανακαλεί τη συγκατάθεσή του ανά πάσα στιγμή. Κάνοντας κλικ στο εικονίδιο, εμφανίζεται πάνελ με το ID συγκατάθεσης και κουμπιά."
+
+msgid "Poloha ikony"
+msgstr "Θέση εικονιδίου"
+
+msgid "Vertikálny margin ikony (px)"
+msgstr "Κατακόρυφο περιθώριο εικονιδίου (px)"
+
+msgid "Posunie ikonu vyššie alebo nižšie od základnej polohy podľa vybraného rohu."
+msgstr "Μετακινεί το εικονίδιο υψηλότερα ή χαμηλότερα από τη βασική θέση ανάλογα με την επιλεγμένη γωνία."
+
+msgid "💡 Pri dolnej polohe vyššia hodnota zdvihne ikonu hore. Pri hornej polohe vyššia hodnota ju posunie nižšie."
+msgstr "💡 Στην κάτω θέση, υψηλότερη τιμή ανεβάζει το εικονίδιο. Στην πάνω θέση, υψηλότερη τιμή το κατεβάζει."
+
+msgid "Vertikálny margin ikony na mobile (px)"
+msgstr "Κατακόρυφο περιθώριο εικονιδίου σε κινητά (px)"
+
+msgid "Platí iba pre mobilné zariadenia (šírka do 520 px)."
+msgstr "Ισχύει μόνο για κινητές συσκευές (πλάτος έως 520 px)."
+
+msgid "💡 Použite, ak chcete mať na mobile inú výšku ikony než na desktope."
+msgstr "💡 Χρησιμοποιήστε αν θέλετε διαφορετικό ύψος εικονιδίου σε κινητά σε σχέση με τον υπολογιστή."
+
+msgid "Typ ikony"
+msgstr "Τύπος εικονιδίου"
+
+msgid "🖼 Vlastná ikona (obrázok)"
+msgstr "🖼 Προσαρμοσμένο εικονίδιο (εικόνα)"
+
+msgid "Vlastná ikona"
+msgstr "Προσαρμοσμένο εικονίδιο"
+
+msgid "Žiadny obrázok"
+msgstr "Χωρίς εικόνα"
+
+msgid "📂 Vybrať / nahrať obrázok"
+msgstr "📂 Επιλογή / μεταφόρτωση εικόνας"
+
+msgid "Odstrániť"
+msgstr "Αφαίρεση"
+
+msgid "Pozadie floating ikony"
+msgstr "Φόντο πλωτού εικονιδίου"
+
+msgid "Farba kruhu floating ikony."
+msgstr "Χρώμα του κύκλου του πλωτού εικονιδίου."
+
+msgid "Pozadie floating ikony (hover)"
+msgstr "Φόντο πλωτού εικονιδίου (hover)"
+
+msgid "Farba kruhu floating ikony po prejdení myšou."
+msgstr "Χρώμα του κύκλου του πλωτού εικονιδίου κατά το πέρασμα του ποντικιού."
+
+msgid "Farba obsahu floating ikony"
+msgstr "Χρώμα περιεχομένου πλωτού εικονιδίου"
+
+msgid "Farba SVG ikony alebo obsahu vo floating ikone."
+msgstr "Χρώμα του εικονιδίου SVG ή του περιεχομένου στο πλωτό εικονίδιο."
+
+msgid "Pozadie popupu floating ikony"
+msgstr "Φόντο popup πλωτού εικονιδίου"
+
+msgid "Farba pozadia popupu po kliknutí na floating ikonu."
+msgstr "Χρώμα φόντου του popup κατά το κλικ στο πλωτό εικονίδιο."
+
+msgid "Farba textu popupu floating ikony"
+msgstr "Χρώμα κειμένου popup πλωτού εικονιδίου"
+
+msgid "Farba textu a obsahu popupu po kliknutí na floating ikonu."
+msgstr "Χρώμα κειμένου και περιεχομένου του popup κατά το κλικ στο πλωτό εικονίδιο."
+
+msgid "Zobraziť logo v banneri"
+msgstr "Εμφάνιση λογοτύπου στο banner"
+
+msgid "V pravom hornom rohu cookie lišty sa zobrazí vaše logo."
+msgstr "Το λογότυπό σας θα εμφανιστεί στην επάνω δεξιά γωνία της μπάρας cookies."
+
+msgid "Logo bannera"
+msgstr "Λογότυπο banner"
+
+msgid "Šírka loga (px)"
+msgstr "Πλάτος λογοτύπου (px)"
+
+msgid "💡 Šírka loga v pixeloch (20–100 px). Výška sa prispôsobí automaticky."
+msgstr "💡 Πλάτος λογοτύπου σε pixel (20–100 px). Το ύψος προσαρμόζεται αυτόματα."
+
+msgid "Font"
+msgstr "Γραμματοσειρά"
+
+msgid "CSS font-family hodnota"
+msgstr "Τιμή CSS font-family"
+
+msgid "Pole ponúka iba detegované fonty z témy, theme.json, Elementora a frontend CSS."
+msgstr "Το πεδίο προσφέρει μόνο γραμματοσειρές που εντοπίστηκαν από το θέμα, theme.json, Elementor και frontend CSS."
+
+msgid "💡 V zozname sa zobrazuje iba názov fontu. Po výbere sa uloží kompletná font-family hodnota detegovaná na stránke. Voľba \"Použiť font témy\" zodpovedá hodnote inherit."
+msgstr "💡 Στη λίστα εμφανίζεται μόνο το όνομα γραμματοσειράς. Μετά την επιλογή, αποθηκεύεται η πλήρης τιμή font-family που εντοπίστηκε στη σελίδα. Η επιλογή \"Χρήση γραμματοσειράς θέματος\" αντιστοιχεί στην τιμή inherit."
+
+msgid "Zaoblenie tlačidiel (px)"
+msgstr "Στρογγύλεμα κουμπιών (px)"
+
+msgid "💡 0 = hranaté, 8 = mierne zaoblené, 24+ = \"pill\" tvar."
+msgstr "💡 0 = γωνιακά, 8 = ελαφρώς στρογγυλεμένα, 24+ = σχήμα \"pill\"."
+
+msgid "Zaoblenie bannera / modálu (px)"
+msgstr "Στρογγύλεμα banner / παραθύρου (px)"
+
+msgid "💡 Zaoblenie rohov bannera aj modálu. Predvolené: 12 px."
+msgstr "💡 Στρογγύλεμα γωνιών του banner και του παραθύρου. Προεπιλογή: 12 px."
+
+msgid "Farby bannera"
+msgstr "Χρώματα banner"
+
+msgid "Nastavte farby pre pozadie a text cookie lišty (bannera)."
+msgstr "Ρυθμίστε τα χρώματα για το φόντο και το κείμενο της μπάρας cookies (banner)."
+
+msgid "Pozadie bannera"
+msgstr "Φόντο banner"
+
+msgid "Farba pozadia cookie lišty."
+msgstr "Χρώμα φόντου της μπάρας cookies."
+
+msgid "Farba nadpisu bannera"
+msgstr "Χρώμα τίτλου banner"
+
+msgid "Farba hlavného nadpisu v banneri."
+msgstr "Χρώμα του κύριου τίτλου στο banner."
+
+msgid "Farba textu bannera"
+msgstr "Χρώμα κειμένου banner"
+
+msgid "Farba popisu a bežného textu v banneri."
+msgstr "Χρώμα της περιγραφής και του κοινού κειμένου στο banner."
+
+msgid "Primárna / akcentová farba"
+msgstr "Κύριο / έντονο χρώμα"
+
+msgid "Používa sa ako fallback farba pre tlačidlá a zvýraznenia."
+msgstr "Χρησιμοποιείται ως εφεδρικό χρώμα για κουμπιά και επισημάνσεις."
+
+msgid "Priesvitnosť bannera Cloud (%)"
+msgstr "Αδιαφάνεια banner Cloud (%)"
+
+msgid "Platí iba pre typ bannera Cloud. 0 = maximálne priehľadný, 100 = najmenej priehľadný."
+msgstr "Ισχύει μόνο για τον τύπο banner Cloud. 0 = μέγιστη διαφάνεια, 100 = ελάχιστη διαφάνεια."
+
+msgid "Tlačidlo \"Prijať všetky\" (primárne)"
+msgstr "Κουμπί \"Αποδοχή όλων\" (κύριο)"
+
+msgid "Farebné nastavenia pre hlavné modré tlačidlo súhlasu. Prázdne pole = použije sa primárna farba."
+msgstr "Ρυθμίσεις χρωμάτων για το κύριο μπλε κουμπί συγκατάθεσης. Κενό πεδίο = χρησιμοποιείται το κύριο χρώμα."
+
+msgid "Pozadie"
+msgstr "Φόντο"
+
+msgid "Pozadie (hover)"
+msgstr "Φόντο (hover)"
+
+msgid "Farba textu"
+msgstr "Χρώμα κειμένου"
+
+msgid "Farba textu (hover)"
+msgstr "Χρώμα κειμένου (hover)"
+
+msgid "Tlačidlo \"Odmietnuť všetky\" (primárne)"
+msgstr "Κουμπί \"Απόρριψη όλων\" (κύριο)"
+
+msgid "Farebné nastavenia pre tlačidlo odmietnutia. Možnosti sú zjednotené s tlačidlom \"Prijať všetky\"."
+msgstr "Ρυθμίσεις χρωμάτων για το κουμπί απόρριψης. Οι επιλογές είναι ενοποιημένες με το κουμπί \"Αποδοχή όλων\"."
+
+msgid "Tlačidlo \"Spravovať nastavenia\" (outline)"
+msgstr "Κουμπί \"Διαχείριση ρυθμίσεων\" (outline)"
+
+msgid "Farebné nastavenia pre tlačidlo správy preferencií."
+msgstr "Ρυθμίσεις χρωμάτων για το κουμπί διαχείρισης προτιμήσεων."
+
+msgid "Farba ohraničenia"
+msgstr "Χρώμα περιγράμματος"
+
+msgid "Priehľadné"
+msgstr "Διαφανές"
+
+msgid "Okno modálu (Spravovať súhlas)"
+msgstr "Παράθυρο modal (Διαχείριση συγκατάθεσης)"
+
+msgid "Farby pre okno nastavenia cookies, ktoré sa otvorí po kliknutí na \"Spravovať nastavenia\"."
+msgstr "Χρώματα για το παράθυρο ρυθμίσεων cookies που ανοίγει κάνοντας κλικ στο \"Διαχείριση ρυθμίσεων\"."
+
+msgid "Pozadie modálu"
+msgstr "Φόντο παραθύρου"
+
+msgid "Farba identifikátora súhlasu"
+msgstr "Χρώμα αναγνωριστικού συγκατάθεσης"
+
+msgid "Pozadie hlavičky"
+msgstr "Φόντο κεφαλίδας"
+
+msgid "Pozadie päty"
+msgstr "Φόντο υποσέλιδου"
+
+msgid "Farba ohraničení"
+msgstr "Χρώμα περιγραμμάτων"
+
+msgid "Pozadie kategórie"
+msgstr "Φόντο κατηγορίας"
+
+msgid "Pozadie kategórie (hover)"
+msgstr "Φόντο κατηγορίας (hover)"
+
+msgid "Farba prepínača (zapnutý)"
+msgstr "Χρώμα διακόπτη (ενεργό)"
+
+msgid "Farba textu \"Vždy aktívne\""
+msgstr "Χρώμα κειμένου \"Πάντα ενεργό\""
+
+msgid "Zaoblenie modálu (px)"
+msgstr "Στρογγύλεμα παραθύρου (px)"
+
+msgid "Banner"
+msgstr "Banner"
+
+msgid "Kliknite na jazyk – všetky polia sa vyplnia automaticky. Potom kliknite Uložiť."
+msgstr "Κάντε κλικ σε μια γλώσσα – όλα τα πεδία θα συμπληρωθούν αυτόματα. Στη συνέχεια κάντε κλικ στο Αποθήκευση."
+
+msgid "Popis cookie je viditeľný návštevníkom v modáli preferencií – pomáha im pochopiť, na čo daná cookie slúži."
+msgstr "Η περιγραφή του cookie είναι ορατή στους επισκέπτες στο παράθυρο προτιμήσεων – τους βοηθά να κατανοήσουν τον σκοπό του συγκεκριμένου cookie."
+
+msgid "viditeľný návštevníkom"
+msgstr "ορατό στους επισκέπτες"
+
+msgid "Regex"
+msgstr "Regex"
+
+msgid "Žiadne cookies. Kliknite \"+ Pridať cookie\"."
+msgstr "Δεν υπάρχουν cookies. Κάντε κλικ στο \"+ Προσθήκη cookie\"."
+
+msgid "Cesta"
+msgstr "Διαδρομή"
+
+msgid "Viditeľný návštevníkom v modáli preferencií."
+msgstr "Ορατό στους επισκέπτες στο παράθυρο προτιμήσεων."
+
+msgid "napr. Používa sa Google Analytics na rozlíšenie návštevníkov."
+msgstr "π.χ. Χρησιμοποιείται από το Google Analytics για διάκριση επισκεπτών."
+
+msgid "Kategória"
+msgstr "Κατηγορία"
+
+msgid "Je Regex?"
+msgstr "Είναι Regex;"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Predmet"
+msgstr "Θέμα"
+
+msgid "Text"
+msgstr "Κείμενο"
+
+msgid "Náhľad zoznamu cookies"
+msgstr "Προεπισκόπηση λίστας cookies"
+
+msgid "Definujte zdroje skriptov, ktoré sa majú blokovať, kým používateľ neudelí súhlas pre danú kategóriu. Plugin zmení typ skriptu na text/plain, čo zabrání jeho spusteniu."
+msgstr "Ορίστε τις πηγές σεναρίων που πρέπει να αποκλειστούν έως ότου ο χρήστης δώσει συγκατάθεση για αυτή την κατηγορία. Το plugin θα αλλάξει τον τύπο του σεναρίου σε text/plain, εμποδίζοντας την εκτέλεσή του."
+
+msgid "Žiadne pravidlá blokovania."
+msgstr "Δεν υπάρχουν κανόνες αποκλεισμού."
+
+msgid "Zdroj skriptu"
+msgstr "Πηγή σεναρίου"
+
+msgid "Fragment URL, napr. \"google-analytics.com\""
+msgstr "Τμήμα URL, π.χ. \"google-analytics.com\""
+
+msgid "Nev."
+msgstr "Απαρ."
+
+msgid "Anal."
+msgstr "Αναλ."
+
+msgid "Market."
+msgstr "Μάρκ."
+
+msgid "Pref."
+msgstr "Προτ."
+
+msgid "ID súhlasu návštevníka"
+msgstr "ID συγκατάθεσης επισκέπτη"
+
+msgid "Zobrazí jedinečné ID súhlasu aktuálneho návštevníka. Vhodné pre zásady ochrany osobných údajov – umožní používateľovi preukázať, kedy a ako súhlasil."
+msgstr "Εμφανίζει το μοναδικό ID συγκατάθεσης του τρέχοντος επισκέπτη. Κατάλληλο για πολιτικές απορρήτου – επιτρέπει στον χρήστη να αποδείξει πότε και πώς συγκατατέθηκε."
+
+msgid "Parameter"
+msgstr "Παράμετρος"
+
+msgid "Predvolené"
+msgstr "Προεπιλογή"
+
+msgid "Text pred ID."
+msgstr "Κείμενο πριν από το ID."
+
+msgid "HTML obal (p, div, span…)"
+msgstr "Κοντέινερ HTML (p, div, span…)"
+
+msgid "Zoznam cookies používaných na webe"
+msgstr "Λίστα cookies που χρησιμοποιούνται στον ιστότοπο"
+
+msgid "Automaticky zobrazí prehľadnú tabuľku všetkých deklarovaných cookies, rozdelenú podľa kategórií. Vložte na stránku s cookie politikou."
+msgstr "Εμφανίζει αυτόματα έναν σαφή πίνακα με όλα τα δηλωμένα cookies, χωρισμένα κατά κατηγορία. Εισαγάγετε στη σελίδα πολιτικής cookies."
+
+msgid "Filtruj: necessary, analytics, targeting, preferences"
+msgstr "Φίλτρο: necessary, analytics, targeting, preferences"
+
+msgid "Tlačidlo správy súhlasu"
+msgstr "Κουμπί διαχείρισης συγκατάθεσης"
+
+msgid "Vloží tlačidlo, ktoré otvorí modál nastavenia cookies. Vhodné pre stránky so zásadami ochrany osobných údajov a právne dokumenty – umožní návštevníkovi kedykoľvek zmeniť preferencie."
+msgstr "Εισάγει ένα κουμπί που ανοίγει το παράθυρο ρυθμίσεων cookies. Κατάλληλο για σελίδες πολιτικής απορρήτου και νομικά έγγραφα – επιτρέπει στον επισκέπτη να αλλάξει τις προτιμήσεις του ανά πάσα στιγμή."
+
+msgid "Text tlačidla (predvolene: text z nastavení Prekladov)."
+msgstr "Κείμενο κουμπιού (προεπιλογή: κείμενο από τις ρυθμίσεις Μεταφράσεων)."
+
+msgid "CSS trieda pre vlastné štýlovanie."
+msgstr "Κλάση CSS για προσαρμοσμένη στυλιστική διαμόρφωση."
+
+msgid "Voliteľné HTML id atribút."
+msgstr "Προαιρετικό χαρακτηριστικό HTML id."
+
+msgid "Exportuje všetky nastavenia do JSON súboru. Vhodné pre presun medzi servermi alebo zálohu."
+msgstr "Εξάγει όλες τις ρυθμίσεις σε αρχείο JSON. Κατάλληλο για μεταφορά μεταξύ διακομιστών ή δημιουργία αντιγράφου ασφαλείας."
+
+msgid "Nahrajte predtým exportovaný settings.json. Prepisuje aktuálnu konfiguráciu."
+msgstr "Ανεβάστε ένα settings.json που εξήχθη προηγουμένως. Αντικαθιστά την τρέχουσα ρύθμιση παραμέτρων."
+
+msgid "Kliknite alebo presuňte settings.json sem"
+msgstr "Κάντε κλικ ή σύρετε το settings.json εδώ"
+
+msgid "Resetuje všetky nastavenia na predvolené hodnoty (SK jazyk, predvolený vzhľad). Deklarácie cookies, pravidlá blokovania a záznamy súhlasov nie sú ovplyvnené."
+msgstr "Επαναφέρει όλες τις ρυθμίσεις στις προεπιλεγμένες τιμές (γλώσσα SK, προεπιλεγμένη εμφάνιση). Οι δηλώσεις cookies, οι κανόνες αποκλεισμού και τα αρχεία συγκαταθέσεων δεν επηρεάζονται."
+
+msgid "Verzia"
+msgstr "Έκδοση"
+
+msgid "Deklarácie cookies"
+msgstr "Δηλώσεις cookies"
+
+msgid "Pravidlá blokovania"
+msgstr "Κανόνες αποκλεισμού"
+
+msgid "O plugine Web Pixel Studio Cookie Consent for EU"
+msgstr "Σχετικά με το plugin Web Pixel Studio Cookie Consent for EU"
+
+msgid "Popis pluginu"
+msgstr "Περιγραφή plugin"
+
+msgid "Hlavné funkcie"
+msgstr "Κύριες λειτουργίες"
+
+msgid "Cookie banner"
+msgstr "Banner cookies"
+
+msgid "Prispôsobiteľný popup/bar/cloud banner s výberom polohy na stránke."
+msgstr "Προσαρμόσιμο popup/bar/cloud banner με επιλογή θέσης στη σελίδα."
+
+msgid "Modál preferencií"
+msgstr "Παράθυρο προτιμήσεων"
+
+msgid "Používateľ si môže zvoliť, ktoré kategórie cookies povolí (nevyhnutné, analytické, marketingové, preferenčné)."
+msgstr "Ο χρήστης μπορεί να επιλέξει ποιες κατηγορίες cookies θα επιτρέψει (απαραίτητα, αναλυτικά, marketing, προτιμήσεις)."
+
+msgid "Každý súhlas sa uloží do databázy s ID, IP adresou, URL a časovou pečiatkou. Export do CSV."
+msgstr "Κάθε συγκατάθεση αποθηκεύεται στη βάση δεδομένων με ID, διεύθυνση IP, URL και χρονική σήμανση. Εξαγωγή σε CSV."
+
+msgid "Skripty tretích strán (napr. Google Analytics, Meta Pixel) sa zablokujú, kým používateľ neudelí súhlas."
+msgstr "Σενάρια τρίτων (π.χ. Google Analytics, Meta Pixel) θα αποκλειστούν έως ότου ο χρήστης δώσει συγκατάθεση."
+
+msgid "Predpripravené sady cookies a skriptov"
+msgstr "Προκαθορισμένα σύνολα cookies και σεναρίων"
+
+msgid "Hotové predvoľby jedným kliknutím doplnia bežné Google a Meta cookies spolu so súvisiacimi pravidlami blokovania."
+msgstr "Έτοιμες προεπιλογές που συμπληρώνουν με ένα κλικ τα κοινά cookies Google και Meta μαζί με τους σχετικούς κανόνες αποκλεισμού."
+
+msgid "Consent Mode v2 / v3"
+msgstr "Consent Mode v2 / v3"
+
+msgid "Automaticky nastaví default denied stav a aktualizuje Google signály po udelení súhlasu."
+msgstr "Ορίζει αυτόματα την κατάσταση default denied και ενημερώνει τα σήματα Google μετά από τη συγκατάθεση."
+
+msgid "Plné prispôsobenie vzhľadu"
+msgstr "Πλήρης προσαρμογή εμφάνισης"
+
+msgid "Farby, font, zaoblenie tlačidiel, rozloženie bannera, poloha floating ikony."
+msgstr "Χρώματα, γραμματοσειρά, στρογγύλεμα κουμπιών, διάταξη banner, θέση πλωτού εικονιδίου."
+
+msgid "9 jazykových predvolieb"
+msgstr "9 γλωσσικές προεπιλογές"
+
+msgid "SK, EN, CS, DE, FR, ES, PL, HU, IT. Všetky texty sú plne editovateľné z admin panelu."
+msgstr "SK, EN, CS, DE, FR, ES, PL, HU, IT. Όλα τα κείμενα είναι πλήρως επεξεργάσιμα από τον πίνακα διαχείρισης."
+
+msgid "[ccwps_consent_id] – zobrazí ID súhlasu návštevníka. [ccwps_cookie_list] – tabuľka deklarovaných cookies. [ccwps_manage_consent] – tlačidlo na správu súhlasu."
+msgstr "[ccwps_consent_id] – εμφανίζει το ID συγκατάθεσης του επισκέπτη. [ccwps_cookie_list] – πίνακας δηλωμένων cookies. [ccwps_manage_consent] – κουμπί διαχείρισης συγκατάθεσης."
+
+msgid "Export/Import nastavení"
+msgstr "Εξαγωγή/Εισαγωγή ρυθμίσεων"
+
+msgid "Detekcia robotov"
+msgstr "Ανίχνευση bots"
+
+msgid "Banner sa automaticky skryje pred vyhľadávačmi a crawlermi."
+msgstr "Το banner αποκρύπτεται αυτόματα από μηχανές αναζήτησης και crawlers."
+
+msgid "Ak sa zmení zoznam cookies, plugin automaticky požiada o nový súhlas."
+msgstr "Αν αλλάξει η λίστα cookies, το plugin θα ζητήσει αυτόματα νέα συγκατάθεση."
+
+msgid "Floating ikona"
+msgstr "Πλωτό εικονίδιο"
+
+msgid "Plávajúca ikona umožní používateľovi kedykoľvek zmeniť preferencie. Po kliknutí zobrazí ID súhlasu a dátum."
+msgstr "Το πλωτό εικονίδιο επιτρέπει στον χρήστη να αλλάξει τις προτιμήσεις του ανά πάσα στιγμή. Κάνοντας κλικ, εμφανίζει το ID συγκατάθεσης και την ημερομηνία."
+
+msgid "Postup nastavenia"
+msgstr "Διαδικασία ρύθμισης"
+
+msgid "V záložke Nastavenia zapnite Zaznamenávať súhlasy, Opätovný súhlas, Skryť pre robotov a Automatické spustenie. Vyberte verziu Consent Mode (v2 pre väčšinu webov). Ak používate GTM, vyplňte GTM Container ID."
+msgstr "Στην καρτέλα Ρυθμίσεις, ενεργοποιήστε Καταγραφή συγκαταθέσεων, Ανανέωση συγκατάθεσης, Απόκρυψη από bots και Αυτόματη εκκίνηση. Επιλέξτε την έκδοση Consent Mode (v2 για τους περισσότερους ιστότοπους). Αν χρησιμοποιείτε GTM, συμπληρώστε το GTM Container ID."
+
+msgid "V záložke Preklady vyberte jazyk pomocou rýchlych predvolieb alebo upravte texty manuálne. Kliknite Uložiť preklady."
+msgstr "Στην καρτέλα Μεταφράσεις, επιλέξτε γλώσσα χρησιμοποιώντας τις γρήγορες προεπιλογές ή επεξεργαστείτε τα κείμενα χειροκίνητα. Κάντε κλικ στο Αποθήκευση μεταφράσεων."
+
+msgid "V záložke Vzhľad nastavte farby, rozloženie bannera a polohu plávajúcej ikony. Použite tlačidlá Náhľad na overenie zmien."
+msgstr "Στην καρτέλα Εμφάνιση, ρυθμίστε τα χρώματα, τη διάταξη του banner και τη θέση του πλωτού εικονιδίου. Χρησιμοποιήστε τα κουμπιά Προεπισκόπηση για επαλήθευση αλλαγών."
+
+msgid "Deklarácia cookies"
+msgstr "Δήλωση cookies"
+
+msgid "V záložke Cookies pridajte všetky cookies, ktoré váš web používa. Pre každú cookie vyplňte názov, doménu, platnosť, popis a kategóriu. Popis bude viditeľný návštevníkovi."
+msgstr "Στην καρτέλα Cookies, προσθέστε όλα τα cookies που χρησιμοποιεί ο ιστότοπός σας. Για κάθε cookie, συμπληρώστε το όνομα, τον τομέα, την ισχύ, την περιγραφή και την κατηγορία. Η περιγραφή θα είναι ορατή στους επισκέπτες."
+
+msgid "V záložke Blokovanie skriptov pridajte pravidlá pre skripty, ktoré chcete blokovať. Napr. pre Google Analytics pridajte \"google-analytics.com\" → kategória Analytické."
+msgstr "Στην καρτέλα Αποκλεισμός σεναρίων, προσθέστε κανόνες για τα σενάρια που θέλετε να αποκλείσετε. Π.χ. για το Google Analytics, προσθέστε \"google-analytics.com\" → κατηγορία Αναλυτικά."
+
+msgid "Cookie politika"
+msgstr "Πολιτική cookies"
+
+msgid "Na stránku s Cookie politikou vložte [ccwps_cookie_list] pre automatickú tabuľku cookies, [ccwps_consent_id] pre zobrazenie ID súhlasu a [ccwps_manage_consent] pre tlačidlo zmeny preferencií."
+msgstr "Στη σελίδα Πολιτικής cookies, εισαγάγετε [ccwps_cookie_list] για τον αυτόματο πίνακα cookies, [ccwps_consent_id] για εμφάνιση του ID συγκατάθεσης και [ccwps_manage_consent] για το κουμπί αλλαγής προτιμήσεων."
+
+msgid "Overenie"
+msgstr "Επαλήθευση"
+
+msgid "Otvorte web v incognito okne a overte, že sa banner zobrazí, súhlas sa zaznamená v záložke Záznamy súhlasov a floating ikona funguje správne."
+msgstr "Ανοίξτε τον ιστότοπο σε παράθυρο ανώνυμης περιήγησης και επαληθεύστε ότι εμφανίζεται το banner, η συγκατάθεση καταγράφεται στην καρτέλα Αρχεία συγκαταθέσεων και το πλωτό εικονίδιο λειτουργεί σωστά."
+
+msgid "Nastavenie Google Tag Manager + Consent Mode"
+msgstr "Ρύθμιση Google Tag Manager + Consent Mode"
+
+msgid "Možnosť A: Plugin načíta GTM automaticky"
+msgstr "Επιλογή Α: Το plugin φορτώνει αυτόματα το GTM"
+
+msgid "V záložke Nastavenia vyplňte GTM Container ID (napr. GTM-XXXXXXX). Plugin automaticky vloží GTM kód do hlavičky stránky spolu s Consent Mode default stavom (všetky signály = denied). Po udelení súhlasu sa GTM aktualizuje pomocou gtag('consent', 'update', ...)."
+msgstr "Στην καρτέλα Ρυθμίσεις, συμπληρώστε το GTM Container ID (π.χ. GTM-XXXXXXX). Το plugin θα εισαγάγει αυτόματα τον κώδικα GTM στην κεφαλίδα της σελίδας μαζί με την προεπιλεγμένη κατάσταση Consent Mode (όλα τα σήματα = denied). Μετά από τη συγκατάθεση, το GTM ενημερώνεται μέσω gtag('consent', 'update', ...)."
+
+msgid "Možnosť B: GTM máte nainštalovaný inak (téma, iný plugin)"
+msgstr "Επιλογή Β: Το GTM είναι εγκατεστημένο με άλλον τρόπο (θέμα, άλλο plugin)"
+
+msgid "Nechajte GTM Container ID prázdne. Plugin automaticky vloží Consent Mode default stav pred GTM kód, takže default denied signály sa nastavia skôr, ako GTM spustí akékoľvek tagy. Toto je správne správanie podľa Google dokumentácie."
+msgstr "Αφήστε το GTM Container ID κενό. Το plugin θα εισαγάγει αυτόματα την προεπιλεγμένη κατάσταση Consent Mode πριν από τον κώδικα GTM, ώστε τα σήματα default denied να οριστούν πριν ενεργοποιηθούν tags από το GTM. Αυτή είναι η σωστή συμπεριφορά σύμφωνα με την τεκμηρίωση της Google."
+
+msgid "Nastavenie tagov v GTM"
+msgstr "Ρύθμιση tags στο GTM"
+
+msgid "V GTM nastavte pre každý tag Consent Settings. Pre Google Analytics (GA4): analytics_storage = Required. Pre Google Ads: ad_storage, ad_user_data, ad_personalization = Required. Tagy sa spustia len po udelení príslušného súhlasu."
+msgstr "Στο GTM, ρυθμίστε τα Consent Settings για κάθε tag. Για Google Analytics (GA4): analytics_storage = Required. Για Google Ads: ad_storage, ad_user_data, ad_personalization = Required. Τα tags θα ενεργοποιηθούν μόνο μετά από τη σχετική συγκατάθεση."
+
+msgid "Overenie pomocou Google Tag Assistant"
+msgstr "Επαλήθευση με Google Tag Assistant"
+
+msgid "Otvorte Google Tag Assistant a overte, že pri odmietnutí cookies sú tagy v stave \"Consent Blocked\" a po udelení súhlasu sa aktivujú. Skontrolujte tiež Google Analytics Realtime report."
+msgstr "Ανοίξτε το Google Tag Assistant και επαληθεύστε ότι κατά την απόρριψη cookies, τα tags βρίσκονται σε κατάσταση \"Consent Blocked\" και ενεργοποιούνται μετά από τη συγκατάθεση. Ελέγξτε επίσης την αναφορά Realtime του Google Analytics."
+
+msgid "Autor a podpora"
+msgstr "Συγγραφέας και υποστήριξη"
+
+msgid "Plugin vytvoril Web Pixel Studio. Pre otázky, návrhy alebo hlásenie chýb nás kontaktujte na:"
+msgstr "Το plugin δημιουργήθηκε από την Web Pixel Studio. Για ερωτήσεις, προτάσεις ή αναφορά σφαλμάτων, επικοινωνήστε μαζί μας στο:"
+
+msgid "Plugin je bezplatný a open-source pod licenciou GPL-2.0. Postavený na:"
+msgstr "Το plugin είναι δωρεάν και ανοιχτού κώδικα υπό την άδεια GPL-2.0. Κατασκευασμένο με:"
+
+msgid "Použiť font témy"
+msgstr "Χρήση γραμματοσειράς θέματος"
+
+msgid "Nepodarilo sa odoslať žiadosť. Skúste to znova."
+msgstr "Η αίτηση δεν μπόρεσε να αποσταλεί. Δοκιμάστε ξανά."
+
+msgid "Zadajte platný e-mail."
+msgstr "Εισαγάγετε έγκυρη διεύθυνση e-mail."
+
+msgid "Predmet musí mať 3 až 150 znakov."
+msgstr "Το θέμα πρέπει να έχει 3 έως 150 χαρακτήρες."
+
+msgid "Text správy musí mať 20 až 4000 znakov."
+msgstr "Το κείμενο μηνύματος πρέπει να έχει 20 έως 4000 χαρακτήρες."
+
+msgid "Počkajte prosím 30 sekúnd a skúste to znova."
+msgstr "Παρακαλώ περιμένετε 30 δευτερόλεπτα και δοκιμάστε ξανά."
+
+msgid "Dosiahli ste limit 3 žiadostí za 10 minút. Skúste to neskôr."
+msgstr "Έχετε φτάσει το όριο των 3 αιτημάτων ανά 10 λεπτά. Δοκιμάστε αργότερα."
+
+msgid "Denný limit žiadostí bol dosiahnutý. Skúste to zajtra."
+msgstr "Το ημερήσιο όριο αιτημάτων συμπληρώθηκε. Δοκιμάστε αύριο."
+
+msgid "Žiadosť sa nepodarilo odoslať z tohto WordPress webu. Skontrolujte SMTP/mail konfiguráciu hostingu."
+msgstr "Η αίτηση δεν μπόρεσε να αποσταλεί από αυτόν τον ιστότοπο WordPress. Ελέγξτε τη ρύθμιση SMTP/mail του hosting."
+
+msgid "Detail chyby: %s"
+msgstr "Λεπτομέρεια σφάλματος: %s"
+
+msgid "Žiadosť bola úspešne odoslaná."
+msgstr "Η αίτηση απεστάλη επιτυχώς."
+
+msgid "Cookie settings"
+msgstr "Ρυθμίσεις cookies"
+
+msgid "Súhlas nebol udelený."
+msgstr "Η συγκατάθεση δεν δόθηκε."
+
+msgid "Žiadne cookies nie sú deklarované."
+msgstr "Δεν υπάρχουν δηλωμένα cookies."

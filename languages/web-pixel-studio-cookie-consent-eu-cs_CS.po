@@ -1,0 +1,840 @@
+# Copyright (C) 2026 Web Pixel Studio
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Web Pixel Studio Cookie Consent for EU 1.1.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/web-pixel-studio-cookie-consent-eu\n"
+"PO-Revision-Date: 2026-05-21 10:59+0000\n"
+"Last-Translator: Web Pixel Studio <info@webpixelstudio.org>\n"
+"Language-Team: Czech\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Domain: web-pixel-studio-cookie-consent-eu\n"
+
+msgid "Web Pixel Studio Cookie Consent for EU"
+msgstr "Web Pixel Studio Cookie Consent for EU"
+
+msgid "GDPR & ePrivacy compliant cookie consent manager with Consent Mode v2 support, full customization, consent logging, and cookie blocking."
+msgstr "Správce souhlasu s cookies v souladu s GDPR a ePrivacy s podporou Consent Mode v2, plnou přizpůsobitelností, logováním souhlasů a blokováním cookies."
+
+msgid "Web Pixel Studio"
+msgstr "Web Pixel Studio"
+
+msgid "https://webpixelstudio.org"
+msgstr "https://webpixelstudio.org"
+
+msgid "Nastavenia"
+msgstr "Nastavení"
+
+msgid "Cookie Consent"
+msgstr "Souhlas s cookies"
+
+msgid "Názov"
+msgstr "Název"
+
+msgid "Doména"
+msgstr "Doména"
+
+msgid "Platnosť"
+msgstr "Platnost"
+
+msgid "Popis"
+msgstr "Popis"
+
+msgid "Nevyhnutné"
+msgstr "Nezbytné"
+
+msgid "Analytické"
+msgstr "Analytické"
+
+msgid "Marketingové"
+msgstr "Marketingové"
+
+msgid "Preferenčné"
+msgstr "Preferenční"
+
+msgid "Nastavenia boli importované."
+msgstr "Nastavení byla importována."
+
+msgid "Import zlyhal. Skontrolujte súbor."
+msgstr "Import selhal. Zkontrolujte soubor."
+
+msgid "Vzhľad"
+msgstr "Vzhled"
+
+msgid "Preklady"
+msgstr "Překlady"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Blokovanie skriptov"
+msgstr "Blokování skriptů"
+
+msgid "Záznamy súhlasov"
+msgstr "Záznamy souhlasů"
+
+msgid "Shortcodes"
+msgstr "Shortkódy"
+
+msgid "Nástroje"
+msgstr "Nástroje"
+
+msgid "O plugine"
+msgstr "O pluginu"
+
+msgid "Jazyk:"
+msgstr "Jazyk:"
+
+msgid "Náhľad:"
+msgstr "Náhled:"
+
+msgid "Zobraziť banner"
+msgstr "Zobrazit banner"
+
+msgid "Nastavenia cookies"
+msgstr "Nastavení cookies"
+
+msgid "Funguje na základe"
+msgstr "Funguje na základě"
+
+msgid "Bezplatný plugin vytvoril:"
+msgstr "Bezplatný plugin vytvořil:"
+
+msgid "Automatické spustenie"
+msgstr "Automatické spuštění"
+
+msgid "Banner sa zobrazí automaticky pri načítaní stránky."
+msgstr "Banner se zobrazí automaticky při načtení stránky."
+
+msgid "💡 Odporúčame zapnúť. Vypnuté = zobraziť manuálne cez <code>CookieConsentWPS.showBanner()</code>"
+msgstr "💡 Doporučujeme zapnout. Vypnuto = zobrazit ručně přes <code>CookieConsentWPS.showBanner()</code>"
+
+msgid "Vynútený súhlas"
+msgstr "Vynucený souhlas"
+
+msgid "Používateľ nemôže prehliadať web bez udelenia súhlasu."
+msgstr "Uživatel nemůže prohlížet web bez udělení souhlasu."
+
+msgid "⚠️ GDPR neukladá povinnosť vynútiť súhlas. Odporúčame VYPNÚŤ – používateľ má právo odmietnuť."
+msgstr "⚠️ GDPR neukládá povinnost vynucovat souhlas. Doporučujeme VYPNOUT – uživatel má právo odmítnout."
+
+msgid "Automatické vymazanie cookies"
+msgstr "Automatické mazání cookies"
+
+msgid "Pri odvolaní súhlasu sa automaticky vymažú cookies danej kategórie."
+msgstr "Při odvolání souhlasu se automaticky smažou cookies dané kategorie."
+
+msgid "💡 Funguje len pre cookies deklarované v záložke Cookies. Odporúčame zapnúť."
+msgstr "💡 Funguje pouze pro cookies deklarované v záložce Cookies. Doporučujeme zapnout."
+
+msgid "Správa skriptov na stránke"
+msgstr "Správa skriptů na stránce"
+
+msgid "Blokuje skripty tretích strán, kým používateľ neudelí súhlas."
+msgstr "Blokuje skripty třetích stran, dokud uživatel neudělí souhlas."
+
+msgid "💡 Definujte pravidlá v záložke \"Blokovanie skriptov\". Plugin zmení typ skriptu na text/plain."
+msgstr "💡 Definujte pravidla v záložce \"Blokování skriptů\". Plugin změní typ skriptu na text/plain."
+
+msgid "Skryť pre robotov"
+msgstr "Skrýt pro roboty"
+
+msgid "Banner sa nezobrazí vyhľadávačom a crawlerom."
+msgstr "Banner se nezobrazí vyhledávačům a robotům."
+
+msgid "💡 Odporúčame zapnúť. Zlepšuje SEO skóre webu."
+msgstr "💡 Doporučujeme zapnout. Zlepšuje SEO skóre webu."
+
+msgid "Opätovný súhlas"
+msgstr "Opětovný souhlas"
+
+msgid "Zobrazí banner znova, keď sa zmení zoznam cookies."
+msgstr "Banner se zobrazí znovu, když se změní seznam cookies."
+
+msgid "💡 Odporúčame zapnúť – GDPR vyžaduje nový súhlas po zmene účelu spracovania."
+msgstr "💡 Doporučujeme zapnout – GDPR vyžaduje nový souhlas po změně účelu zpracování."
+
+msgid "Zaznamenávať súhlasy"
+msgstr "Zaznamenávat souhlasy"
+
+msgid "Každý súhlas sa uloží do databázy (ID, IP, URL, čas)."
+msgstr "Každý souhlas se uloží do databáze (ID, IP, URL, čas)."
+
+msgid "💡 Odporúčame zapnúť – záznamy slúžia ako dôkaz súhlasu pre GDPR audit."
+msgstr "💡 Doporučujeme zapnout – záznamy slouží jako důkaz souhlasu pro GDPR audit."
+
+msgid "Jazyk podľa návštevníka"
+msgstr "Jazyk podle návštěvníka"
+
+msgid "Frontend cookie lišta sa pokúsi načítať jazyk návštevníka a zobraziť zodpovedajúci dostupný preklad."
+msgstr "Frontendová lišta cookies se pokusí načíst jazyk návštěvníka a zobrazit odpovídající dostupný překlad."
+
+msgid "💡 Ak jazyk návštevníka nie je dostupný, plugin použije English (GB). Ak je voľba vypnutá, frontend používa aktuálne uložené texty bannera."
+msgstr "💡 Pokud jazyk návštěvníka není dostupný, plugin použije English (GB). Pokud je volba vypnutá, frontend používá aktuálně uložené texty banneru."
+
+msgid "Skryť prázdne kategórie"
+msgstr "Skrýt prázdné kategorie"
+
+msgid "V modáli preferencií sa skryjú kategórie bez deklarovaných cookies."
+msgstr "V modálním okně preferencí se skryjí kategorie bez deklarovaných cookies."
+
+msgid "💡 Zapnite, keď máte vyplnené všetky kategórie v záložke Cookies."
+msgstr "💡 Zapněte, když máte vyplněné všechny kategorie v záložce Cookies."
+
+msgid "Oneskorenie zobrazenia (ms)"
+msgstr "Zpoždění zobrazení (ms)"
+
+msgid "Čas v milisekundách pred zobrazením bannera."
+msgstr "Čas v milisekundách před zobrazením banneru."
+
+msgid "💡 Hodnota 0 = okamžite. Odporúčame 0–500 ms. Vyššie hodnoty môžu byť problém pri GDPR auditoch."
+msgstr "💡 Hodnota 0 = okamžitě. Doporučujeme 0–500 ms. Vyšší hodnoty mohou být problém při GDPR auditech."
+
+msgid "Platnosť súhlasu (dni)"
+msgstr "Platnost souhlasu (dny)"
+
+msgid "Po koľkých dňoch vyprší súhlas a banner sa zobrazí znova."
+msgstr "Po kolika dnech vyprší souhlas a banner se zobrazí znovu."
+
+msgid "💡 GDPR odporúča max. 13 mesiacov (390 dní). Predvolených 182 dní (6 mes.) je bezpečná hodnota."
+msgstr "💡 GDPR doporučuje max. 13 měsíců (390 dní). Výchozích 182 dní (6 měsíců) je bezpečná hodnota."
+
+msgid "Cesta cookie"
+msgstr "Cesta cookie"
+
+msgid "Cesta, na ktorej bude cookie platná."
+msgstr "Cesta, na které bude cookie platná."
+
+msgid "💡 Nechajte \"/\" – cookie bude platná na celom webe."
+msgstr "💡 Nechte \"/\" – cookie bude platná na celém webu."
+
+msgid "Doména cookie"
+msgstr "Doména cookie"
+
+msgid "Nechajte prázdne pre automatickú detekciu."
+msgstr "Nechte prázdné pro automatickou detekci."
+
+msgid "💡 Vyplňte \".mojeweb.sk\" (s bodkou) ak chcete zdieľať súhlas medzi subdoménami."
+msgstr "💡 Vyplňte \".mojeweb.sk\" (s tečkou), pokud chcete sdílet souhlas mezi subdoménami."
+
+msgid "Google Consent Mode"
+msgstr "Google Consent Mode"
+
+msgid "Čo je Consent Mode?"
+msgstr "Co je Consent Mode?"
+
+msgid " Google Consent Mode umožňuje Googlu modelovať chýbajúce dáta, keď používatelia odmietnu analytické/reklamné cookies. Vaše kampane budú stále merateľné aj bez plného súhlasu."
+msgstr " Google Consent Mode umožňuje Googlu modelovat chybějící data, když uživatelé odmítnou analytické/reklamní cookies. Vaše kampaně budou měřitelné i bez plného souhlasu."
+
+msgid "Verzia Consent Mode"
+msgstr "Verze Consent Mode"
+
+msgid "Vypnuté"
+msgstr "Vypnuto"
+
+msgid "Consent Mode sa nepoužíva. Vhodné ak nepoužívate Google Analytics ani Ads."
+msgstr "Consent Mode se nepoužívá. Vhodné pokud nepoužíváte Google Analytics ani Ads."
+
+msgid "Consent Mode v2"
+msgstr "Consent Mode v2"
+
+msgid "Štandard od marca 2024. Vyžadovaný pre Google Ads a GA4 v EÚ. Posiela signály ad_user_data a ad_personalization. Nutné pre remarketing a konverzie."
+msgstr "Standard od března 2024. Vyžadováno pro Google Ads a GA4 v EU. Posílá signály ad_user_data a ad_personalization. Nutné pro remarketing a konverze."
+
+msgid "Consent Mode v3"
+msgstr "Consent Mode v3"
+
+msgid "Rozšírenie v2 o developer ID signál. Zahŕňa všetky funkcie v2 + nastavenie developer_id pre presnejšie modelovanie konverzií. Vhodné pre pokročilé Google Marketing Platform funkcie."
+msgstr "Rozšíření v2 o signál developer ID. Zahrnuje všechny funkce v2 + nastavení developer_id pro přesnější modelování konverzí. Vhodné pro pokročilé funkce Google Marketing Platform."
+
+msgid "Odporúčané"
+msgstr "Doporučené"
+
+msgid "Nové"
+msgstr "Nové"
+
+msgid "💡 Pre väčšinu webov stačí v2. v3 použite ak využívate pokročilé Google Marketing Platform funkcie. Obe verzie vyžadujú GTM alebo manuálne načítanie gtag.js."
+msgstr "💡 Pro většinu webů stačí v2. v3 použijte, pokud využíváte pokročilé funkce Google Marketing Platform. Obě verze vyžadují GTM nebo ruční načtení gtag.js."
+
+msgid "GTM Container ID"
+msgstr "GTM Container ID"
+
+msgid "Voliteľné: Plugin načíta GTM automaticky."
+msgstr "Volitelné: Plugin načte GTM automaticky."
+
+msgid "💡 Vyplňte len ak GTM nenačítavate iným spôsobom. Ak GTM máte v téme alebo inom plugine, nechajte prázdne."
+msgstr "💡 Vyplňte jen pokud GTM nenačítáte jiným způsobem. Pokud máte GTM v šabloně nebo jiném pluginu, nechte prázdné."
+
+msgid "Typ bannera"
+msgstr "Typ banneru"
+
+msgid "💡 Box – kompaktný popup v rohu. Bar – horizontálny pruh cez celú šírku. Cloud – zaoblený popup s väčším tieňom."
+msgstr "💡 Box – kompaktní popup v rohu. Bar – horizontální pruh přes celou šířku. Cloud – zaoblený popup s větším stínem."
+
+msgid "Poloha bannera"
+msgstr "Poloha banneru"
+
+msgid "Dole vľavo"
+msgstr "Dole vlevo"
+
+msgid "Dole vpravo"
+msgstr "Dole vpravo"
+
+msgid "Dole v strede"
+msgstr "Dole uprostřed"
+
+msgid "Hore vľavo"
+msgstr "Nahoře vlevo"
+
+msgid "Hore vpravo"
+msgstr "Nahoře vpravo"
+
+msgid "Hore v strede"
+msgstr "Nahoře uprostřed"
+
+msgid "Stred obrazovky"
+msgstr "Střed obrazovky"
+
+msgid "Zobraziť plávajúcu ikonu"
+msgstr "Zobrazit plovoucí ikonu"
+
+msgid "Po udelení súhlasu sa zobrazí ikona na opätovnú správu preferencií."
+msgstr "Po udělení souhlasu se zobrazí ikona pro opětovnou správu preferencí."
+
+msgid "💡 Odporúčame zapnúť – GDPR vyžaduje, aby mohol používateľ kedykoľvek odvolať súhlas. Po kliknutí na ikonu sa zobrazí panel s ID súhlasu a tlačidlami."
+msgstr "💡 Doporučujeme zapnout – GDPR vyžaduje, aby uživatel mohl kdykoli odvolat souhlas. Po kliknutí na ikonu se zobrazí panel s ID souhlasu a tlačítky."
+
+msgid "Poloha ikony"
+msgstr "Poloha ikony"
+
+msgid "Vertikálny margin ikony (px)"
+msgstr "Vertikální okraj ikony (px)"
+
+msgid "Posunie ikonu vyššie alebo nižšie od základnej polohy podľa vybraného rohu."
+msgstr "Posune ikonu výše nebo níže od základní polohy podle vybraného rohu."
+
+msgid "💡 Pri dolnej polohe vyššia hodnota zdvihne ikonu hore. Pri hornej polohe vyššia hodnota ju posunie nižšie."
+msgstr "💡 Při dolní poloze vyšší hodnota zvedne ikonu výš. Při horní poloze vyšší hodnota ji posune níž."
+
+msgid "Vertikálny margin ikony na mobile (px)"
+msgstr "Vertikální okraj ikony na mobilu (px)"
+
+msgid "Platí iba pre mobilné zariadenia (šírka do 520 px)."
+msgstr "Platí pouze pro mobilní zařízení (šířka do 520 px)."
+
+msgid "💡 Použite, ak chcete mať na mobile inú výšku ikony než na desktope."
+msgstr "💡 Použijte, pokud chcete mít na mobilu jinou výšku ikony než na desktopu."
+
+msgid "Typ ikony"
+msgstr "Typ ikony"
+
+msgid "🖼 Vlastná ikona (obrázok)"
+msgstr "🖼 Vlastní ikona (obrázek)"
+
+msgid "Vlastná ikona"
+msgstr "Vlastní ikona"
+
+msgid "Žiadny obrázok"
+msgstr "Žádný obrázek"
+
+msgid "📂 Vybrať / nahrať obrázok"
+msgstr "📂 Vybrat / nahrát obrázek"
+
+msgid "Odstrániť"
+msgstr "Odstranit"
+
+msgid "Pozadie floating ikony"
+msgstr "Pozadí plovoucí ikony"
+
+msgid "Farba kruhu floating ikony."
+msgstr "Barva kruhu plovoucí ikony."
+
+msgid "Pozadie floating ikony (hover)"
+msgstr "Pozadí plovoucí ikony (hover)"
+
+msgid "Farba kruhu floating ikony po prejdení myšou."
+msgstr "Barva kruhu plovoucí ikony při přejetí myší."
+
+msgid "Farba obsahu floating ikony"
+msgstr "Barva obsahu plovoucí ikony"
+
+msgid "Farba SVG ikony alebo obsahu vo floating ikone."
+msgstr "Barva SVG ikony nebo obsahu v plovoucí ikoně."
+
+msgid "Pozadie popupu floating ikony"
+msgstr "Pozadí popupu plovoucí ikony"
+
+msgid "Farba pozadia popupu po kliknutí na floating ikonu."
+msgstr "Barva pozadí popupu po kliknutí na plovoucí ikonu."
+
+msgid "Farba textu popupu floating ikony"
+msgstr "Barva textu popupu plovoucí ikony"
+
+msgid "Farba textu a obsahu popupu po kliknutí na floating ikonu."
+msgstr "Barva textu a obsahu popupu po kliknutí na plovoucí ikonu."
+
+msgid "Zobraziť logo v banneri"
+msgstr "Zobrazit logo v banneru"
+
+msgid "V pravom hornom rohu cookie lišty sa zobrazí vaše logo."
+msgstr "Vaše logo se zobrazí v pravém horním rohu lišty cookies."
+
+msgid "Logo bannera"
+msgstr "Logo banneru"
+
+msgid "Šírka loga (px)"
+msgstr "Šířka loga (px)"
+
+msgid "💡 Šírka loga v pixeloch (20–100 px). Výška sa prispôsobí automaticky."
+msgstr "💡 Šířka loga v pixelech (20–100 px). Výška se přizpůsobí automaticky."
+
+msgid "Font"
+msgstr "Font"
+
+msgid "CSS font-family hodnota"
+msgstr "CSS font-family hodnota"
+
+msgid "Pole ponúka iba detegované fonty z témy, theme.json, Elementora a frontend CSS."
+msgstr "Pole nabízí pouze detekované fonty z šablony, theme.json, Elementoru a frontend CSS."
+
+msgid "💡 V zozname sa zobrazuje iba názov fontu. Po výbere sa uloží kompletná font-family hodnota detegovaná na stránke. Voľba \"Použiť font témy\" zodpovedá hodnote inherit."
+msgstr "💡 V seznamu se zobrazuje pouze název písma. Po výběru se uloží kompletní hodnota font-family detekovaná na stránce. Volba \"Použít font šablony\" odpovídá hodnotě inherit."
+
+msgid "Zaoblenie tlačidiel (px)"
+msgstr "Zaoblení tlačítek (px)"
+
+msgid "💡 0 = hranaté, 8 = mierne zaoblené, 24+ = \"pill\" tvar."
+msgstr "💡 0 = hranaté, 8 = mírně zaoblené, 24+ = tvar \"pill\"."
+
+msgid "Zaoblenie bannera / modálu (px)"
+msgstr "Zaoblení banneru / modalu (px)"
+
+msgid "💡 Zaoblenie rohov bannera aj modálu. Predvolené: 12 px."
+msgstr "💡 Zaoblení rohů banneru i modalu. Výchozí: 12 px."
+
+msgid "Farby bannera"
+msgstr "Barvy banneru"
+
+msgid "Nastavte farby pre pozadie a text cookie lišty (bannera)."
+msgstr "Nastavte barvy pro pozadí a text lišty cookies (banneru)."
+
+msgid "Pozadie bannera"
+msgstr "Pozadí banneru"
+
+msgid "Farba pozadia cookie lišty."
+msgstr "Barva pozadí lišty cookies."
+
+msgid "Farba nadpisu bannera"
+msgstr "Barva nadpisu banneru"
+
+msgid "Farba hlavného nadpisu v banneri."
+msgstr "Barva hlavního nadpisu v banneru."
+
+msgid "Farba textu bannera"
+msgstr "Barva textu banneru"
+
+msgid "Farba popisu a bežného textu v banneri."
+msgstr "Barva popisu a běžného textu v banneru."
+
+msgid "Primárna / akcentová farba"
+msgstr "Primární / akcentová barva"
+
+msgid "Používa sa ako fallback farba pre tlačidlá a zvýraznenia."
+msgstr "Používá se jako záložní barva pro tlačítka a zvýraznění."
+
+msgid "Priesvitnosť bannera Cloud (%)"
+msgstr "Průhlednost Cloud banneru (%)"
+
+msgid "Platí iba pre typ bannera Cloud. 0 = maximálne priehľadný, 100 = najmenej priehľadný."
+msgstr "Platí pouze pro typ banneru Cloud. 0 = maximálně průhledný, 100 = nejméně průhledný."
+
+msgid "Tlačidlo \"Prijať všetky\" (primárne)"
+msgstr "Tlačítko \"Přijmout vše\" (primární)"
+
+msgid "Farebné nastavenia pre hlavné modré tlačidlo súhlasu. Prázdne pole = použije sa primárna farba."
+msgstr "Barevné nastavení pro hlavní modré tlačítko souhlasu. Prázdné pole = použije se primární barva."
+
+msgid "Pozadie"
+msgstr "Pozadí"
+
+msgid "Pozadie (hover)"
+msgstr "Pozadí (hover)"
+
+msgid "Farba textu"
+msgstr "Barva textu"
+
+msgid "Farba textu (hover)"
+msgstr "Barva textu (hover)"
+
+msgid "Tlačidlo \"Odmietnuť všetky\" (primárne)"
+msgstr "Tlačítko \"Odmítnout vše\" (primární)"
+
+msgid "Farebné nastavenia pre tlačidlo odmietnutia. Možnosti sú zjednotené s tlačidlom \"Prijať všetky\"."
+msgstr "Barevné nastavení pro tlačítko odmítnutí. Možnosti jsou sjednoceny s tlačítkem \"Přijmout vše\"."
+
+msgid "Tlačidlo \"Spravovať nastavenia\" (outline)"
+msgstr "Tlačítko \"Spravovat nastavení\" (outline)"
+
+msgid "Farebné nastavenia pre tlačidlo správy preferencií."
+msgstr "Barevné nastavení pro tlačítko správy preferencí."
+
+msgid "Farba ohraničenia"
+msgstr "Barva ohraničení"
+
+msgid "Priehľadné"
+msgstr "Průhledné"
+
+msgid "Okno modálu (Spravovať súhlas)"
+msgstr "Okno modalu (Spravovat souhlas)"
+
+msgid "Farby pre okno nastavenia cookies, ktoré sa otvorí po kliknutí na \"Spravovať nastavenia\"."
+msgstr "Barvy pro okno nastavení cookies, které se otevře po kliknutí na \"Spravovat nastavení\"."
+
+msgid "Pozadie modálu"
+msgstr "Pozadí modalu"
+
+msgid "Farba identifikátora súhlasu"
+msgstr "Barva identifikátoru souhlasu"
+
+msgid "Pozadie hlavičky"
+msgstr "Pozadí hlavičky"
+
+msgid "Pozadie päty"
+msgstr "Pozadí paty"
+
+msgid "Farba ohraničení"
+msgstr "Barva ohraničení"
+
+msgid "Pozadie kategórie"
+msgstr "Pozadí kategorie"
+
+msgid "Pozadie kategórie (hover)"
+msgstr "Pozadí kategorie (hover)"
+
+msgid "Farba prepínača (zapnutý)"
+msgstr "Barva přepínače (zapnuto)"
+
+msgid "Farba textu \"Vždy aktívne\""
+msgstr "Barva textu \"Vždy aktivní\""
+
+msgid "Zaoblenie modálu (px)"
+msgstr "Zaoblení modalu (px)"
+
+msgid "Banner"
+msgstr "Banner"
+
+msgid "Kliknite na jazyk – všetky polia sa vyplnia automaticky. Potom kliknite Uložiť."
+msgstr "Klikněte na jazyk – všechna pole se vyplní automaticky. Poté klikněte Uložit."
+
+msgid "Popis cookie je viditeľný návštevníkom v modáli preferencií – pomáha im pochopiť, na čo daná cookie slúži."
+msgstr "Popis cookie je viditelný návštěvníkům v modálu preferencí – pomáhá jim pochopit, k čemu daná cookie slouží."
+
+msgid "viditeľný návštevníkom"
+msgstr "viditelný návštěvníkům"
+
+msgid "Regex"
+msgstr "Regex"
+
+msgid "Žiadne cookies. Kliknite \"+ Pridať cookie\"."
+msgstr "Žádné cookies. Klikněte na \"+ Přidat cookie\"."
+
+msgid "Cesta"
+msgstr "Cesta"
+
+msgid "Viditeľný návštevníkom v modáli preferencií."
+msgstr "Viditelný návštěvníkům v modálu preferencí."
+
+msgid "napr. Používa sa Google Analytics na rozlíšenie návštevníkov."
+msgstr "např. Používá se Google Analytics pro rozlišení návštěvníků."
+
+msgid "Kategória"
+msgstr "Kategorie"
+
+msgid "Je Regex?"
+msgstr "Je Regex?"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Predmet"
+msgstr "Předmět"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Náhľad zoznamu cookies"
+msgstr "Náhled seznamu cookies"
+
+msgid "Definujte zdroje skriptov, ktoré sa majú blokovať, kým používateľ neudelí súhlas pre danú kategóriu. Plugin zmení typ skriptu na text/plain, čo zabrání jeho spusteniu."
+msgstr "Definujte zdroje skriptů, které mají být blokovány, dokud uživatel neudělí souhlas pro danou kategorii. Plugin změní typ skriptu na text/plain, čímž zabrání jeho spuštění."
+
+msgid "Žiadne pravidlá blokovania."
+msgstr "Žádná pravidla blokování."
+
+msgid "Zdroj skriptu"
+msgstr "Zdroj skriptu"
+
+msgid "Fragment URL, napr. \"google-analytics.com\""
+msgstr "Fragment URL, např. \"google-analytics.com\""
+
+msgid "Nev."
+msgstr "Nev."
+
+msgid "Anal."
+msgstr "Anal."
+
+msgid "Market."
+msgstr "Market."
+
+msgid "Pref."
+msgstr "Pref."
+
+msgid "ID súhlasu návštevníka"
+msgstr "ID souhlasu návštěvníka"
+
+msgid "Zobrazí jedinečné ID súhlasu aktuálneho návštevníka. Vhodné pre zásady ochrany osobných údajov – umožní používateľovi preukázať, kedy a ako súhlasil."
+msgstr "Zobrazí jedinečné ID souhlasu aktuálního návštěvníka. Vhodné pro zásady ochrany osobních údajů – umožní uživateli prokázat, kdy a jak udělil souhlas."
+
+msgid "Parameter"
+msgstr "Parametr"
+
+msgid "Predvolené"
+msgstr "Výchozí"
+
+msgid "Text pred ID."
+msgstr "Text před ID."
+
+msgid "HTML obal (p, div, span…)"
+msgstr "HTML obal (p, div, span…)"
+
+msgid "Zoznam cookies používaných na webe"
+msgstr "Seznam cookies používaných na webu"
+
+msgid "Automaticky zobrazí prehľadnú tabuľku všetkých deklarovaných cookies, rozdelenú podľa kategórií. Vložte na stránku s cookie politikou."
+msgstr "Automaticky zobrazí přehlednou tabulku všech deklarovaných cookies, rozdělenou podle kategorií. Vložte na stránku s cookie politikou."
+
+msgid "Filtruj: necessary, analytics, targeting, preferences"
+msgstr "Filtruj: necessary, analytics, targeting, preferences"
+
+msgid "Tlačidlo správy súhlasu"
+msgstr "Tlačítko správy souhlasu"
+
+msgid "Vloží tlačidlo, ktoré otvorí modál nastavenia cookies. Vhodné pre stránky so zásadami ochrany osobných údajov a právne dokumenty – umožní návštevníkovi kedykoľvek zmeniť preferencie."
+msgstr "Vloží tlačítko, které otevře modál nastavení cookies. Vhodné pro stránky se zásadami ochrany osobních údajů a právní dokumenty – umožní návštěvníkovi kdykoli změnit preference."
+
+msgid "Text tlačidla (predvolene: text z nastavení Prekladov)."
+msgstr "Text tlačítka (výchozí: text z nastavení Překladů)."
+
+msgid "CSS trieda pre vlastné štýlovanie."
+msgstr "CSS třída pro vlastní stylování."
+
+msgid "Voliteľné HTML id atribút."
+msgstr "Volitelný HTML atribut id."
+
+msgid "Exportuje všetky nastavenia do JSON súboru. Vhodné pre presun medzi servermi alebo zálohu."
+msgstr "Exportuje všechna nastavení do souboru JSON. Vhodné pro přesun mezi servery nebo zálohu."
+
+msgid "Nahrajte predtým exportovaný settings.json. Prepisuje aktuálnu konfiguráciu."
+msgstr "Nahrajte dříve exportovaný soubor settings.json. Přepíše aktuální konfiguraci."
+
+msgid "Kliknite alebo presuňte settings.json sem"
+msgstr "Klikněte nebo přetáhněte settings.json sem"
+
+msgid "Resetuje všetky nastavenia na predvolené hodnoty (SK jazyk, predvolený vzhľad). Deklarácie cookies, pravidlá blokovania a záznamy súhlasov nie sú ovplyvnené."
+msgstr "Resetuje všechna nastavení na výchozí hodnoty (jazyk SK, výchozí vzhled). Deklarace cookies, pravidla blokování a záznamy souhlasů nejsou ovlivněny."
+
+msgid "Verzia"
+msgstr "Verze"
+
+msgid "Deklarácie cookies"
+msgstr "Deklarace cookies"
+
+msgid "Pravidlá blokovania"
+msgstr "Pravidla blokování"
+
+msgid "O plugine Web Pixel Studio Cookie Consent for EU"
+msgstr "O pluginu Web Pixel Studio Cookie Consent for EU"
+
+msgid "Popis pluginu"
+msgstr "Popis pluginu"
+
+msgid "Hlavné funkcie"
+msgstr "Hlavní funkce"
+
+msgid "Cookie banner"
+msgstr "Cookie banner"
+
+msgid "Prispôsobiteľný popup/bar/cloud banner s výberom polohy na stránke."
+msgstr "Přizpůsobitelný popup/bar/cloud banner s výběrem polohy na stránce."
+
+msgid "Modál preferencií"
+msgstr "Modál preferencí"
+
+msgid "Používateľ si môže zvoliť, ktoré kategórie cookies povolí (nevyhnutné, analytické, marketingové, preferenčné)."
+msgstr "Uživatel si může zvolit, které kategorie cookies povolí (nezbytné, analytické, marketingové, preferenční)."
+
+msgid "Každý súhlas sa uloží do databázy s ID, IP adresou, URL a časovou pečiatkou. Export do CSV."
+msgstr "Každý souhlas se uloží do databáze s ID, IP adresou, URL a časovým razítkem. Export do CSV."
+
+msgid "Skripty tretích strán (napr. Google Analytics, Meta Pixel) sa zablokujú, kým používateľ neudelí súhlas."
+msgstr "Skripty třetích stran (např. Google Analytics, Meta Pixel) se zablokují, dokud uživatel neudělí souhlas."
+
+msgid "Predpripravené sady cookies a skriptov"
+msgstr "Předpřipravené sady cookies a skriptů"
+
+msgid "Hotové predvoľby jedným kliknutím doplnia bežné Google a Meta cookies spolu so súvisiacimi pravidlami blokovania."
+msgstr "Hotové předvolby jedním kliknutím doplní běžné Google a Meta cookies spolu se souvisejícími pravidly blokování."
+
+msgid "Consent Mode v2 / v3"
+msgstr "Consent Mode v2 / v3"
+
+msgid "Automaticky nastaví default denied stav a aktualizuje Google signály po udelení súhlasu."
+msgstr "Automaticky nastaví výchozí stav odmítnutí a aktualizuje Google signály po udělení souhlasu."
+
+msgid "Plné prispôsobenie vzhľadu"
+msgstr "Plné přizpůsobení vzhledu"
+
+msgid "Farby, font, zaoblenie tlačidiel, rozloženie bannera, poloha floating ikony."
+msgstr "Barvy, font, zaoblení tlačítek, rozložení banneru, poloha plovoucí ikony."
+
+msgid "9 jazykových predvolieb"
+msgstr "9 jazykových předvoleb"
+
+msgid "SK, EN, CS, DE, FR, ES, PL, HU, IT. Všetky texty sú plne editovateľné z admin panelu."
+msgstr "SK, EN, CS, DE, FR, ES, PL, HU, IT. Všechny texty jsou plně editovatelné z admin panelu."
+
+msgid "[ccwps_consent_id] – zobrazí ID súhlasu návštevníka. [ccwps_cookie_list] – tabuľka deklarovaných cookies. [ccwps_manage_consent] – tlačidlo na správu súhlasu."
+msgstr "[ccwps_consent_id] – zobrazí ID souhlasu návštěvníka. [ccwps_cookie_list] – tabulka deklarovaných cookies. [ccwps_manage_consent] – tlačítko pro správu souhlasu."
+
+msgid "Export/Import nastavení"
+msgstr "Export/Import nastavení"
+
+msgid "Detekcia robotov"
+msgstr "Detekce robotů"
+
+msgid "Banner sa automaticky skryje pred vyhľadávačmi a crawlermi."
+msgstr "Banner se automaticky skryje před vyhledávači a roboty."
+
+msgid "Ak sa zmení zoznam cookies, plugin automaticky požiada o nový súhlas."
+msgstr "Pokud se změní seznam cookies, plugin automaticky požádá o nový souhlas."
+
+msgid "Floating ikona"
+msgstr "Plovoucí ikona"
+
+msgid "Plávajúca ikona umožní používateľovi kedykoľvek zmeniť preferencie. Po kliknutí zobrazí ID súhlasu a dátum."
+msgstr "Plovoucí ikona umožní uživateli kdykoli změnit preference. Po kliknutí zobrazí ID souhlasu a datum."
+
+msgid "Postup nastavenia"
+msgstr "Postup nastavení"
+
+msgid "V záložke Nastavenia zapnite Zaznamenávať súhlasy, Opätovný súhlas, Skryť pre robotov a Automatické spustenie. Vyberte verziu Consent Mode (v2 pre väčšinu webov). Ak používate GTM, vyplňte GTM Container ID."
+msgstr "V záložce Nastavení zapněte Zaznamenávat souhlasy, Opětovný souhlas, Skrýt pro roboty a Automatické spuštění. Vyberte verzi Consent Mode (v2 pro většinu webů). Pokud používáte GTM, vyplňte GTM Container ID."
+
+msgid "V záložke Preklady vyberte jazyk pomocou rýchlych predvolieb alebo upravte texty manuálne. Kliknite Uložiť preklady."
+msgstr "V záložce Překlady vyberte jazyk pomocí rychlých předvoleb nebo upravte texty ručně. Klikněte Uložit překlady."
+
+msgid "V záložke Vzhľad nastavte farby, rozloženie bannera a polohu plávajúcej ikony. Použite tlačidlá Náhľad na overenie zmien."
+msgstr "V záložce Vzhled nastavte barvy, rozložení banneru a polohu plovoucí ikony. Použijte tlačítka Náhled pro ověření změn."
+
+msgid "Deklarácia cookies"
+msgstr "Deklarace cookies"
+
+msgid "V záložke Cookies pridajte všetky cookies, ktoré váš web používa. Pre každú cookie vyplňte názov, doménu, platnosť, popis a kategóriu. Popis bude viditeľný návštevníkovi."
+msgstr "V záložce Cookies přidejte všechny cookies, které váš web používá. Pro každou cookie vyplňte název, doménu, platnost, popis a kategorii. Popis bude viditelný návštěvníkovi."
+
+msgid "V záložke Blokovanie skriptov pridajte pravidlá pre skripty, ktoré chcete blokovať. Napr. pre Google Analytics pridajte \"google-analytics.com\" → kategória Analytické."
+msgstr "V záložce Blokování skriptů přidejte pravidla pro skripty, které chcete blokovat. Např. pro Google Analytics přidejte \"google-analytics.com\" → kategorie Analytické."
+
+msgid "Cookie politika"
+msgstr "Cookie politika"
+
+msgid "Na stránku s Cookie politikou vložte [ccwps_cookie_list] pre automatickú tabuľku cookies, [ccwps_consent_id] pre zobrazenie ID súhlasu a [ccwps_manage_consent] pre tlačidlo zmeny preferencií."
+msgstr "Na stránku s Cookie politikou vložte [ccwps_cookie_list] pro automatickou tabulku cookies, [ccwps_consent_id] pro zobrazení ID souhlasu a [ccwps_manage_consent] pro tlačítko změny preferencí."
+
+msgid "Overenie"
+msgstr "Ověření"
+
+msgid "Otvorte web v incognito okne a overte, že sa banner zobrazí, súhlas sa zaznamená v záložke Záznamy súhlasov a floating ikona funguje správne."
+msgstr "Otevřete web v anonymním okně a ověřte, že se banner zobrazí, souhlas se zaznamená v záložce Záznamy souhlasů a plovoucí ikona funguje správně."
+
+msgid "Nastavenie Google Tag Manager + Consent Mode"
+msgstr "Nastavení Google Tag Manager + Consent Mode"
+
+msgid "Možnosť A: Plugin načíta GTM automaticky"
+msgstr "Možnost A: Plugin načte GTM automaticky"
+
+msgid "V záložke Nastavenia vyplňte GTM Container ID (napr. GTM-XXXXXXX). Plugin automaticky vloží GTM kód do hlavičky stránky spolu s Consent Mode default stavom (všetky signály = denied). Po udelení súhlasu sa GTM aktualizuje pomocou gtag('consent', 'update', ...)."
+msgstr "V záložce Nastavení vyplňte GTM Container ID (např. GTM-XXXXXXX). Plugin automaticky vloží GTM kód do hlavičky stránky spolu s výchozím stavem Consent Mode (všechny signály = denied). Po udělení souhlasu se GTM aktualizuje pomocí gtag('consent', 'update', ...)."
+
+msgid "Možnosť B: GTM máte nainštalovaný inak (téma, iný plugin)"
+msgstr "Možnost B: GTM máte nainstalovaný jinak (šablona, jiný plugin)"
+
+msgid "Nechajte GTM Container ID prázdne. Plugin automaticky vloží Consent Mode default stav pred GTM kód, takže default denied signály sa nastavia skôr, ako GTM spustí akékoľvek tagy. Toto je správne správanie podľa Google dokumentácie."
+msgstr "Nechte GTM Container ID prázdné. Plugin automaticky vloží výchozí stav Consent Mode před GTM kód, takže výchozí signály odmítnutí se nastaví dříve, než GTM spustí jakékoli tagy. Toto je správné chování podle dokumentace Google."
+
+msgid "Nastavenie tagov v GTM"
+msgstr "Nastavení tagů v GTM"
+
+msgid "V GTM nastavte pre každý tag Consent Settings. Pre Google Analytics (GA4): analytics_storage = Required. Pre Google Ads: ad_storage, ad_user_data, ad_personalization = Required. Tagy sa spustia len po udelení príslušného súhlasu."
+msgstr "V GTM nastavte pro každý tag Consent Settings. Pro Google Analytics (GA4): analytics_storage = Required. Pro Google Ads: ad_storage, ad_user_data, ad_personalization = Required. Tagy se spustí pouze po udělení příslušného souhlasu."
+
+msgid "Overenie pomocou Google Tag Assistant"
+msgstr "Ověření pomocí Google Tag Assistant"
+
+msgid "Otvorte Google Tag Assistant a overte, že pri odmietnutí cookies sú tagy v stave \"Consent Blocked\" a po udelení súhlasu sa aktivujú. Skontrolujte tiež Google Analytics Realtime report."
+msgstr "Otevřete Google Tag Assistant a ověřte, že při odmítnutí cookies jsou tagy ve stavu \"Consent Blocked\" a po udělení souhlasu se aktivují. Zkontrolujte také Google Analytics Realtime report."
+
+msgid "Autor a podpora"
+msgstr "Autor a podpora"
+
+msgid "Plugin vytvoril Web Pixel Studio. Pre otázky, návrhy alebo hlásenie chýb nás kontaktujte na:"
+msgstr "Plugin vytvořil Web Pixel Studio. Pro otázky, návrhy nebo hlášení chyb nás kontaktujte na:"
+
+msgid "Plugin je bezplatný a open-source pod licenciou GPL-2.0. Postavený na:"
+msgstr "Plugin je bezplatný a open-source pod licencí GPL-2.0. Postaven na:"
+
+msgid "Použiť font témy"
+msgstr "Použít font šablony"
+
+msgid "Nepodarilo sa odoslať žiadosť. Skúste to znova."
+msgstr "Nepodařilo se odeslat žádost. Zkuste to znovu."
+
+msgid "Zadajte platný e-mail."
+msgstr "Zadejte platnou e-mailovou adresu."
+
+msgid "Predmet musí mať 3 až 150 znakov."
+msgstr "Předmět musí mít 3 až 150 znaků."
+
+msgid "Text správy musí mať 20 až 4000 znakov."
+msgstr "Text zprávy musí mít 20 až 4000 znaků."
+
+msgid "Počkajte prosím 30 sekúnd a skúste to znova."
+msgstr "Počkejte prosím 30 sekund a zkuste to znovu."
+
+msgid "Dosiahli ste limit 3 žiadostí za 10 minút. Skúste to neskôr."
+msgstr "Dosáhli jste limitu 3 žádostí za 10 minut. Zkuste to později."
+
+msgid "Denný limit žiadostí bol dosiahnutý. Skúste to zajtra."
+msgstr "Denní limit žádostí byl dosažen. Zkuste to zítra."
+
+msgid "Žiadosť sa nepodarilo odoslať z tohto WordPress webu. Skontrolujte SMTP/mail konfiguráciu hostingu."
+msgstr "Žádost se nepodařilo odeslat z tohoto WordPress webu. Zkontrolujte SMTP/mail konfiguraci hostingu."
+
+msgid "Detail chyby: %s"
+msgstr "Detail chyby: %s"
+
+msgid "Žiadosť bola úspešne odoslaná."
+msgstr "Žádost byla úspěšně odeslána."
+
+msgid "Cookie settings"
+msgstr "Nastavení cookies"
+
+msgid "Súhlas nebol udelený."
+msgstr "Souhlas nebyl udělen."
+
+msgid "Žiadne cookies nie sú deklarované."
+msgstr "Žádné cookies nejsou deklarovány."
