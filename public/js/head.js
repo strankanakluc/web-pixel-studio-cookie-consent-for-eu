@@ -1,1 +1,0 @@
-/* Cookie Consent WPS head bootstrap */
