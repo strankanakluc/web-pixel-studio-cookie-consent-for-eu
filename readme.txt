@@ -356,8 +356,8 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 
 == Changelog ==
 
+= 1.1.6 =
 * Pridané appearance nastavenia pre tlačidlo [ccwps_manage_consent] (farby, ohraničenie, hover, radius)
-
 * Každé pole má vlastnú ikonku obnovy na návrat k pôvodnej hodnote
 * Vylepšená administrácia vzhľadu a štýlová konzistencia
 
@@ -370,7 +370,7 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 * Updated PHP and WordPress version requirements
 
 = 1.1.3 =
-New: floating icon vertical margin controls for desktop/mobile. "Prispôsobiť" button now always works everywhere (added missing attribute for full compatibility). See Appearance → Floating icon section.
+* New: floating icon vertical margin controls for desktop/mobile. "Prispôsobiť" button now always works everywhere (added missing attribute for full compatibility). See Appearance → Floating icon section.
 
 = 1.1.2 =
 * Added floating icon vertical margin adjustment for desktop displays (Appearance → Floating icon)
