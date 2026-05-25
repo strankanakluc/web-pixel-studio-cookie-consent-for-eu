@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Web Pixel Studio Cookie Consent for EU
  * Description:       GDPR & ePrivacy compliant cookie consent manager with Consent Mode v2 support, full customization, consent logging, and cookie blocking.
- * Version:           1.1.5
+ * Version:           1.1.6
 * Requires at least: 6.4
  * Requires PHP:      8.3
  * Author:            Web Pixel Studio
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CCWPS_VERSION', '1.1.5' );
+define( 'CCWPS_VERSION', '1.1.6' );
 define( 'CCWPS_PLUGIN_FILE', __FILE__ );
 define( 'CCWPS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CCWPS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -80,13 +80,7 @@ final class Cookie_Consent_WPS {
 		register_activation_hook( CCWPS_PLUGIN_FILE, [ 'CCWPS_Activator', 'activate' ] );
 		register_deactivation_hook( CCWPS_PLUGIN_FILE, [ 'CCWPS_Deactivator', 'deactivate' ] );
 
-		add_action( 'plugins_loaded', function () {
-			load_plugin_textdomain(
-				'web-pixel-studio-cookie-consent-eu',
-				false,
-				dirname( plugin_basename( CCWPS_PLUGIN_FILE ) ) . '/languages/'
-			);
-		} );
+		// Odstraněno volání load_plugin_textdomain() – překlady načítá WordPress automaticky od verze 4.6
 
 		add_action( 'init', [ $this, 'init' ] );
 	}

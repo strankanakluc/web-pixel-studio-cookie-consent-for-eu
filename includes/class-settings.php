@@ -108,6 +108,15 @@ class CCWPS_Settings {
 			'lang_preferences_title', 'lang_preferences_desc',
 			'lang_powered_by', 'lang_consent_id_label', 'lang_always_on',
 			'lang_cookie_name', 'lang_cookie_domain', 'lang_cookie_expiration', 'lang_cookie_description',
+            // Appearance pre [ccwps_manage_consent] tlačidlo
+            'manage_btn_bg',
+            'manage_btn_txt',
+            'manage_btn_border',
+            'manage_btn_border_width',
+            'manage_btn_radius',
+            'manage_btn_bg_hv',
+            'manage_btn_txt_hv',
+            'manage_btn_border_hv',
 		];
 
 		if ( class_exists( 'CCWPS_Language_Presets' ) ) {

@@ -419,7 +419,45 @@ class CCWPS_Frontend {
 		$class_attr = esc_attr( $atts['class'] );
 		$label      = esc_html( $atts['label'] );
 
-		return '<button type="button"' . $id_attr . ' class="' . $class_attr . '" data-ccwps-manage-consent="1" aria-label="' . $label . '">' . $label . '</button>';
+		// Helper pro validaci barvy
+		$sanitize_color = function($val, $default) {
+			$val = trim((string)$val);
+			if ($val === '' || !preg_match('/^#([A-Fa-f0-9]{3,8})$/', $val)) return $default;
+			return $val;
+		};
+
+		// Helper pro validaci čísla
+		$sanitize_int = function($val, $default, $min = null, $max = null) {
+			if (!is_numeric($val)) return $default;
+			$val = (int)$val;
+			if ($min !== null && $val < $min) return $default;
+			if ($max !== null && $val > $max) return $default;
+			return $val;
+		};
+
+		$bg         = $sanitize_color($this->settings->get('manage_btn_bg', '#1a73e8'), '#1a73e8');
+		$txt        = $sanitize_color($this->settings->get('manage_btn_txt', '#fff'), '#fff');
+		$border     = $sanitize_color($this->settings->get('manage_btn_border', '#1a73e8'), '#1a73e8');
+		$bg_hv      = $sanitize_color($this->settings->get('manage_btn_bg_hv', '#1557b0'), '#1557b0');
+		$txt_hv     = $sanitize_color($this->settings->get('manage_btn_txt_hv', '#fff'), '#fff');
+		$border_hv  = $sanitize_color($this->settings->get('manage_btn_border_hv', '#1557b0'), '#1557b0');
+		$border_w   = $sanitize_int($this->settings->get('manage_btn_border_width', 2), 2, 0, 10);
+		$radius     = $sanitize_int($this->settings->get('manage_btn_radius', 8), 8, 0, 50);
+
+		$style = sprintf(
+			'--ccwps-manage-btn-bg:%1$s;--ccwps-manage-btn-txt:%2$s;--ccwps-manage-btn-border:%3$s;--ccwps-manage-btn-border-width:%4$spx;--ccwps-manage-btn-radius:%5$spx;--ccwps-manage-btn-bg-hv:%6$s;--ccwps-manage-btn-txt-hv:%7$s;--ccwps-manage-btn-border-hv:%8$s;',
+			$bg,
+			$txt,
+			$border,
+			$border_w,
+			$radius,
+			$bg_hv,
+			$txt_hv,
+			$border_hv
+		);
+		$style_attr = ' style="' . esc_attr( $style ) . '"';
+
+		return '<button type="button"' . $id_attr . ' class="' . $class_attr . '"' . $style_attr . ' data-ccwps-manage-consent="1" aria-label="' . $label . '">' . $label . '</button>';
 	}
 
 	private function is_bot(): bool {

@@ -4,7 +4,7 @@ Tags: cookie consent, GDPR, cookie banner, ePrivacy, google consent mode
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -353,7 +353,13 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 8. Admin – Consent log
 
 
+
 == Changelog ==
+
+* Pridané appearance nastavenia pre tlačidlo [ccwps_manage_consent] (farby, ohraničenie, hover, radius)
+
+* Každé pole má vlastnú ikonku obnovy na návrat k pôvodnej hodnote
+* Vylepšená administrácia vzhľadu a štýlová konzistencia
 
 
 = 1.1.5 =
@@ -364,11 +370,7 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 * Updated PHP and WordPress version requirements
 
 = 1.1.3 =
-* Added floating icon vertical margin adjustment for desktop displays (Appearance → Floating icon)
-* Added separate mobile floating icon margin control (applies to devices with width ≤520px)
-* Enhanced floating icon positioning customization with new margin controls (0-500px range)
-* Added full multi-language support for new margin settings across all 8 supported admin languages (SK, EN, CS, DE, FR, ES, HU, PL)
-* Fixed: Cookie bar "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites
+New: floating icon vertical margin controls for desktop/mobile. "Prispôsobiť" button now always works everywhere (added missing attribute for full compatibility). See Appearance → Floating icon section.
 
 = 1.1.2 =
 * Added floating icon vertical margin adjustment for desktop displays (Appearance → Floating icon)
@@ -421,7 +423,11 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 * Renamed GTM template files and POT file to match the corrected plugin slug.
 
 
+
 == Upgrade Notice ==
+
+= 1.1.6 =
+Nové appearance nastavenia a ikonky obnovy pre tlačidlo [ccwps_manage_consent]. Po aktualizácii skontrolujte vzhľad a prípadne upravte farby podľa svojich preferencií.
 
 = 1.1.5 =
 Nová verzia 1.1.5: Pridané rumunské a holandské jazykové predvoľby, vylepšené ovládanie plávajúcej ikony a opravy kompatibility. Skontrolujte nastavenia jazykov a zálohujte konfiguráciu pred aktualizáciou.
@@ -430,7 +436,7 @@ Nová verzia 1.1.5: Pridané rumunské a holandské jazykové predvoľby, vylep�
 Fixed syntax error in language presets. Minimum required WordPress version is now 6.4. Please review your language settings after update.
 
 = 1.1.3 =
-New floating icon vertical margin controls for desktop and mobile. "Prispôsobiť" (manage preferences) button now always works everywhere — added missing `data-ccwps-manage-consent` attribute for full compatibility with custom selectors, widgets, and JS binding on all sites. Access the new settings in Appearance → Floating icon section.
+New: floating icon vertical margin controls for desktop/mobile. "Prispôsobiť" button now always works everywhere (added missing attribute for full compatibility). See Appearance → Floating icon section.
 
 = 1.1.2 =
 New floating icon vertical margin controls now available! Customize icon height separately for desktop and mobile devices. Access the new settings in Appearance → Floating icon section.

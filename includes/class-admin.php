@@ -1087,6 +1087,38 @@ class CCWPS_Admin {
 			</div>
 		</div>
 
+		<div class="ccwps-card">
+			<h2 class="ccwps-card-title-row">
+				<span><?php esc_html_e( 'Tlačidlo [ccwps_manage_consent]', 'web-pixel-studio-cookie-consent-eu' ); ?></span>
+			</h2>
+			<p class="description" style="margin-bottom:14px;"><?php esc_html_e( 'Farebné a vzhľadové nastavenia pre shortcode tlačidlo [ccwps_manage_consent], ktoré môžete vložiť kdekoľvek na stránku.', 'web-pixel-studio-cookie-consent-eu' ); ?></p>
+			<table class="ccwps-table">
+				<?php
+				$manage_btn_fields = [
+					'manage_btn_bg'        => [ __( 'Pozadie', 'web-pixel-studio-cookie-consent-eu' ),             '#1a73e8' ],
+					'manage_btn_bg_hv'     => [ __( 'Pozadie (hover)', 'web-pixel-studio-cookie-consent-eu' ),     '#1557b0' ],
+					'manage_btn_txt'       => [ __( 'Farba textu', 'web-pixel-studio-cookie-consent-eu' ),         '#ffffff' ],
+					'manage_btn_txt_hv'    => [ __( 'Farba textu (hover)', 'web-pixel-studio-cookie-consent-eu' ), '#ffffff' ],
+					'manage_btn_border'    => [ __( 'Farba ohraničenia', 'web-pixel-studio-cookie-consent-eu' ),   '#1a73e8' ],
+					'manage_btn_border_hv' => [ __( 'Farba ohraničenia (hover)', 'web-pixel-studio-cookie-consent-eu' ), '#1557b0' ],
+				];
+				foreach ( $manage_btn_fields as $k => [ $lbl, $def ] ) : ?>
+				<tr>
+					<th><label for="<?php echo esc_attr( $k ); ?>"><?php echo esc_html( $lbl ); ?></label></th>
+					<td><?php $this->render_color_picker_with_reset( $k, (string) ( $s->get( $k ) ?: $def ), $def ); ?></td>
+				</tr>
+				<?php endforeach; ?>
+				<tr>
+					<th><label for="manage_btn_border_width"><?php esc_html_e( 'Hrúbka ohraničenia (px)', 'web-pixel-studio-cookie-consent-eu' ); ?></label></th>
+					<td><input type="number" name="manage_btn_border_width" id="manage_btn_border_width" value="<?php echo esc_attr( $s->get( 'manage_btn_border_width', 2 ) ); ?>" min="0" max="10" class="small-text"><?php $this->tip( __( '💡 0 = bez ohraničenia. Predvolená hodnota: 2 px.', 'web-pixel-studio-cookie-consent-eu' ) ); ?></td>
+				</tr>
+				<tr>
+					<th><label for="manage_btn_radius"><?php esc_html_e( 'Zaoblenie rohov (px)', 'web-pixel-studio-cookie-consent-eu' ); ?></label></th>
+					<td><input type="number" name="manage_btn_radius" id="manage_btn_radius" value="<?php echo esc_attr( $s->get( 'manage_btn_radius', 8 ) ); ?>" min="0" max="50" class="small-text"><?php $this->tip( __( '💡 0 = hranaté, 8 = mierne zaoblené, 24+ = "pill" tvar.', 'web-pixel-studio-cookie-consent-eu' ) ); ?></td>
+				</tr>
+			</table>
+		</div>
+
 		<div class="ccwps-form-actions">
 			<button type="button" class="button ccwps-btn-secondary-action ccwps-reset-appearance"><?php echo esc_html( $this->tx( '↺ Obnoviť predvolené' ) ); ?></button>
 			<button type="button" class="button button-primary ccwps-save-settings ccwps-btn-primary-action"><?php echo esc_html( $this->t( 'admin_btn_save_appearance', 'Uložiť vzhľad' ) ); ?></button>

@@ -12,7 +12,7 @@
 **Tags:** cookie consent, GDPR, cookie banner, ePrivacy, google consent mode  
 **Requires at least:** 6.4  
 **Tested up to:** 7.0  
-**Stable tag:** 1.1.5  
+**Stable tag:** 1.1.6  
 **License:** GPL-2.0-or-later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -207,7 +207,14 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 - `[ccwps_consent_id]` shows the current visitor consent ID
 - `[ccwps_manage_consent]` opens the consent management interface from your content
 
+
 ## Changelog
+
+### 1.1.6
+
+- **New:** Appearance settings for [ccwps_manage_consent] button (background, border, text, hover, radius)
+- **New:** Each field has its own refresh icon to restore default value
+- **Improved:** Admin UI and style consistency for appearance tab
 
 
 ### 1.1.5
@@ -315,7 +322,7 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 ### 1.0.3
 
 - Added Matomo integration settings (Matomo URL + Site ID) in the Settings tab
-- Added new consent behavior toggle for Matomo: strict no-tracking on reject (default) or optional anonymous cookieless measurement on reject
+- Added new consent behavior toggle for Matomo: strict no-tracking on reject (default) or optionally allow anonymous cookieless measurement on reject
 - Added automatic Matomo consent-mode switching: full tracking starts immediately after later analytics consent
 - Fixed duplicate Matomo pageview call on initial page load when existing analytics consent was already stored
 - Fixed strict Matomo mode: script is now lazy-loaded only after analytics consent is granted, preventing early script execution
@@ -356,7 +363,12 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 - Added import/export, floating icon, and translation presets
 - Added predefined cookie and blocking presets for Google Analytics, Google Ads, and Facebook Pixel
 
+
 ## Upgrade Notice
+
+### 1.1.6
+
+New appearance settings and refresh icons for [ccwps_manage_consent] button. After update, review the button style and adjust colors if needed.
 
 
 ### 1.1.5
@@ -365,12 +377,11 @@ New version 1.1.5: Added Romanian and Dutch language preferences, improved float
 
 ### 1.1.4
 
-Added floating icon margin controls for desktop and mobile. Fixed manage preferences button compatibility on all sites. Minimum WordPress version is now 6.4.
+Fixed syntax error in language presets. Minimum required WordPress version is now 6.4. Please review your language settings after update.
 
 ### 1.1.3
 
-Floating icon vertical margin controls for desktop and mobile.    
-Access the new settings in Appearance → Floating icon section.
+New: floating icon vertical margin controls for desktop/mobile. "Prispôsobiť" button now always works everywhere (added missing attribute for full compatibility). See Appearance → Floating icon section.
 
 ### 1.1.2
 
