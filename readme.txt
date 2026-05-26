@@ -4,7 +4,7 @@ Tags: cookie consent, GDPR, cookie banner, ePrivacy, google consent mode
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -356,10 +356,18 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 
 == Changelog ==
 
+= 1.1.7 =
+* Fixed: [ccwps_manage_consent] button appearance settings (colors, border, radius) now correctly apply on the frontend — duplicate CSS definition was overriding CSS variables set by the shortcode.
+* Improved: [ccwps_manage_consent] settings card moved to the end of the Appearance tab and visual style unified with other button settings cards.
+* Consent log: Changed records per page from 50 to 30.
+* Consent log: Added search/filter by date (exact day) and by consent ID (partial match).
+* Consent log: IP addresses are now anonymized in the admin display (last IPv4 octet replaced with xxx; IPv6 truncated after 4th group).
+* Consent log: Improved pagination — smart 5-page window with ellipsis, first/last page always visible, and navigation arrows (first, previous, next, last).
+
 = 1.1.6 =
-* Pridané appearance nastavenia pre tlačidlo [ccwps_manage_consent] (farby, ohraničenie, hover, radius)
-* Každé pole má vlastnú ikonku obnovy na návrat k pôvodnej hodnote
-* Vylepšená administrácia vzhľadu a štýlová konzistencia
+* Added appearance settings for [ccwps_manage_consent] button (colors, border, hover, radius)
+* Each field has its own refresh icon to restore default value
+* Improved admin UI and style consistency for appearance tab
 
 
 = 1.1.5 =
@@ -426,11 +434,14 @@ No. The cookie is intentionally readable by frontend scripts so user preferences
 
 == Upgrade Notice ==
 
+= 1.1.7 =
+Fixes [ccwps_manage_consent] button appearance settings not applying. Consent log now shows 30 records/page, supports search by date and consent ID, and anonymizes IP addresses in admin. Improved pagination with navigation arrows.
+
 = 1.1.6 =
-Nové appearance nastavenia a ikonky obnovy pre tlačidlo [ccwps_manage_consent]. Po aktualizácii skontrolujte vzhľad a prípadne upravte farby podľa svojich preferencií.
+New appearance settings and refresh icons for [ccwps_manage_consent] button. After update, review the button style and adjust colors if needed.
 
 = 1.1.5 =
-Nová verzia 1.1.5: Pridané rumunské a holandské jazykové predvoľby, vylepšené ovládanie plávajúcej ikony a opravy kompatibility. Skontrolujte nastavenia jazykov a zálohujte konfiguráciu pred aktualizáciou.
+New version 1.1.5: Added Romanian and Dutch language preferences, improved floating icon control, and compatibility fixes. Please check your language settings and back up your configuration before updating.
 
 = 1.1.4 =
 Fixed syntax error in language presets. Minimum required WordPress version is now 6.4. Please review your language settings after update.

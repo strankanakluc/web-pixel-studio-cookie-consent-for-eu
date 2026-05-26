@@ -211,16 +211,12 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 ## Changelog
 
 ### 1.1.6
-
-- **New:** Appearance settings for [ccwps_manage_consent] button (background, border, text, hover, radius)
+- **New:** Appearance settings for [ccwps_manage_consent] button (colors, border, hover, radius)
 - **New:** Each field has its own refresh icon to restore default value
 - **Improved:** Admin UI and style consistency for appearance tab
 
-
 ### 1.1.5
-
-- **New**: Added Romanian (ro) and Dutch (nl) language presets for admin and frontend (including all cookie and category texts)
-- **Fixed**: syntax error in language presets (plugin now activates without fatal error)
+New appearance settings and refresh icons for [ccwps_manage_consent] button. After update, review the button style and adjust colors if needed.
 
 ### 1.1.4
 
@@ -268,11 +264,11 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ### 1.0.9
 
-- Added translations for all 34 admin UI messages (Settings saved, errors, confirmations, button labels, etc.) across all 8 supported languages
+ New appearance settings and refresh icons for [ccwps_manage_consent] button. After update, review the button style and adjust colors if needed.
 - Improved localization of the `[ccwps_cookie_list]` shortcode to use detected visitor language when "Language by visitor" is enabled
 - Added data attributes to shortcode output to support dynamic language switching in JavaScript
 - Enhanced frontend i18n initialization to detect and apply visitor language early when detection is active
-
+ New version 1.1.5: Added Romanian and Dutch language preferences, improved floating icon control, and compatibility fixes. Please check your language settings and back up your configuration before updating.
 ### 1.0.8
 
 - Added new cookie presets for Hotjar and Sourcebuster (sbjs), including default domain placeholders, categories, and expiration values

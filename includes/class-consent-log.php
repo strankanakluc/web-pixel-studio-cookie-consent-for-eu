@@ -69,30 +69,63 @@ class CCWPS_Consent_Log {
 	}
 
 	/**
-	 * Get all consent records with optional pagination.
+	 * Get consent records with optional pagination and filters.
+	 *
+	 * @param array $filters  Keys: 'date' (YYYY-MM-DD), 'consent_id' (partial match).
 	 */
-	public function get_all( int $per_page = 50, int $page = 1 ): array {
+	public function get_all( int $per_page = 30, int $page = 1, array $filters = [] ): array {
 		global $wpdb;
 
 		$offset = ( $page - 1 ) * $per_page;
 		$table  = $this->table;
+
+		[ $where, $where_args ] = $this->build_where( $filters );
+		$args = array_merge( $where_args, [ $per_page, $offset ] );
+
 		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
-		$results = $wpdb->get_results( $wpdb->prepare(
-			"SELECT * FROM {$table} ORDER BY recorded_at DESC LIMIT %d OFFSET %d",
-			$per_page,
-			$offset
-		), ARRAY_A );
+		$results = $wpdb->get_results(
+			$wpdb->prepare( "SELECT * FROM {$table}{$where} ORDER BY recorded_at DESC LIMIT %d OFFSET %d", ...$args ),
+			ARRAY_A
+		);
 		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 
 		return $results ?: [];
 	}
 
-	public function count(): int {
+	public function count( array $filters = [] ): int {
 		global $wpdb;
 		$table = $this->table;
+
+		[ $where, $where_args ] = $this->build_where( $filters );
+
 		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
-		return (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
+		if ( empty( $where_args ) ) {
+			return (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
+		}
+		return (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table}{$where}", ...$where_args ) );
 		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
+	}
+
+	private function build_where( array $filters ): array {
+		global $wpdb;
+		$conditions = [];
+		$args       = [];
+
+		if ( ! empty( $filters['date'] ) ) {
+			$date = sanitize_text_field( $filters['date'] );
+			if ( preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ) {
+				$conditions[] = 'DATE(recorded_at) = %s';
+				$args[]       = $date;
+			}
+		}
+
+		if ( ! empty( $filters['consent_id'] ) ) {
+			$conditions[] = 'consent_id LIKE %s';
+			$args[]       = '%' . $wpdb->esc_like( sanitize_text_field( $filters['consent_id'] ) ) . '%';
+		}
+
+		$where = empty( $conditions ) ? '' : ' WHERE ' . implode( ' AND ', $conditions );
+		return [ $where, $args ];
 	}
 
 	/**

@@ -1546,22 +1546,41 @@ class CCWPS_Admin {
 	   LOG TAB
 	   ================================================ */
 	private function tab_log(): void {
-		$per_page = 50;
-		$page     = $this->get_query_int( 'log_page', 1 );
-		$records  = $this->log->get_all( $per_page, $page );
-		$total    = $this->log->count();
-		$pages    = (int) ceil( $total / $per_page );
+		$per_page   = 30;
+		$page       = $this->get_query_int( 'log_page', 1 );
+		$search_date = sanitize_text_field( $this->get_query_string( 'log_date' ) );
+		$search_id   = sanitize_text_field( $this->get_query_string( 'log_id' ) );
+		$filters     = array_filter( [ 'date' => $search_date, 'consent_id' => $search_id ] );
+		$records     = $this->log->get_all( $per_page, $page, $filters );
+		$total       = $this->log->count( $filters );
+		$total_all   = empty( $filters ) ? $total : $this->log->count();
+		$pages       = (int) ceil( $total / $per_page );
+
+		$pag_extra = '';
+		if ( $search_date ) $pag_extra .= '&log_date=' . rawurlencode( $search_date );
+		if ( $search_id )   $pag_extra .= '&log_id='   . rawurlencode( $search_id );
 		?>
 		<div class="ccwps-page-header">
-			<h1><?php echo esc_html( $this->t( 'admin_tab_log_h1', 'Záznamy súhlasov' ) ); ?> <span class="ccwps-count">(<?php echo esc_html( number_format( $total ) ); ?>)</span></h1>
+			<h1><?php echo esc_html( $this->t( 'admin_tab_log_h1', 'Záznamy súhlasov' ) ); ?> <span class="ccwps-count">(<?php echo esc_html( number_format( $total_all ) ); ?>)</span></h1>
 			<div class="ccwps-header-actions">
 				<a href="<?php echo esc_url( admin_url( 'admin-post.php?action=ccwps_export_csv&_wpnonce=' . wp_create_nonce( 'ccwps_export_csv' ) ) ); ?>" class="button ccwps-btn-secondary-action"><?php echo esc_html( $this->t( 'admin_btn_export_csv', 'Exportovať CSV' ) ); ?></a>
 				<button type="button" class="button button-link-delete ccwps-btn-danger-action" id="ccwps-clear-log"><?php echo esc_html( $this->t( 'admin_btn_clear_log', 'Vymazať všetky záznamy' ) ); ?></button>
 			</div>
 		</div>
 		<div class="ccwps-card">
+			<form method="get" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>" class="ccwps-log-search">
+				<input type="hidden" name="page" value="ccwps">
+				<input type="hidden" name="tab" value="log">
+				<input type="date" name="log_date" value="<?php echo esc_attr( $search_date ); ?>" class="ccwps-log-search-date">
+				<input type="text" name="log_id" value="<?php echo esc_attr( $search_id ); ?>" placeholder="<?php esc_attr_e( 'ID súhlasu…', 'web-pixel-studio-cookie-consent-eu' ); ?>" class="ccwps-log-search-id regular-text">
+				<button type="submit" class="button button-primary"><?php echo esc_html( $this->tx( 'Hľadať' ) ); ?></button>
+				<?php if ( ! empty( $filters ) ) : ?>
+					<a href="<?php echo esc_url( admin_url( 'admin.php?page=ccwps&tab=log' ) ); ?>" class="button"><?php echo esc_html( $this->tx( 'Zrušiť filter' ) ); ?></a>
+					<span class="ccwps-log-search-results"><?php printf( esc_html( $this->tx( 'Nájdené: %d záznamov' ) ), $total ); ?></span>
+				<?php endif; ?>
+			</form>
 			<?php if ( empty( $records ) ) : ?>
-				<p style="padding:16px;"><?php echo esc_html( $this->tx( 'Žiadne záznamy súhlasov.' ) ); ?></p>
+				<p style="padding:16px;"><?php echo esc_html( empty( $filters ) ? $this->tx( 'Žiadne záznamy súhlasov.' ) : $this->tx( 'Žiadne záznamy nezodpovedajú vyhľadávaniu.' ) ); ?></p>
 			<?php else : ?>
 				<div class="ccwps-table-scroll">
 					<table class="wp-list-table widefat striped ccwps-data-table ccwps-log-table">
@@ -1583,7 +1602,7 @@ class CCWPS_Admin {
 								<td><?php echo esc_html( $row['recorded_at'] ); ?></td>
 								<td><code style="font-size:10px;"><?php echo esc_html( substr( $row['consent_id'], 0, 14 ) . '…' ); ?></code></td>
 								<td class="ccwps-cell-url" title="<?php echo esc_attr( $row['url'] ); ?>"><?php echo esc_html( $row['url'] ); ?></td>
-								<td><?php echo esc_html( $row['ip_address'] ); ?></td>
+								<td><?php echo esc_html( $this->anonymize_ip( $row['ip_address'] ?? '' ) ); ?></td>
 								<td><?php echo esc_html( $row['device_info'] ?? '—' ); ?></td>
 								<td><?php echo $row['necessary']   ? '<span class="ccwps-dot green"></span>' : '<span class="ccwps-dot red"></span>'; ?></td>
 								<td><?php echo $row['analytics']   ? '<span class="ccwps-dot green"></span>' : '<span class="ccwps-dot red"></span>'; ?></td>
@@ -1595,11 +1614,47 @@ class CCWPS_Admin {
 						</tbody>
 					</table>
 				</div>
-				<?php if ( $pages > 1 ) : ?>
+				<?php if ( $pages > 1 ) :
+					$pag_base = admin_url( 'admin.php?page=ccwps&tab=log' . $pag_extra . '&log_page=' );
+					$pag_w    = 5;
+					$pag_half = (int) floor( $pag_w / 2 );
+					$pag_s    = max( 1, $page - $pag_half );
+					$pag_e    = min( $pages, $pag_s + $pag_w - 1 );
+					if ( $pag_e - $pag_s + 1 < $pag_w ) {
+						$pag_s = max( 1, $pag_e - $pag_w + 1 );
+					}
+				?>
 				<div class="ccwps-pagination">
-					<?php for ( $i = 1; $i <= $pages; $i++ ) : ?>
-						<a href="<?php echo esc_url( admin_url( 'admin.php?page=ccwps&tab=log&log_page=' . $i ) ); ?>" class="button button-small <?php echo $i === $page ? 'button-primary' : ''; ?>"><?php echo esc_html( $i ); ?></a>
+					<?php if ( $page > 1 ) : ?>
+						<a href="<?php echo esc_url( $pag_base . '1' ); ?>" class="ccwps-pag-nav" title="<?php esc_attr_e( 'Prvá stránka', 'web-pixel-studio-cookie-consent-eu' ); ?>">|&#171;</a>
+						<a href="<?php echo esc_url( $pag_base . ( $page - 1 ) ); ?>" class="ccwps-pag-nav" title="<?php esc_attr_e( 'Predošlá', 'web-pixel-studio-cookie-consent-eu' ); ?>">&#8249;</a>
+					<?php else : ?>
+						<span class="ccwps-pag-nav ccwps-pag-disabled">|&#171;</span>
+						<span class="ccwps-pag-nav ccwps-pag-disabled">&#8249;</span>
+					<?php endif; ?>
+
+					<?php for ( $i = $pag_s; $i <= $pag_e; $i++ ) : ?>
+						<?php if ( $i === $page ) : ?>
+							<span class="ccwps-pag-page ccwps-pag-current"><?php echo esc_html( $i ); ?></span>
+						<?php else : ?>
+							<a href="<?php echo esc_url( $pag_base . $i ); ?>" class="ccwps-pag-page"><?php echo esc_html( $i ); ?></a>
+						<?php endif; ?>
 					<?php endfor; ?>
+
+					<?php if ( $pag_e < $pages ) : ?>
+						<?php if ( $pag_e < $pages - 1 ) : ?>
+							<span class="ccwps-pag-ellipsis">…</span>
+						<?php endif; ?>
+						<a href="<?php echo esc_url( $pag_base . $pages ); ?>" class="ccwps-pag-page"><?php echo esc_html( $pages ); ?></a>
+					<?php endif; ?>
+
+					<?php if ( $page < $pages ) : ?>
+						<a href="<?php echo esc_url( $pag_base . ( $page + 1 ) ); ?>" class="ccwps-pag-nav" title="<?php esc_attr_e( 'Nasledujúca', 'web-pixel-studio-cookie-consent-eu' ); ?>">&#8250;</a>
+						<a href="<?php echo esc_url( $pag_base . $pages ); ?>" class="ccwps-pag-nav" title="<?php esc_attr_e( 'Posledná stránka', 'web-pixel-studio-cookie-consent-eu' ); ?>">&#187;|</a>
+					<?php else : ?>
+						<span class="ccwps-pag-nav ccwps-pag-disabled">&#8250;</span>
+						<span class="ccwps-pag-nav ccwps-pag-disabled">&#187;|</span>
+					<?php endif; ?>
 				</div>
 				<?php endif; ?>
 			<?php endif; ?>
@@ -2497,6 +2552,20 @@ class CCWPS_Admin {
 
 	private function get_query_int( string $key, int $default = 0 ): int {
 		return max( 1, (int) $this->get_query_string( $key, (string) $default ) );
+	}
+
+	private function anonymize_ip( string $ip ): string {
+		if ( '' === $ip ) {
+			return '—';
+		}
+		if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
+			return substr( $ip, 0, (int) strrpos( $ip, '.' ) ) . '.xxx';
+		}
+		if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) {
+			$parts = explode( ':', $ip );
+			return implode( ':', array_slice( $parts, 0, 4 ) ) . '::xxxx';
+		}
+		return '***';
 	}
 
 	private function get_import_tmp_name(): string {

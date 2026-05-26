@@ -1129,7 +1129,99 @@ span.required { color: var(--cc-red); }
    =========================================== */
 .ccwps-count { font-size: 13px; color: var(--cc-gray-400); font-weight: 400; margin-left: 4px; }
 .ccwps-log-actions { display: flex; gap: 8px; align-items: center; }
-.ccwps-pagination { display: flex; gap: 4px; padding: 12px 0 0; flex-wrap: wrap; }
+.ccwps-log-search {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 0 14px;
+	border-bottom: 1px solid var(--cc-gray-200);
+	margin-bottom: 14px;
+}
+.ccwps-log-search-date { width: 150px !important; }
+.ccwps-log-search-id   { width: 220px !important; }
+.ccwps-log-search-results {
+	font-size: 12px;
+	color: var(--cc-gray-500);
+	margin-left: 4px;
+}
+.ccwps-pagination {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	padding: 14px 0 4px;
+	flex-wrap: wrap;
+}
+.ccwps-pag-page,
+.ccwps-pag-nav {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 32px;
+	height: 32px;
+	padding: 0 8px;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1;
+	text-decoration: none;
+	border: 1px solid var(--cc-gray-200);
+	background: #fff;
+	color: var(--cc-gray-700);
+	cursor: pointer;
+	transition: background .15s, border-color .15s, color .15s;
+}
+.ccwps-pag-page:hover,
+.ccwps-pag-nav:hover {
+	background: var(--cc-gray-100);
+	border-color: var(--cc-gray-300);
+	color: var(--cc-gray-900);
+}
+.ccwps-pag-current {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 32px;
+	height: 32px;
+	padding: 0 8px;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	border: 1px solid var(--cc-primary);
+	background: var(--cc-primary);
+	color: #fff;
+}
+.ccwps-pag-nav {
+	font-size: 15px;
+	font-weight: 600;
+	min-width: 36px;
+	color: var(--cc-gray-500);
+}
+.ccwps-pag-disabled {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 36px;
+	height: 32px;
+	padding: 0 8px;
+	border-radius: 6px;
+	font-size: 15px;
+	font-weight: 600;
+	border: 1px solid var(--cc-gray-200);
+	background: var(--cc-gray-50);
+	color: var(--cc-gray-300);
+	cursor: default;
+}
+.ccwps-pag-ellipsis {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 28px;
+	height: 32px;
+	font-size: 14px;
+	color: var(--cc-gray-400);
+	letter-spacing: 1px;
+}
 
 /* =====================
    SIDEBAR PREVIEW BUTTONS
