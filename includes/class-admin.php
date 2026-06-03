@@ -2558,6 +2558,12 @@ class CCWPS_Admin {
 		if ( '' === $ip ) {
 			return '—';
 		}
+		if ( preg_match( '/^\d{1,3}(?:\.\d{1,3}){1,2}\.xxx(?:\.xxx)?$/', $ip ) ) {
+			return $ip;
+		}
+		if ( false !== strpos( strtolower( $ip ), 'xxxx' ) ) {
+			return $ip;
+		}
 		if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
 			return substr( $ip, 0, (int) strrpos( $ip, '.' ) ) . '.xxx';
 		}
