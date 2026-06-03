@@ -12,7 +12,7 @@
 **Tags:** cookie consent, GDPR, cookie banner, ePrivacy, google consent mode  
 **Requires at least:** 6.4  
 **Tested up to:** 7.0  
-**Stable tag:** 1.1.6  
+**Stable tag:** 1.1.8  
 **License:** GPL-2.0-or-later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -210,6 +210,9 @@ Yes. The plugin includes shortcodes for the cookie list and for displaying the c
 
 ## Changelog
 
+### 1.1.8
+- **Changed:** The Consent Log in admin now shows the full Consent ID instead of a shortened preview
+
 ### 1.1.6
 - **New:** Appearance settings for [ccwps_manage_consent] button (colors, border, hover, radius)
 - **New:** Each field has its own refresh icon to restore default value
@@ -361,6 +364,10 @@ New appearance settings and refresh icons for [ccwps_manage_consent] button. Aft
 
 
 ## Upgrade Notice
+
+### 1.1.8
+
+Consent Log in admin now shows the full Consent ID instead of a shortened preview. Update if you need the complete ID for audits or copying.
 
 ### 1.1.6
 

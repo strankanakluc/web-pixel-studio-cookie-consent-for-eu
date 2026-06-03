@@ -1600,7 +1600,7 @@ class CCWPS_Admin {
 							<?php foreach ( $records as $row ) : ?>
 							<tr>
 								<td><?php echo esc_html( $row['recorded_at'] ); ?></td>
-								<td><code style="font-size:10px;"><?php echo esc_html( substr( $row['consent_id'], 0, 14 ) . '…' ); ?></code></td>
+								<td><code style="font-size:10px;"><?php echo esc_html( $row['consent_id'] ); ?></code></td>
 								<td class="ccwps-cell-url" title="<?php echo esc_attr( $row['url'] ); ?>"><?php echo esc_html( $row['url'] ); ?></td>
 								<td><?php echo esc_html( $this->anonymize_ip( $row['ip_address'] ?? '' ) ); ?></td>
 								<td><?php echo esc_html( $row['device_info'] ?? '—' ); ?></td>
