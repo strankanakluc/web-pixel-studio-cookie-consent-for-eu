@@ -583,7 +583,7 @@
 			],
 			blockPresets: [ 'pys' ],
 		},
-		matomo_analytics: {
+		matomo: {
 			cookies: [
 				{
 					name: '^_pk_id',
@@ -612,11 +612,6 @@
 					category: 'analytics',
 					is_regex: '1',
 				},
-			],
-			blockPresets: [ 'mtm_analytics' ],
-		},
-		matomo_tag_manager: {
-			cookies: [
 				{
 					name: 'mtm_consent',
 					domain: '.yourdomain.com',
@@ -636,7 +631,7 @@
 					is_regex: '',
 				},
 			],
-			blockPresets: [ 'mtm_tag_manager' ],
+			blockPresets: [ 'mtm_analytics', 'mtm_tag_manager' ],
 		},
 		hotjar: {
 			cookies: [
