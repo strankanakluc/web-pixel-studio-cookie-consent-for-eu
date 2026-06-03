@@ -1576,7 +1576,7 @@ class CCWPS_Admin {
 				<button type="submit" class="button button-primary"><?php echo esc_html( $this->tx( 'Hľadať' ) ); ?></button>
 				<?php if ( ! empty( $filters ) ) : ?>
 					<a href="<?php echo esc_url( admin_url( 'admin.php?page=ccwps&tab=log' ) ); ?>" class="button"><?php echo esc_html( $this->tx( 'Zrušiť filter' ) ); ?></a>
-					<span class="ccwps-log-search-results"><?php printf( esc_html( $this->tx( 'Nájdené: %d záznamov' ) ), $total ); ?></span>
+					<span class="ccwps-log-search-results"><?php echo esc_html( sprintf( $this->tx( 'Nájdené: %d záznamov' ), (int) $total ) ); ?></span>
 				<?php endif; ?>
 			</form>
 			<?php if ( empty( $records ) ) : ?>

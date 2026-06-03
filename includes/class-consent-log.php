@@ -78,15 +78,48 @@ class CCWPS_Consent_Log {
 
 		$offset = ( $page - 1 ) * $per_page;
 		$table  = $this->table;
-
-		[ $where, $where_args ] = $this->build_where( $filters );
-		$args = array_merge( $where_args, [ $per_page, $offset ] );
+		$active_filters = $this->normalize_filters( $filters );
+		$date           = $active_filters['date'];
+		$consent_id     = $active_filters['consent_id'];
 
 		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
-		$results = $wpdb->get_results(
-			$wpdb->prepare( "SELECT * FROM {$table}{$where} ORDER BY recorded_at DESC LIMIT %d OFFSET %d", ...$args ),
-			ARRAY_A
-		);
+		if ( $date && $consent_id ) {
+			$results = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT * FROM {$table} WHERE DATE(recorded_at) = %s AND consent_id LIKE %s ORDER BY recorded_at DESC LIMIT %d OFFSET %d",
+					$date,
+					$consent_id,
+					$per_page,
+					$offset
+				),
+				ARRAY_A
+			);
+		} elseif ( $date ) {
+			$results = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT * FROM {$table} WHERE DATE(recorded_at) = %s ORDER BY recorded_at DESC LIMIT %d OFFSET %d",
+					$date,
+					$per_page,
+					$offset
+				),
+				ARRAY_A
+			);
+		} elseif ( $consent_id ) {
+			$results = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT * FROM {$table} WHERE consent_id LIKE %s ORDER BY recorded_at DESC LIMIT %d OFFSET %d",
+					$consent_id,
+					$per_page,
+					$offset
+				),
+				ARRAY_A
+			);
+		} else {
+			$results = $wpdb->get_results(
+				$wpdb->prepare( "SELECT * FROM {$table} ORDER BY recorded_at DESC LIMIT %d OFFSET %d", $per_page, $offset ),
+				ARRAY_A
+			);
+		}
 		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 
 		return $results ?: [];
@@ -95,37 +128,55 @@ class CCWPS_Consent_Log {
 	public function count( array $filters = [] ): int {
 		global $wpdb;
 		$table = $this->table;
-
-		[ $where, $where_args ] = $this->build_where( $filters );
+		$active_filters = $this->normalize_filters( $filters );
+		$date           = $active_filters['date'];
+		$consent_id     = $active_filters['consent_id'];
 
 		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
-		if ( empty( $where_args ) ) {
-			return (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
+		if ( $date && $consent_id ) {
+			return (int) $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT COUNT(*) FROM {$table} WHERE DATE(recorded_at) = %s AND consent_id LIKE %s",
+					$date,
+					$consent_id
+				)
+			);
 		}
-		return (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table}{$where}", ...$where_args ) );
+		if ( $date ) {
+			return (int) $wpdb->get_var(
+				$wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE DATE(recorded_at) = %s", $date )
+			);
+		}
+		if ( $consent_id ) {
+			return (int) $wpdb->get_var(
+				$wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE consent_id LIKE %s", $consent_id )
+			);
+		}
+
+		return (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
 		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 	}
 
-	private function build_where( array $filters ): array {
+	private function normalize_filters( array $filters ): array {
 		global $wpdb;
-		$conditions = [];
-		$args       = [];
+		$date       = '';
+		$consent_id = '';
 
 		if ( ! empty( $filters['date'] ) ) {
-			$date = sanitize_text_field( $filters['date'] );
-			if ( preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ) {
-				$conditions[] = 'DATE(recorded_at) = %s';
-				$args[]       = $date;
+			$raw_date = sanitize_text_field( $filters['date'] );
+			if ( preg_match( '/^\d{4}-\d{2}-\d{2}$/', $raw_date ) ) {
+				$date = $raw_date;
 			}
 		}
 
 		if ( ! empty( $filters['consent_id'] ) ) {
-			$conditions[] = 'consent_id LIKE %s';
-			$args[]       = '%' . $wpdb->esc_like( sanitize_text_field( $filters['consent_id'] ) ) . '%';
+			$consent_id = '%' . $wpdb->esc_like( sanitize_text_field( $filters['consent_id'] ) ) . '%';
 		}
 
-		$where = empty( $conditions ) ? '' : ' WHERE ' . implode( ' AND ', $conditions );
-		return [ $where, $args ];
+		return [
+			'date'       => $date,
+			'consent_id' => $consent_id,
+		];
 	}
 
 	/**
