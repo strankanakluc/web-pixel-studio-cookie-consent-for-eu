@@ -2562,6 +2562,20 @@ class CCWPS_Admin {
 			return $ip;
 		}
 		if ( false !== strpos( strtolower( $ip ), 'xxxx' ) ) {
+			if ( false !== strpos( $ip, ':' ) ) {
+				$parts         = array_values( array_filter( explode( ':', $ip ), 'strlen' ) );
+				$visible_parts = [];
+				foreach ( $parts as $part ) {
+					if ( 'xxxx' === strtolower( $part ) ) {
+						break;
+					}
+					$visible_parts[] = $part;
+				}
+				if ( empty( $visible_parts ) ) {
+					$visible_parts = array_slice( $parts, 0, 4 );
+				}
+				return implode( ':', array_slice( $visible_parts, 0, 4 ) ) . '::xxxx';
+			}
 			return $ip;
 		}
 		if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
